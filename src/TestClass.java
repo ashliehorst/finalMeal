@@ -1,10 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * THE ULTIMATE MEAL PLANNER!!!
+ * Authors: Ashlie Horst, Ernesto Afane, Paul O'Neill
  */
 /**
- *
+ * TEST CLASS
  * @author paul
  */
 public class TestClass {
