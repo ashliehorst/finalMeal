@@ -7,6 +7,8 @@
  * @author paul
  */
 public class TestClass {
-    
+    TestClass() {
+        
+    }
     
 }
