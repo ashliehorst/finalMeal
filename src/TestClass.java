@@ -8,6 +8,9 @@
  */
 public class TestClass {
     TestClass() {
+    }
+    
+    public void display() {
         
     }
     
