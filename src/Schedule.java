@@ -18,14 +18,25 @@ import java.util.List;
  */
 public class Schedule {
     
+    private List<Recipe> scheduleList;
     private List<Recipe> recipeList;
     private int count;
+    
+    
+    public static void main(String[] args){
+        new Schedule().run();
+    }
+    
+    public void run(){
+        System.out.println("Testing");
+    }
     
     /**
      * SCHEDULE CONSTRUCTOR
      */
     public Schedule() {
         recipeList = new ArrayList();
+        scheduleList = new ArrayList();
         count = 0;
     }
     
@@ -66,10 +77,20 @@ public class Schedule {
     
     /**
      * ADD
-     * Adds a recipe to the schedule
+     * Adds a recipe to the schedule 
+     * @param recipe
      */
-    public void add() {
-        
+    public void addRecipeToSchedule(Recipe recipe) {
+        scheduleList.add(recipe);
+    }
+    
+    /**
+    * ADD RECIPE TO RECIPE LIST
+    * Add a recipe to the recipe list
+    * @param recipe
+    */
+    public void addRecipeToRecipeList(Recipe recipe){
+        recipeList.add(recipe);
     }
     
     /**
