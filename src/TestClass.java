@@ -6,7 +6,7 @@
  * TEST CLASS
  * @author paul
  */
-public class TestClass {
+public class TestClass { 
     TestClass() {
     }
     

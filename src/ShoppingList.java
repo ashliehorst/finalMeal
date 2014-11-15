@@ -18,13 +18,17 @@ import java.util.List;
  */
 public class ShoppingList {
     
+    private String commonItem;
+    private List<String> shoppingList;
     private List<String> commonList;
 
     /**
      * SHOPPING LIST CONSTRUCTOR
      */
     public ShoppingList() {
+        shoppingList = new ArrayList();
         commonList = new ArrayList();
+        commonItem = "";
     }
 
     /**
@@ -32,13 +36,26 @@ public class ShoppingList {
      * @return 
      */
     public List<String> getCommonList() {return commonList;}
-    
+    public String getCommonItem() {return commonItem;}
+
+    public List<String> getShoppingList() {
+        return shoppingList;
+    }
+
+  
+      
     /**
      * SETTERS
      * @param commonList 
      */ 
     public void setCommonList(List<String> commonList) {
         this.commonList = commonList;
+    }
+    public void setCommonItem(String commonItem) {
+        this.commonItem = commonItem;
+    }  
+    public void setShoppingList(List<String> shoppingList) {
+        this.shoppingList = shoppingList;
     }
        
 }
