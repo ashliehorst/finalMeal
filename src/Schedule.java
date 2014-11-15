@@ -24,8 +24,7 @@ public class Schedule {
     private List<Recipe> scheduleList;
     private int count;
     private boolean flag;
-    
-    
+      
     /**
      * SCHEDULE CONSTRUCTOR
      */
@@ -51,16 +50,10 @@ public class Schedule {
      */
     public List<Recipe> getRecipeList() {return recipeList;}
     public int getCount() {return count;}
-
     public List<Recipe> getScheduleList() {
         return scheduleList;
     }
-
-    public void setScheduleList(List<Recipe> scheduleList) {
-        this.scheduleList = scheduleList;
-    }
-    
-    
+ 
     /**
      * SETTERS 
      * @param recipeList
@@ -69,6 +62,9 @@ public class Schedule {
         this.recipeList = recipeList;
     }
     public void setCount(int count) {this.count = count;}
+    public void setScheduleList(List<Recipe> scheduleList) {
+        this.scheduleList = scheduleList;
+    }
     
     /**
      * GET DATE
@@ -90,8 +86,7 @@ public class Schedule {
         // if day is Saturday
         if (Calendar.DAY_OF_WEEK == 6) {
             rotateRecipes();
-        }
-        
+        }      
     }
     
     /**

@@ -58,9 +58,11 @@ public class ScheduleTester {
     
     @Test
     public void rotateRecipeListTest(){
+        // Make your test recipies
         recipeTest();
         // Make sure that the recipe list works (it does)
         for (Recipe recipe : s.getRecipeList()){
+            // Add to roate list
             s.getRotateList().add(recipe);
             System.out.println("Recipe: " + recipe.getTitle());
         }
