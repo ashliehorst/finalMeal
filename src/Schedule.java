@@ -51,7 +51,16 @@ public class Schedule {
      */
     public List<Recipe> getRecipeList() {return recipeList;}
     public int getCount() {return count;}
-   
+
+    public List<Recipe> getScheduleList() {
+        return scheduleList;
+    }
+
+    public void setScheduleList(List<Recipe> scheduleList) {
+        this.scheduleList = scheduleList;
+    }
+    
+    
     /**
      * SETTERS 
      * @param recipeList

@@ -41,9 +41,7 @@ public class ShoppingList {
     public List<String> getShoppingList() {
         return shoppingList;
     }
-
-  
-      
+     
     /**
      * SETTERS
      * @param commonList 
@@ -57,5 +55,29 @@ public class ShoppingList {
     public void setShoppingList(List<String> shoppingList) {
         this.shoppingList = shoppingList;
     }
+          
+    /**
+     * MAKE SHOPPING LIST
+     * Has commonList and inredientList from scheduleList
+     */
+    public void makeShoppingList() {
+        for (String c : getCommonList()) {
+            System.out.println("Common List:");
+            getShoppingList().add(c); 
+        }
+        
+        //for (String d : getScheduleList()) {
+        //    for (String a : getIngredientList()) {
+        //        System.out.println("Menu Ingredient List:");
+        //        getShoppingList().add(a);
+        //    }
+        // }
+        
+    }
+    
+    /**
+     * Master list of ingredients to add together same ingredients
+     * Make xml for ingredients to easily add stuff together
+     */
        
 }
