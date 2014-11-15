@@ -47,31 +47,40 @@ public class ScheduleTester {
         food5.setTitle("6");
         s.getRecipeList().add(food5);
         
-        Recipe food6 = new Recipe();
-        food6.setTitle("7");
-        s.getRecipeList().add(food6);
+//        Recipe food6 = new Recipe();
+//        food6.setTitle("7");
+//        s.getRecipeList().add(food6);
         
-        Recipe food7 = new Recipe();
-        food7.setTitle("8");
-        s.getRecipeList().add(food7);
+//        Recipe food7 = new Recipe();
+//        food7.setTitle("8");
+//        s.getRecipeList().add(food7);
     }
     
     @Test
     public void rotateRecipeListTest(){
         recipeTest();
+        // Make sure that the recipe list works (it does)
         for (Recipe recipe : s.getRecipeList()){
             s.getRotateList().add(recipe);
             System.out.println("Recipe: " + recipe.getTitle());
         }
         
+        // Make sure that the rotate list works (it does)
         for (Recipe rotate : s.getRotateList()) {
-            System.out.println("Rotate: " + rotate);
+            System.out.println("Rotate: " + rotate.getTitle());
         }
+            
+        // Now assign your schedule list
         s.rotateRecipes();
         
-        Assert.assertNotEquals(s.iterateThruSchedule(), null);
+        // Make sure that your schedule list works 
+        //   with proper rotations (it does!!!)
+        for (Recipe schedule : s.getScheduleList()) {
+            System.out.println("Schedule: " + schedule.getTitle());
+        }
         
-        
+        // This, however does not work
+        Assert.assertNotEquals(s.iterateThruSchedule(), null);          
     }
     
 
