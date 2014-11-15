@@ -39,4 +39,28 @@ public class TestShoppingList {
         System.out.println(s.getCommonList());
     }
     
+    /**
+     * MAKE SHOPPING LIST
+     * Has commonList and inredientList from scheduleList
+     */
+    public void makeShoppingList() {
+        for (String c : s.getCommonList()) {
+            System.out.println("Common List:");
+            s.getShoppingList().add(c); 
+        }
+        
+        //for (String d : getScheduleList()) {
+        //    for (String a : getIngredientList()) {
+        //        System.out.println("Menu Ingredient List:");
+        //        s.getShoppingList().add(a);
+        //    }
+        // }
+        
+    }
+    
+    /**
+     * Master list of ingredients to add together same ingredients
+     * Make xml for ingredients to easily add stuff together
+     */
+    
 }
