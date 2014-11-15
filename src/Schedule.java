@@ -18,26 +18,28 @@ import java.util.List;
  */
 public class Schedule {
     
-    private List<Recipe> scheduleList;
+    private List<Recipe> rotateList;
     private List<Recipe> recipeList;
     private int count;
+    private boolean flag;
     
-    
-    public static void main(String[] args){
-        new Schedule().run();
-    }
-    
-    public void run(){
-        System.out.println("Testing");
-    }
     
     /**
      * SCHEDULE CONSTRUCTOR
      */
     public Schedule() {
         recipeList = new ArrayList();
-        scheduleList = new ArrayList();
+        rotateList = new ArrayList();
         count = 0;
+        flag = false;
+    }
+
+    public List<Recipe> getRotateList() {
+        return rotateList;
+    }
+
+    public void setRotateList(List<Recipe> rotateList) {
+        this.rotateList = rotateList;
     }
     
     /**
@@ -68,29 +70,10 @@ public class Schedule {
     }
     
     /**
-     * REMOVE
-     * Removes recipe from the schedule
+     * START ADDING
      */
-    public void remove() {
+    private void startAdding(){
         
-    }
-    
-    /**
-     * ADD
-     * Adds a recipe to the schedule 
-     * @param recipe
-     */
-    public void addRecipeToSchedule(Recipe recipe) {
-        scheduleList.add(recipe);
-    }
-    
-    /**
-    * ADD RECIPE TO RECIPE LIST
-    * Add a recipe to the recipe list
-    * @param recipe
-    */
-    public void addRecipeToRecipeList(Recipe recipe){
-        recipeList.add(recipe);
     }
     
     /**
