@@ -21,7 +21,8 @@ public class Schedule {
     
     private List<Recipe> rotateList;
     private List<Recipe> recipeList;
-    private List<Recipe> scheduleList;
+    private List<Recipe> weekList;
+    private List<Recipe> weekIngredientList;
     private int count;
     private boolean flag;
       
@@ -31,7 +32,8 @@ public class Schedule {
     public Schedule() {
         recipeList = new ArrayList();
         rotateList = new ArrayList();
-        scheduleList = new ArrayList();
+        weekList = new ArrayList();
+        weekIngredientList = new ArrayList();
         count = 0;
         flag = false;
     }
@@ -50,8 +52,8 @@ public class Schedule {
      */
     public List<Recipe> getRecipeList() {return recipeList;}
     public int getCount() {return count;}
-    public List<Recipe> getScheduleList() {
-        return scheduleList;
+    public List<Recipe> getWeekList() {
+        return weekList;
     }
  
     /**
@@ -62,8 +64,8 @@ public class Schedule {
         this.recipeList = recipeList;
     }
     public void setCount(int count) {this.count = count;}
-    public void setScheduleList(List<Recipe> scheduleList) {
-        this.scheduleList = scheduleList;
+    public void setWeekList(List<Recipe> weekList) {
+        this.weekList = weekList;
     }
     
     /**
@@ -103,25 +105,25 @@ public class Schedule {
         switch (day){
             case 0:
                 // Sunday
-                return scheduleList.get(day);
+                return weekList.get(day);
             case 1:
                 // Monday
-                return scheduleList.get(day);
+                return weekList.get(day);
             case 2:
                 // Tuesday
-                return scheduleList.get(day);
+                return weekList.get(day);
             case 3:
                 // Wednesday
-                return scheduleList.get(day);
+                return weekList.get(day);
             case 4:
                 // Thursday
-                return scheduleList.get(day);
+                return weekList.get(day);
             case 5:
                 // Friday
-                return scheduleList.get(day);
+                return weekList.get(day);
             case 6:
                 // Saturday
-                return scheduleList.get(day);
+                return weekList.get(day);
         }
         return null;
     }
@@ -138,12 +140,12 @@ public class Schedule {
         // "i" keeps track of the seven days
         // Count on number on rotateList
         
-        scheduleList.clear(); // clear every time before new week
+        weekList.clear(); // clear every time before new week
         for (int i = 0; i < 7; i++){
             if (count == rotateList.size()) {
                 count = 0;
             }
-            scheduleList.add(rotateList.get(count));
+            weekList.add(rotateList.get(count));
             count++;
         }
     }
