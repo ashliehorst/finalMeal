@@ -77,7 +77,7 @@ public class ScheduleTester {
         
         // Make sure that your schedule list works 
         //   with proper rotations (it does!!!)
-        for (Recipe schedule : s.getScheduleList()) {
+        for (Recipe schedule : s.getWeekList()) {
             System.out.println("Schedule: " + schedule.getTitle());
         }
         
