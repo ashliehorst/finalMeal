@@ -30,7 +30,7 @@ import org.w3c.dom.Element;
  */
 public class FileManager {
     
-    /*****************
+    /**
      * BUILD XML DOCUMENT
      * @param schedule
      * @return 
@@ -70,22 +70,12 @@ public class FileManager {
         return doc;
     }
     
-    /*****************
+    /**
      * SAVE XML DOCUMENT
-     * @param doc
-     * @param file
-     */
-    public void saveXmlDocument(Document doc, String file) {
-    
-    }
-         
-    /*****************
-     * SAVE TXT
-     * Save the text file 
      * @param doc
      * @param fileName
      */
-    public void saveTxt(Document doc, String fileName) {  
+    public void saveXmlDocument(Document doc, String fileName) {
         try {
             Transformer t = TransformerFactory.newInstance().newTransformer();
             
@@ -106,9 +96,19 @@ public class FileManager {
         } catch (TransformerConfigurationException ex) {
             Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
         }
+    
+    }
+         
+    /**
+     * SAVE TXT
+     * Save the text file 
+     * @param fileName
+     */
+    public void saveTxt(String fileName) {  
+        
     }
     
-    /*********************
+    /**
      * READ XML FILE
      * It will get the file from the Properties class
      * @param fXmlFile
