@@ -5,7 +5,10 @@
  */
 
 
-import java.util.List;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
@@ -18,8 +21,12 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /**
  * FILE MANAGER CLASS
@@ -45,23 +52,23 @@ public class FileManager {
 		// root elements
 		doc = docBuilder.newDocument();
 		Element rootElement = doc.createElement("recipe");
+                
 		doc.appendChild(rootElement);
                 
                 // Entry elements
                 for (Recipe recipe : schedule.getRecipeList()) {                     
-                    Element rec = doc.createElement("title");
-                    rootElement.appendChild(rec);
+                    rootElement.setAttribute("title", recipe.getTitle());
                     
                     for (Ingredient ingredient : recipe.getIngredientList()) {
                         Element ing = doc.createElement("ingredient");
-                        rec.appendChild(ing);
+                        rootElement.appendChild(ing);
                         ing.setAttribute("name", ingredient.getName());
                         ing.setAttribute("number", Double.toString(ingredient.getNumber()));
                         ing.setAttribute("type", ingredient.getType());                 
                     }
                     
                     Element directions = doc.createElement("directions");  
-                    rec.appendChild(directions);
+                    rootElement.appendChild(directions);
                     directions.appendChild(doc.createTextNode(recipe.getDirections()));
                 } 
 	  } catch (ParserConfigurationException pce) {
@@ -103,17 +110,86 @@ public class FileManager {
      * SAVE TXT
      * Save the text file 
      * @param fileName
+     * @param shoppinglist
+     * @throws java.io.FileNotFoundException
      */
-    public void saveTxt(String fileName) {  
-        
+    public void writeToTxtFile(String fileName, ShoppingList shoppinglist) throws FileNotFoundException {  
+        try{
+            try (PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
+                for (String item : shoppinglist.getShoppingList()){
+                    writer.println(item);
+                }
+            }
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(ShoppingList.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Written to txt file...");
     }
     
     /**
      * READ XML FILE
      * It will get the file from the Properties class
-     * @param fXmlFile
+     * @param schedule
+     * @param fileName
      */
-    public void readXmlFile(String fXmlFile) {
-        
+    public void readXmlFile(Schedule schedule, String fileName) {
+
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            
+            
+                Document document;
+                document = builder.parse(fileName);
+            
+            
+            System.out.println("Loading " + document.getDocumentURI());
+            
+            document.normalize();
+            
+            // Iterating throught the nodes and extracting the data
+            NodeList nodeList = document.getElementsByTagName("recipe");
+            
+            String title;
+            String directions;
+            
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Node node = nodeList.item(i);
+                if (node instanceof Element) {
+                    Recipe recipe = new Recipe();
+                    if (node.getNodeType() == Node.ELEMENT_NODE) {
+                        Element aElement = (Element) node;
+                        title = aElement.getAttribute("title");
+                        
+                        recipe.setTitle(title);   
+                        
+                        NodeList ingredList = aElement.getElementsByTagName("ingredient");
+                        
+                        for (int it = 0;it < ingredList.getLength(); it++){
+                            Ingredient ing = new Ingredient();
+                            Node sNode = ingredList.item(it);
+                            Element iElement = (Element)sNode;
+                            ing.setName(iElement.getAttribute("name"));
+                            ing.setNumber(Double.parseDouble(iElement.getAttribute("number")));
+                            ing.setType(iElement.getAttribute("type"));
+                            
+                            recipe.getIngredientList().add(ing);
+                        }
+                        
+                        directions = aElement.getElementsByTagName("directions").item(0).getTextContent();
+                        
+                        directions = directions.trim();
+                        directions = directions.replaceAll("\\n\\s+", "\n");
+                        
+                        recipe.setDirections(directions);
+                    }
+                    schedule.getRecipeList().add(recipe);
+                }
+                
+            } // end of recipe for-loop
+        } catch (ParserConfigurationException | SAXException | IOException | NumberFormatException | DOMException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
     }
-}
+
