@@ -5,7 +5,12 @@
  */
 
 
+import java.util.List;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  * FILE MANAGER CLASS
@@ -18,10 +23,43 @@ public class FileManager {
     
     /*****************
      * BUILD XML DOCUMENT
+     * @param schedule
      * @return 
      */
-    public Document buildXmlDocument() {
+    public Document buildXmlDocument(Schedule schedule) {
         Document doc = null;
+        try {
+                // This was found at mkyong
+                // http://www.mkyong.com/java/how-to-create-xml-file-in-java-dom/
+
+		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+ 
+		// root elements
+		doc = docBuilder.newDocument();
+		Element rootElement = doc.createElement("recipe");
+		doc.appendChild(rootElement);
+                
+                // Entry elements
+                for (Recipe recipe : schedule.getRecipeList()) {                     
+                    Element rec = doc.createElement("title");
+                    rootElement.appendChild(rec);
+                    
+                    for (Ingredient ingredient : recipe.getIngredientList()) {
+                        Element ing = doc.createElement("ingredient");
+                        rec.appendChild(ing);
+                        ing.setAttribute("name", ingredient.getName());
+                        ing.setAttribute("number", Double.toString(ingredient.getNumber()));
+                        ing.setAttribute("type", ingredient.getType());                 
+                    }
+                    
+                    Element directions = doc.createElement("directions");  
+                    rec.appendChild(directions);
+                    directions.appendChild(doc.createTextNode(recipe.getDirections()));
+                } 
+	  } catch (ParserConfigurationException pce) {
+		pce.printStackTrace();
+	  }
         return doc;
     }
     
@@ -31,7 +69,7 @@ public class FileManager {
      * @param file
      */
     public void saveXmlDocument(Document doc, String file) {
-
+    
     }
          
     /*****************

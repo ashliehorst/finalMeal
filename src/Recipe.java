@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * RECIPIE CLASS
  * The Recipe class has a list of ingredient objects which will make up a recipe.
- * It will also have a name of the recipe, cooking directions, 
+ * It will also have a title of the recipe, cooking directions, 
  *   and will have a picture associated with it that the user can include.
  * @author Ashlie
  */
