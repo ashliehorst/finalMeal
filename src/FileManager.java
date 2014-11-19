@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +15,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -45,9 +43,8 @@ public class FileManager {
     public Document buildXmlDocument(Schedule schedule) {
         Document doc = null;
         try {
-
-		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+                DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
  
 		// root elements
 		doc = docBuilder.newDocument();
@@ -72,7 +69,7 @@ public class FileManager {
                     directions.appendChild(doc.createTextNode(recipe.getDirections()));
                 } 
 	  } catch (ParserConfigurationException pce) {
-		pce.printStackTrace();
+                System.out.println("Error in buildXmlDocument");
 	  }
         return doc;
     }
@@ -89,22 +86,17 @@ public class FileManager {
             t.setOutputProperty(OutputKeys.INDENT, "yes");
             t.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             
-            DOMSource source = new DOMSource(doc);
-            
+            DOMSource source = new DOMSource(doc);           
             StreamResult result = new StreamResult(fileName);
             
-            try {
-                t.transform(source, result);
-            } catch (TransformerException ex) {
-                Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
+            t.transform(source, result);
+                   
             System.out.println("File saved!");
-        } catch (TransformerConfigurationException ex) {
+        } catch (IllegalArgumentException | TransformerException ex) {
             Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
     }
+
          
     /**
      * SAVE TXT
@@ -133,63 +125,66 @@ public class FileManager {
      * @param fileName
      */
     public void readXmlFile(Schedule schedule, String fileName) {
-
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            
-            
-                Document document;
-                document = builder.parse(fileName);
-            
-            
-            System.out.println("Loading " + document.getDocumentURI());
-            
+            Document document;
+            document = builder.parse(fileName);
+                 
+            System.out.println("Loading " + document.getDocumentURI());            
             document.normalize();
             
             // Iterating throught the nodes and extracting the data
             NodeList nodeList = document.getElementsByTagName("recipe");
             
-            String title;
-            String directions;
-            
-            for (int i = 0; i < nodeList.getLength(); i++) {
+            for (int i = 0; i < nodeList.getLength(); i++) {              
                 Node node = nodeList.item(i);
                 if (node instanceof Element) {
                     Recipe recipe = new Recipe();
-                    if (node.getNodeType() == Node.ELEMENT_NODE) {
-                        Element aElement = (Element) node;
-                        title = aElement.getAttribute("title");
-                        
-                        recipe.setTitle(title);   
-                        
-                        NodeList ingredList = aElement.getElementsByTagName("ingredient");
-                        
-                        for (int it = 0;it < ingredList.getLength(); it++){
-                            Ingredient ing = new Ingredient();
-                            Node sNode = ingredList.item(it);
-                            Element iElement = (Element)sNode;
-                            ing.setName(iElement.getAttribute("name"));
-                            ing.setNumber(Double.parseDouble(iElement.getAttribute("number")));
-                            ing.setType(iElement.getAttribute("type"));
-                            
-                            recipe.getIngredientList().add(ing);
-                        }
-                        
-                        directions = aElement.getElementsByTagName("directions").item(0).getTextContent();
-                        
-                        directions = directions.trim();
-                        directions = directions.replaceAll("\\n\\s+", "\n");
-                        
-                        recipe.setDirections(directions);
-                    }
+                    readRecipeContent(node, recipe);
                     schedule.getRecipeList().add(recipe);
-                }
-                
+                }             
             } // end of recipe for-loop
         } catch (ParserConfigurationException | SAXException | IOException | NumberFormatException | DOMException ex) {
             Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
     }
+    
+    /**
+     * GET RECIPE CONTENT
+     * A function that splits up the functionality of READ XML FILE
+     * @param node
+     * @param recipe 
+     */
+    public void readRecipeContent(Node node, Recipe recipe) {
+        String title;
+        String directions;
+        if (node.getNodeType() == Node.ELEMENT_NODE) {
+            Element aElement = (Element) node;
+            title = aElement.getAttribute("title");
+                        
+            recipe.setTitle(title);   
+                        
+            NodeList ingredList = aElement.getElementsByTagName("ingredient");
+                        
+            for (int it = 0;it < ingredList.getLength(); it++){
+                Ingredient ing = new Ingredient();
+                Node sNode = ingredList.item(it);
+                Element iElement = (Element)sNode;
+                ing.setName(iElement.getAttribute("name"));
+                ing.setNumber(Double.parseDouble(iElement.getAttribute("number")));
+                ing.setType(iElement.getAttribute("type"));
+                            
+                recipe.getIngredientList().add(ing);
+            } // end of ingredient for loop
+                        
+            directions = aElement.getElementsByTagName("directions").item(0).getTextContent();
+                        
+            directions = directions.trim();
+            directions = directions.replaceAll("\\n\\s+", "\n");
+                        
+            recipe.setDirections(directions);
+        } // end of element_node if statement
+    }
+}
 
