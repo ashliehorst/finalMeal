@@ -6,9 +6,18 @@
 
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -29,8 +38,6 @@ public class FileManager {
     public Document buildXmlDocument(Schedule schedule) {
         Document doc = null;
         try {
-                // This was found at mkyong
-                // http://www.mkyong.com/java/how-to-create-xml-file-in-java-dom/
 
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -75,10 +82,30 @@ public class FileManager {
     /*****************
      * SAVE TXT
      * Save the text file 
+     * @param doc
      * @param fileName
      */
-    public void saveTxt(String fileName) {
-        
+    public void saveTxt(Document doc, String fileName) {  
+        try {
+            Transformer t = TransformerFactory.newInstance().newTransformer();
+            
+            t.setOutputProperty(OutputKeys.INDENT, "yes");
+            t.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            
+            DOMSource source = new DOMSource(doc);
+            
+            StreamResult result = new StreamResult(fileName);
+            
+            try {
+                t.transform(source, result);
+            } catch (TransformerException ex) {
+                Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            System.out.println("File saved!");
+        } catch (TransformerConfigurationException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /*********************
