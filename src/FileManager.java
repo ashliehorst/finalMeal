@@ -52,7 +52,7 @@ public class FileManager {
                 
 		doc.appendChild(rootElement);
                 
-                // Entry elements
+                // Recipe elements
                 for (Recipe recipe : schedule.getRecipeList()) {                     
                     rootElement.setAttribute("title", recipe.getTitle());
                     
