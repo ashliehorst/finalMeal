@@ -108,7 +108,7 @@ public class FileManager {
     public void writeToTxtFile(String fileName, ShoppingList shoppinglist) throws FileNotFoundException {  
         try{
             try (PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
-                for (String item : shoppinglist.getShoppingList()){
+                for (Ingredient item : shoppinglist.getShoppingList()){
                     writer.println(item);
                 }
             }
