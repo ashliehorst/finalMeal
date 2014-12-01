@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 /**
  *
+ * 
  * @author  Salvador E. Afane, Ashlie Horst, Paul O'Neil
  */
 public class ScreensFramework extends Application {
