@@ -6,7 +6,9 @@
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * SHOPPING LIST CLASS
@@ -19,9 +21,10 @@ import java.util.List;
 public class ShoppingList {
     
     private String commonItem;
-    private List<String> shoppingList;
+    private List<Ingredient> shoppingList;
     private List<String> commonList;
-
+    
+    private Map<Ingredient, Ingredient> ingredientMap;
     /**
      * SHOPPING LIST CONSTRUCTOR
      */
@@ -29,6 +32,7 @@ public class ShoppingList {
         shoppingList = new ArrayList();
         commonList = new ArrayList();
         commonItem = "";
+        ingredientMap = new HashMap<>();
     }
 
     /**
@@ -38,7 +42,7 @@ public class ShoppingList {
     public List<String> getCommonList() {return commonList;}
     public String getCommonItem() {return commonItem;}
 
-    public List<String> getShoppingList() {
+    public List<Ingredient> getShoppingList() {
         return shoppingList;
     }
      
@@ -52,19 +56,27 @@ public class ShoppingList {
     public void setCommonItem(String commonItem) {
         this.commonItem = commonItem;
     }  
-    public void setShoppingList(List<String> shoppingList) {
+    public void setShoppingList(List<Ingredient> shoppingList) {
         this.shoppingList = shoppingList;
     }
           
     /**
-     * MAKE SHOPPING LIST
+     * DISPLAY SHOPPING LIST
      * Has commonList and inredientList from scheduleList
      */
-    public void makeShoppingList() {
+    public void displayShoppingList() {
+        System.out.println("Common List: ");
         for (String c : getCommonList()) {
-            System.out.println("Common List:");
-            getShoppingList().add(c); 
+           System.out.println(c);
         }
+            
+        System.out.println("Schedule List: ");
+        //for (Ingredient ing : schedule.getWeekIngredientList()) {
+        //   System.out.println(ing);
+        //}
+    }
+  
+   
         
         //for (String d : getScheduleList()) {
         //    for (String a : getIngredientList()) {
@@ -72,12 +84,29 @@ public class ShoppingList {
         //        getShoppingList().add(a);
         //    }
         // }
-        
-    }
     
-    /**
+     /**
      * Master list of ingredients to add together same ingredients
      * Make xml for ingredients to easily add stuff together
      */
-       
+    
+    public void searchIngredientList() {
+        int count = 0;
+        for (Ingredient ing1 : shoppingList) {
+            for (int i = 0; i < shoppingList.size(); i++) {
+                Ingredient ing2 = shoppingList.get(i);
+                if (count == i) {}
+                else {
+                   if (ing1.getName().equals(ing2.getName())) {
+                       ing1.setNumber(ing1.getNumber() + ing2.getNumber());
+                       shoppingList.remove(ing2);                     
+                   }
+                }
+            }          
+            count++;
+        }    
+    }
 }
+    
+    
+

@@ -22,7 +22,7 @@ public class Schedule {
     private List<Recipe> rotateList;
     private List<Recipe> recipeList;
     private List<Recipe> weekList;
-    private List<Recipe> weekIngredientList;
+    private List<Ingredient> weekIngredientList;
     private int count;
     private boolean flag;
       
@@ -55,6 +55,10 @@ public class Schedule {
     public List<Recipe> getWeekList() {
         return weekList;
     }
+    public List<Ingredient> getWeekIngredientList() {
+        return weekIngredientList;
+    }
+    
  
     /**
      * SETTERS 
@@ -147,6 +151,15 @@ public class Schedule {
             }
             weekList.add(rotateList.get(count));
             count++;
+        }
+    }
+    
+    private void makeWeekIngredient() {
+        for (Recipe rec : weekList) {
+            for (Ingredient ing : rec.getIngredientList()) {
+                weekIngredientList.add(ing);
+            }
+            
         }
     }
 }
