@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="514.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen3Controller">
+  <stylesheets>
+        <URL value="@Screen3.css"/>
+    </stylesheets>
+    <children>
+      <VBox prefHeight="514.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="206.0" text="Label" />
+            <ImageView fitHeight="213.0" fitWidth="200.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/9304.jpg" />
+               </image></ImageView>
+            <Label prefHeight="27.0" prefWidth="204.0" text="Label" />
+            <Button mnemonicParsing="false" onAction="#goToScreen2" prefHeight="26.0" prefWidth="204.0" text="Recipi List" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="204.0" text="Recipes" />
+            <Button mnemonicParsing="false" onAction="#goToScreen4" prefHeight="26.0" prefWidth="204.0" text="Schedule" />
+            <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="26.0" prefWidth="204.0" text="Shopping" />
+         </children>
+      </VBox>
+  <Button layoutX="296.0" layoutY="-78.0" mnemonicParsing="false" onAction="#goToScreen4" text="Go To Screen3" />
+  <Label layoutX="287.0" layoutY="16.0" text="Screen 3--- ">
+    <font>
+      <Font size="18.0" />
+    </font>
+  </Label>
+      <VBox layoutX="247.0" layoutY="125.0" prefHeight="256.0" prefWidth="33.0">
+         <children>
+            <Label prefHeight="37.0" prefWidth="35.0" style="-fx-border-color: black;" stylesheets="@css.css" text="Mon" />
+            <Label prefHeight="37.0" prefWidth="33.0" text="Tus" />
+            <Label prefHeight="37.0" prefWidth="33.0" text="Wed" />
+            <Label prefHeight="37.0" prefWidth="33.0" text="Thu" />
+            <Label prefHeight="37.0" prefWidth="33.0" text="Fri" />
+            <Label prefHeight="37.0" prefWidth="33.0" text="Sat" />
+            <Label prefHeight="33.0" prefWidth="33.0" text="Sun" />
+         </children>
+      </VBox>
+      <VBox layoutX="287.0" layoutY="125.0" prefHeight="256.0" prefWidth="222.0">
+         <children>
+            <Label prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label layoutX="10.0" layoutY="47.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label layoutX="10.0" layoutY="84.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label layoutX="10.0" layoutY="121.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label layoutX="10.0" layoutY="158.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label layoutX="10.0" layoutY="195.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
+         </children>
+      </VBox>
+  <Button layoutX="25.0" layoutY="-52.0" mnemonicParsing="false" onAction="#goToScreen1" prefHeight="26.0" prefWidth="203.0" text="Go To Screen 1" />
+  </children>
+</AnchorPane>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="test3.Screen5Controller">
+   <stylesheets>
+        <URL value="@Screen5.css"/>
+    </stylesheets>
+    <children>
+      <VBox layoutY="5.0" prefHeight="514.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="206.0" text="Label" />
+            <ImageView fitHeight="213.0" fitWidth="200.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/9304.jpg" />
+               </image>
+            </ImageView>
+            <Label prefHeight="27.0" prefWidth="204.0" text="Label" />
+            <Button mnemonicParsing="false" onAction="#goToScreen2" prefHeight="26.0" prefWidth="204.0" text="Recipi List" />
+            <Button mnemonicParsing="false" onAction="#goToScreen3" prefHeight="26.0" prefWidth="204.0" text="Recipes" />
+            <Button mnemonicParsing="false" onAction="#goToScreen4" prefHeight="26.0" prefWidth="204.0" text="Schedule" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="204.0" text="Shopping" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
