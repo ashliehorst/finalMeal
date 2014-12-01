@@ -1,3 +1,5 @@
+package MealPlanner;
+
 /*
  * THE ULTIMATE MEAL PLANNER!!!
  * Authors: Ashlie Horst, Ernesto Afane, Paul O'Neill

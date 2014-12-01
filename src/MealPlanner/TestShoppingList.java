@@ -1,3 +1,5 @@
+package MealPlanner;
+
 
 import java.util.List;
 

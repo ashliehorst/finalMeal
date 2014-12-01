@@ -2,6 +2,8 @@
 
 package test3;
 
+
+import MealPlanner.ShoppingList;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -22,6 +24,7 @@ import javafx.scene.control.TextInputDialog;
  */
 public class Screen1Controller implements Initializable, ControlledScreen {
 
+    
     ScreensController myController;
     /**
      * Initializes the controller class.
@@ -34,7 +37,6 @@ public class Screen1Controller implements Initializable, ControlledScreen {
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
     }
-    
     
 
     @FXML
