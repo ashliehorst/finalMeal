@@ -29,6 +29,8 @@
             <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="26.0" prefWidth="204.0" text="Shopping" />
          </children>
       </VBox>
+      <TextArea editable="false" layoutX="248.0" layoutY="41.0" prefHeight="531.0" prefWidth="328.0" wrapText="true" />
+      <Label layoutX="366.0" layoutY="25.0" text="Today's Recipe" />
    </children>
    <padding>
       <Insets left="10.0" top="10.0" />
