@@ -3,29 +3,43 @@
 package test3;
 
 
+import MealPlanner.Recipe;
+import MealPlanner.Schedule;
 import MealPlanner.ShoppingList;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
-
-
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.util.Pair;
 
 /**
  * FXML Controller class
  *
- * @author Salvador E. Afane, Ahslie Horst, Paul O'Neil
+ * @author Salvador E. Afane, Ashlie Horst, Paul O'Neil
  */
-public class Home implements Initializable, ControlledScreen {
+public class RotationList3 implements Initializable , ControlledScreen {
 
-    
     ScreensController myController;
+    ShoppingList sl = new ShoppingList();
+    Schedule sch = new Schedule();
+    
+    
+    
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -36,21 +50,14 @@ public class Home implements Initializable, ControlledScreen {
         // TODO
     }
     
-    /**
-     *
-     * @param screenParent
-     */
-    @Override
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
     }
-    
 
     @FXML
-    private void goToScreen2(ActionEvent event){
-       myController.setScreen(ScreensFramework.screen2ID);
+    private void goToScreen1(ActionEvent event){
+       myController.setScreen(ScreensFramework.screen1ID);
     }
-    
     
     @FXML
     private void goToScreen3(ActionEvent event){
@@ -62,23 +69,23 @@ public class Home implements Initializable, ControlledScreen {
        myController.setScreen(ScreensFramework.screen4ID);
     }
     
-     @FXML
+    @FXML
     private void goToScreen5(ActionEvent event){
        myController.setScreen(ScreensFramework.screen5ID);
     }
-    @FXML
-    private Label label2;
     
     public void button1(ActionEvent event){
        // label1.setText("something");
         //tab1.
-        label2.setText("Well something should change");
-        Alert alert = new Alert(AlertType.INFORMATION);
+//        label2.setText("Well something should change");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//
         alert.setTitle("Information Dialog");
-        alert.setHeaderText("Look, an Information Dialog");
+        alert.setHeaderText("Add Recipe");
         alert.setContentText("I have a great message for you!");
-
         alert.showAndWait();
+        // Create the custom dialog.
+
     }
     
     public void button2(ActionEvent event){

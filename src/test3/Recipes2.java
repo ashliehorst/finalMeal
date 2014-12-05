@@ -12,7 +12,7 @@ import javafx.fxml.Initializable;
  *
  * @author  Salvador E. Afane, Ashlie Horst, Paul O'Neil
  */
-public class Recipes implements Initializable, ControlledScreen {
+public class Recipes2 implements Initializable, ControlledScreen {
 
     ScreensController myController;
     

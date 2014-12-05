@@ -14,9 +14,9 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author  Salvador E. Afane, Ashlie Horst, Paul O'Neil
+ * @author salvador_afane
  */
-public class Schedule implements Initializable, ControlledScreen {
+public class Shopping5 implements Initializable, ControlledScreen {
 
     ScreensController myController;
     
@@ -52,8 +52,4 @@ public class Schedule implements Initializable, ControlledScreen {
        myController.setScreen(ScreensFramework.screen4ID);
     }
     
-    @FXML
-    private void goToScreen5(ActionEvent event){
-       myController.setScreen(ScreensFramework.screen5ID);
-    }
 }

@@ -1,10 +1,11 @@
-package MealPlanner;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package MealPlanner;
+
+
 
 
 import java.util.ArrayList;
@@ -40,39 +41,24 @@ public class Schedule {
         flag = false;
     }
 
-    public List<Recipe> getRotateList() {
-        return rotateList;
-    }
-
-    public void setRotateList(List<Recipe> rotateList) {
-        this.rotateList = rotateList;
-    }
-    
     /**
      * GETTERS
      * @return 
      */
     public List<Recipe> getRecipeList() {return recipeList;}
     public int getCount() {return count;}
-    public List<Recipe> getWeekList() {
-        return weekList;
-    }
-    public List<Ingredient> getWeekIngredientList() {
-        return weekIngredientList;
-    }
-    
+    public List<Recipe> getWeekList() {return weekList;}
+    public List<Ingredient> getWeekIngredientList() {return weekIngredientList;}
+    public List<Recipe> getRotateList() {return rotateList;}
  
     /**
      * SETTERS 
      * @param recipeList
      */ 
-    public void setRecipeList(List<Recipe> recipeList) {
-        this.recipeList = recipeList;
-    }
+    public void setRecipeList(List<Recipe> recipeList) {this.recipeList = recipeList;}
     public void setCount(int count) {this.count = count;}
-    public void setWeekList(List<Recipe> weekList) {
-        this.weekList = weekList;
-    }
+    public void setWeekList(List<Recipe> weekList) {this.weekList = weekList;}
+    public void setRotateList(List<Recipe> rotateList) {this.rotateList = rotateList;}
     
     /**
      * GET DATE
@@ -83,6 +69,10 @@ public class Schedule {
     public Date getDate() {
         Date d = new Date();
         return d;
+    }
+    
+    public void addRecipeToList(Recipe rep){
+        recipeList.add(rep);
     }
     
     /**
