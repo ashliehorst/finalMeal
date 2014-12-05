@@ -27,7 +27,7 @@ import javafx.util.Pair;
  *
  * @author Salvador E. Afane, Ashlie Horst, Paul O'Neil
  */
-public class Screen2Controller implements Initializable , ControlledScreen {
+public class RotationList implements Initializable , ControlledScreen {
 
     ScreensController myController;
     /**

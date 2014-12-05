@@ -22,18 +22,25 @@ import javafx.scene.control.TextInputDialog;
  *
  * @author Salvador E. Afane, Ahslie Horst, Paul O'Neil
  */
-public class Screen1Controller implements Initializable, ControlledScreen {
+public class Home implements Initializable, ControlledScreen {
 
     
     ScreensController myController;
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
     
+    /**
+     *
+     * @param screenParent
+     */
+    @Override
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
     }
