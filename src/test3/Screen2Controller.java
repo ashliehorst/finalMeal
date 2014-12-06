@@ -74,14 +74,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
        myController.setScreen(ScreensFramework.screen5ID);
     }
     
-//    @FXML
-//	private void handleNewPerson() {
-//		Person tempPerson = new Person();
-//		boolean okClicked = button1(tempPerson);
-//		if (okClicked) {
-//			mainApp.getPersonData().add(tempPerson);
-//		}
-//	}
+
     Person person = new Person();
     public boolean button1(ActionEvent even){
         try {
