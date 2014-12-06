@@ -16,7 +16,7 @@ import javafx.fxml.Initializable;
  *
  * @author salvador_afane
  */
-public class Shopping5 implements Initializable, ControlledScreen {
+public class Screen5Controller implements Initializable, ControlledScreen {
 
     ScreensController myController;
     

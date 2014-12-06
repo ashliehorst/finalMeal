@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="514.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Schedule4">
+<AnchorPane id="AnchorPane" prefHeight="514.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen4Controller">
   <stylesheets>
-        <URL value="@Screen4.css"/>
+        <URL value="@Screen4.css" />
   </stylesheets>
     
     <children>
@@ -27,7 +27,7 @@
             <Button mnemonicParsing="false" onAction="#goToScreen3" prefHeight="26.0" prefWidth="204.0" text="Recipes" />
             <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="204.0" text="Schedule" />
             <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="26.0" prefWidth="204.0" text="Shopping" />
-        <Button mnemonicParsing="false" onAction="#goToScreen1" prefHeight="26.0" prefWidth="206.0" text="Go To Screen 1" />
+        <Button mnemonicParsing="false" onAction="#goToScreen1" prefHeight="26.0" prefWidth="206.0" text="Home" />
          </children>
       </VBox>
   <Label layoutX="287.0" layoutY="16.0" text="Screen 4--- Schedule">

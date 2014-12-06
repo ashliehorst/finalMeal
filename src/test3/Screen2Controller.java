@@ -2,19 +2,19 @@
 
 package test3;
 
-
-import MealPlanner.Recipe;
-import MealPlanner.Schedule;
-import MealPlanner.ShoppingList;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
@@ -23,7 +23,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 
 /**
@@ -31,19 +34,16 @@ import javafx.util.Pair;
  *
  * @author Salvador E. Afane, Ashlie Horst, Paul O'Neil
  */
-public class RotationList3 implements Initializable , ControlledScreen {
+public class Screen2Controller implements Initializable , ControlledScreen {
 
+    private Stage primaryStage;
+    private ObservableList<Person> personData = FXCollections.observableArrayList();
+    public ObservableList<Person> getPersonData() {
+		return personData;
+	}
     ScreensController myController;
-    ShoppingList sl = new ShoppingList();
-    Schedule sch = new Schedule();
-    
-    
-    
-    
     /**
      * Initializes the controller class.
-     * @param url
-     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -74,16 +74,50 @@ public class RotationList3 implements Initializable , ControlledScreen {
        myController.setScreen(ScreensFramework.screen5ID);
     }
     
-    public void button1(ActionEvent event){
+//    @FXML
+//	private void handleNewPerson() {
+//		Person tempPerson = new Person();
+//		boolean okClicked = button1(tempPerson);
+//		if (okClicked) {
+//			mainApp.getPersonData().add(tempPerson);
+//		}
+//	}
+    Person person = new Person();
+    public boolean button1(ActionEvent even){
+        try {
+            
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PersonEditDialog.fxml"));
+        AnchorPane page = (AnchorPane) loader.load();
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Edit Recipe");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(primaryStage);
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+        
+        // Set the controller and passing an object to the controller
+        PersonEditDialogController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setPerson(person);
+        
+        
+        // Show the dialog and wait until the user closes it
+        dialogStage.showAndWait();
+        return controller.isOkClicked();
+
+        } catch (Exception ex){
+        ex.printStackTrace();
+        return false;
+        }
        // label1.setText("something");
         //tab1.
 //        label2.setText("Well something should change");
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
 //
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText("Add Recipe");
-        alert.setContentText("I have a great message for you!");
-        alert.showAndWait();
+//        alert.setTitle("Information Dialog");
+//        alert.setHeaderText("Add Recipe");
+//        alert.setContentText("I have a great message for you!");
+//        alert.showAndWait();
         // Create the custom dialog.
 
     }

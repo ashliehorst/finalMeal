@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package test3;
 
 import java.net.URL;
@@ -16,7 +12,7 @@ import javafx.fxml.Initializable;
  *
  * @author  Salvador E. Afane, Ashlie Horst, Paul O'Neil
  */
-public class Schedule4 implements Initializable, ControlledScreen {
+public class Screen3Controller implements Initializable, ControlledScreen {
 
     ScreensController myController;
     
@@ -32,26 +28,25 @@ public class Schedule4 implements Initializable, ControlledScreen {
         myController = screenParent;
     }
 
+    //Home Screen
     @FXML
     private void goToScreen1(ActionEvent event){
        myController.setScreen(ScreensFramework.screen1ID);
     }
     
+    //Recipi List
     @FXML
     private void goToScreen2(ActionEvent event){
        myController.setScreen(ScreensFramework.screen2ID);
     }
     
-    @FXML
-    private void goToScreen3(ActionEvent event){
-       myController.setScreen(ScreensFramework.screen3ID);
-    }
-    
+    // Schedule 
     @FXML
     private void goToScreen4(ActionEvent event){
        myController.setScreen(ScreensFramework.screen4ID);
     }
     
+    // Shooping list  
     @FXML
     private void goToScreen5(ActionEvent event){
        myController.setScreen(ScreensFramework.screen5ID);

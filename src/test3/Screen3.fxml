@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="514.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Recipes2">
+<AnchorPane id="AnchorPane" prefHeight="514.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen3Controller">
   <stylesheets>
-        <URL value="@Screen3.css"/>
+        <URL value="@Screen3.css" />
     </stylesheets>
     <children>
       <VBox prefHeight="514.0" prefWidth="200.0">
@@ -26,6 +26,7 @@
             <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="204.0" text="Recipes" />
             <Button mnemonicParsing="false" onAction="#goToScreen4" prefHeight="26.0" prefWidth="204.0" text="Schedule" />
             <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="26.0" prefWidth="204.0" text="Shopping" />
+            <Button mnemonicParsing="false" onAction="#goToScreen1" prefHeight="26.0" prefWidth="206.0" text="Home" />
          </children>
       </VBox>
   <Button layoutX="296.0" layoutY="-78.0" mnemonicParsing="false" onAction="#goToScreen4" text="Go To Screen3" />

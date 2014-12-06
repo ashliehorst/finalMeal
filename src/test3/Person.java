@@ -2,6 +2,11 @@ package test3;
 
 import java.util.Calendar;
 
+/**
+ * Model class for a Person.
+ *
+ * @author Marco Jakob
+ */
 public class Person {
 
 	private String firstName;

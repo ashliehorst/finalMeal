@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import jfxtras.labs.scene.control.*?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ch.makery.address.PersonOverviewController">
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="test3.PersonOverviewController">
   <!-- TODO Add Nodes -->
   <children>
     <SplitPane dividerPositions="0.46153846153846156" focusTraversable="true" prefHeight="285.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
