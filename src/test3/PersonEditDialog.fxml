@@ -9,16 +9,16 @@
   <children>
     <GridPane prefHeight="164.0" prefWidth="301.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
       <children>
-        <Label text="First Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <Label text="Last Name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <Label text="Street" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <Label text="Postal Code" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Label text="Recipe Title" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label text="Ingredient" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label text="Measurement" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label text="Qty" GridPane.columnIndex="0" GridPane.rowIndex="3" />
         <Label text="City" GridPane.columnIndex="0" GridPane.rowIndex="4" />
         <Label text="Birthday" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-        <TextField fx:id="firstNameField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-        <TextField fx:id="lastNameField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <TextField fx:id="streetField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <TextField fx:id="postalCodeField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <TextField fx:id="recipeTitleField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <TextField fx:id="ingredient" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="measurment" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField fx:id="quantity" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
         <TextField fx:id="cityField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         <TextField fx:id="birthdayField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
       </children>
