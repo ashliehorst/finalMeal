@@ -15,13 +15,13 @@ import javafx.stage.Stage;
 public class PersonEditDialogController {
 
 	@FXML
-	private TextField firstNameField;
+	private TextField recipeTitleField;
 	@FXML
-	private TextField lastNameField;
+	private TextField ingredient;
 	@FXML
-	private TextField streetField;
+	private TextField measurment;
 	@FXML
-	private TextField postalCodeField;
+	private TextField quantity;
 	@FXML
 	private TextField cityField;
 	@FXML
@@ -57,10 +57,10 @@ public class PersonEditDialogController {
 	public void setPerson(Person person) {
 		this.person = person;
 		
-		firstNameField.setText(person.getFirstName());
-		lastNameField.setText(person.getLastName());
-		streetField.setText(person.getStreet());
-		postalCodeField.setText(Integer.toString(person.getPostalCode()));
+		recipeTitleField.setText(person.getFirstName());
+		ingredient.setText(person.getLastName());
+		measurment.setText(person.getStreet());
+		quantity.setText(Integer.toString(person.getPostalCode()));
 		cityField.setText(person.getCity());
 		birthdayField.setText(CalendarUtil.format(person.getBirthday()));
 		birthdayField.setPromptText("yyyy-mm-dd");
@@ -80,10 +80,10 @@ public class PersonEditDialogController {
 	@FXML
 	private void handleOk() {
 		if (isInputValid()) {
-			person.setFirstName(firstNameField.getText());
-			person.setLastName(lastNameField.getText());
-			person.setStreet(streetField.getText());
-			person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
+			person.setFirstName(recipeTitleField.getText());
+			person.setLastName(ingredient.getText());
+			person.setStreet(measurment.getText());
+			person.setPostalCode(Integer.parseInt(quantity.getText()));
 			person.setCity(cityField.getText());
 			person.setBirthday(CalendarUtil.parse(birthdayField.getText()));
 			
@@ -108,22 +108,22 @@ public class PersonEditDialogController {
 	private boolean isInputValid() {
 		String errorMessage = "";
 
-		if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
+		if (recipeTitleField.getText() == null || recipeTitleField.getText().length() == 0) {
 			errorMessage += "No valid first name!\n"; 
 		}
-		if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
+		if (ingredient.getText() == null || ingredient.getText().length() == 0) {
 			errorMessage += "No valid last name!\n"; 
 		}
-		if (streetField.getText() == null || streetField.getText().length() == 0) {
+		if (measurment.getText() == null || measurment.getText().length() == 0) {
 			errorMessage += "No valid street!\n"; 
 		}
 		
-		if (postalCodeField.getText() == null || postalCodeField.getText().length() == 0) {
+		if (quantity.getText() == null || quantity.getText().length() == 0) {
 			errorMessage += "No valid postal code!\n"; 
 		} else {
 			// try to parse the postal code into an int
 			try {
-				Integer.parseInt(postalCodeField.getText());
+				Integer.parseInt(quantity.getText());
 			} catch (NumberFormatException e) {
 				errorMessage += "No valid postal code (must be an integer)!\n"; 
 			}
