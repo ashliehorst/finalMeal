@@ -206,8 +206,10 @@ public class FileManager {
         Schedule schedule = new Schedule();
         Property prop = new Property();
         String file = prop.getFile(); 
-        readXmlFile(schedule , file);
-        display(schedule);
+        readXmlFile(schedule, file);
+        //display(schedule);
+        ShoppingList shoppingList = new ShoppingList();
+        shoppingList.displayShoppingList();
     }
     
     /**

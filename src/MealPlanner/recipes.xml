@@ -7,26 +7,17 @@ and open the template in the editor.
 <recipes>
     <recipe title = "Pho">
         <ingredient name = "flour" number = "1" type = "cup"/>
-        <ingredient name = "flour" number = "1" type = "cup"/>
-        <ingredient name = "flour" number = "1" type = "cup"/>
-        <ingredient name = "flour" number = "1" type = "cup"/>
         <directions> 
             Make noodles.
         </directions>   
     </recipe>
     <recipe title = "Ice Cream">
         <ingredient name = "flour" number = "1" type = "cup"/>
-        <ingredient name = "flour" number = "1" type = "cup"/>
-        <ingredient name = "flour" number = "1" type = "cup"/>
-        <ingredient name = "flour" number = "1" type = "cup"/>
         <directions> 
             Make ice cream.
         </directions>   
     </recipe>
     <recipe title = "Cake">
-        <ingredient name = "flour" number = "1" type = "cup"/>
-        <ingredient name = "flour" number = "1" type = "cup"/>
-        <ingredient name = "flour" number = "1" type = "cup"/>
         <ingredient name = "flour" number = "1" type = "cup"/>
         <directions> 
             Make cake.

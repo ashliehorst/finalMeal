@@ -90,24 +90,45 @@ public class ShoppingList {
      /**
      * Master list of ingredients to add together same ingredients
      * Make xml for ingredients to easily add stuff together
-     */
-    
-    public void searchIngredientList() {
-        int count = 0;
-        for (Ingredient ing1 : shoppingList) {
-            for (int i = 0; i < shoppingList.size(); i++) {
-                Ingredient ing2 = shoppingList.get(i);
+     */   
+    /*public void searchIngredientList(Schedule schedule) {
+        for (int count = 0; count < schedule.getWeekIngredientList().size(); count++) {
+            Ingredient ing1 = schedule.getWeekIngredientList().get(count);
+            for (int i = 0; i < schedule.getWeekIngredientList().size(); i++) {
+                Ingredient ing2 = schedule.getWeekIngredientList().get(i);
                 if (count == i) {}
                 else {
-                   if (ing1.getName().equals(ing2.getName())) {
-                       ing1.setNumber(ing1.getNumber() + ing2.getNumber());
-                       shoppingList.remove(ing2);                     
-                   }
+                    if (ing1.getName().equals(ing2.getName())) {
+                        ing1.setNumber(ing1.getNumber() + ing2.getNumber());
+                        schedule.getWeekIngredientList().remove(ing2);  // Something is weird with this remove. The next value will be the same as the first one.
+                        i--;
+                    }
                 }
             }          
-            count++;
         }    
-    }
+    }*/
+    
+    public void searchIngredientList(Schedule schedule) {
+        boolean first = true;
+        for (int count = 0; count < schedule.getWeekIngredientList().size(); count++) {
+            Ingredient ing1 = schedule.getWeekIngredientList().get(count);
+            if (first) {
+               shoppingList.add(ing1);
+               first = false;
+            }
+            for (Ingredient list : shoppingList) {
+                list.getName();
+                if (list.getName().equals(ing1.getName())) {
+                    // I think it has something to do with the fact that I am setting an ingredient number...
+                    list.setNumber(ing1.getNumber() + list.getNumber());
+                } 
+                else {
+                   shoppingList.add(ing1);
+                }   
+            }                      
+        }
+    }          
+     
 }
     
     
