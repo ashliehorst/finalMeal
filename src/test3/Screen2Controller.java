@@ -20,13 +20,19 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafx.util.Pair;
 
 /**
@@ -37,17 +43,15 @@ import javafx.util.Pair;
 public class Screen2Controller implements Initializable , ControlledScreen {
 
     private Stage primaryStage;
-    private ObservableList<Person> personData = FXCollections.observableArrayList();
-    public ObservableList<Person> getPersonData() {
-		return personData;
-	}
-    ScreensController myController;
-    /**
-     * Initializes the controller class.
-     */
+    ScreensController myController;   
+    Person person = new Person();
+
+    @FXML
+    private ListView<Person> table;
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }
     
     public void setScreenParent(ScreensController screenParent){
@@ -75,7 +79,6 @@ public class Screen2Controller implements Initializable , ControlledScreen {
     }
     
 
-    Person person = new Person();
     public boolean button1(ActionEvent even){
         try {
             
@@ -96,6 +99,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
+        
         return controller.isOkClicked();
 
         } catch (Exception ex){
@@ -112,15 +116,18 @@ public class Screen2Controller implements Initializable , ControlledScreen {
 //        alert.setContentText("I have a great message for you!");
 //        alert.showAndWait();
         // Create the custom dialog.
-
+        
     }
     
+    @FXML
+    private Label label1;
     public void button2(ActionEvent event){
         TextInputDialog dialog = new TextInputDialog("walter");
         dialog.setTitle("Text Input Dialog");
         dialog.setHeaderText("Look, a Text Input Dialog");
         dialog.setContentText("Please enter your name:");
 
+        label1.setText("Change!!!");
         // Traditional way to get the response value.
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()){

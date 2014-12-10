@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -15,7 +16,7 @@
   </stylesheets>
     
     <children>
-      <VBox prefHeight="514.0" prefWidth="200.0">
+      <VBox prefHeight="514.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" prefHeight="26.0" prefWidth="206.0" text="Todays' Meal" />
             <ImageView fitHeight="213.0" fitWidth="200.0" pickOnBounds="true">
@@ -23,12 +24,15 @@
                   <Image url="@images/9304.jpg" />
                </image></ImageView>
             <Label alignment="CENTER" prefHeight="27.0" prefWidth="204.0" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="204.0" text="Recipi List" />
-            <Button mnemonicParsing="false" onAction="#goToScreen3" prefHeight="26.0" prefWidth="204.0" text="Recipes" />
-            <Button mnemonicParsing="false" onAction="#goToScreen4" prefHeight="26.0" prefWidth="204.0" text="Schedule" />
-            <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="26.0" prefWidth="204.0" text="Shopping" />
-            <Button mnemonicParsing="false" onAction="#goToScreen1" prefHeight="26.0" prefWidth="206.0" text="Home" />
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Recipi List" />
+            <Button mnemonicParsing="false" onAction="#goToScreen3" prefHeight="40.0" prefWidth="204.0" text="Recipes" />
+            <Button mnemonicParsing="false" onAction="#goToScreen4" prefHeight="40.0" prefWidth="204.0" text="Schedule" />
+            <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="40.0" prefWidth="204.0" text="Shopping" />
+            <Button mnemonicParsing="false" onAction="#goToScreen1" prefHeight="40.0" prefWidth="206.0" text="Home" />
          </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
       </VBox>
   <Button layoutX="252.0" layoutY="454.0" mnemonicParsing="false" onAction="#button1" prefHeight="26.0" prefWidth="67.0" text="Add" />
   <Label layoutX="287.0" layoutY="16.0" text="Screen 2---Recipi List">
@@ -37,12 +41,8 @@
     </font>
   </Label>
       <VBox layoutX="215.0" layoutY="77.0" prefHeight="303.0" prefWidth="33.0" />
-  <Button layoutX="78.0" layoutY="-63.0" mnemonicParsing="false" onAction="#goToScreen1" prefHeight="26.0" prefWidth="203.0" text="Go To Screen 1" />
       <Button layoutX="485.0" layoutY="454.0" mnemonicParsing="false" onAction="#button2" text="Remove" />
-      <TableView layoutX="277.0" layoutY="87.0" prefHeight="303.0" prefWidth="251.0">
-        <columns>
-          <TableColumn prefWidth="250.0" text="Recipes" />
-        </columns>
-      </TableView>
+      <ListView fx:id="table" editable="true" layoutX="277.0" layoutY="120.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label fx:id="label1" layoutX="338.0" layoutY="69.0" text="Label" />
   </children>
 </AnchorPane>
