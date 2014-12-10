@@ -23,10 +23,11 @@
                </image>
             </ImageView>
             <Label prefHeight="27.0" prefWidth="204.0" text="Grabs the data from the List..." />
-            <Button mnemonicParsing="false" onAction="#goToScreen2" prefHeight="40.0" prefWidth="204.0" text="Recipi List" />
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="Home" />
+            <Button mnemonicParsing="false" onAction="#goToScreen2" prefHeight="40.0" prefWidth="204.0" text="Rotation List" />
             <Button mnemonicParsing="false" onAction="#goToScreen3" prefHeight="40.0" prefWidth="204.0" text="Recipes" />
             <Button mnemonicParsing="false" onAction="#goToScreen4" prefHeight="40.0" prefWidth="204.0" text="Schedule" />
-            <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="40.0" prefWidth="204.0" text="Shopping" />
+            <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="40.0" prefWidth="204.0" text="Shopping List" />
          </children>
          <padding>
             <Insets left="20.0" />
