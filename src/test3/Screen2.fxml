@@ -24,18 +24,18 @@
                   <Image url="@images/9304.jpg" />
                </image></ImageView>
             <Label alignment="CENTER" prefHeight="27.0" prefWidth="204.0" />
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Recipi List" />
+            <Button mnemonicParsing="false" onAction="#goToScreen1" prefHeight="40.0" prefWidth="206.0" text="Home" />
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Rotation List" />
             <Button mnemonicParsing="false" onAction="#goToScreen3" prefHeight="40.0" prefWidth="204.0" text="Recipes" />
             <Button mnemonicParsing="false" onAction="#goToScreen4" prefHeight="40.0" prefWidth="204.0" text="Schedule" />
-            <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="40.0" prefWidth="204.0" text="Shopping" />
-            <Button mnemonicParsing="false" onAction="#goToScreen1" prefHeight="40.0" prefWidth="206.0" text="Home" />
+            <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="40.0" prefWidth="204.0" text="Shopping List" />
          </children>
          <padding>
             <Insets left="20.0" />
          </padding>
       </VBox>
   <Button layoutX="252.0" layoutY="454.0" mnemonicParsing="false" onAction="#button1" prefHeight="26.0" prefWidth="67.0" text="Add" />
-  <Label layoutX="287.0" layoutY="16.0" text="Screen 2---Recipi List">
+  <Label layoutX="287.0" layoutY="16.0" text="Screen 2--- Rotation List">
     <font>
       <Font size="18.0" />
     </font>

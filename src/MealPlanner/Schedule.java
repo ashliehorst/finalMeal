@@ -146,7 +146,7 @@ public class Schedule {
         }
     }
     
-    private void makeWeekIngredient() {
+    public void makeWeekIngredient() {
         for (Recipe rec : weekList) {
             for (Ingredient ing : rec.getIngredientList()) {
                 weekIngredientList.add(ing);

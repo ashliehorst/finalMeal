@@ -31,7 +31,7 @@ public class Property {
             Logger.getLogger(Property.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        String topicFile = prop.getProperty("terms");
+        String topicFile = prop.getProperty("recipeFile");
         return topicFile;
     }
     

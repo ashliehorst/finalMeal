@@ -2,6 +2,7 @@
 
 package test3;
 
+import MealPlanner.Recipe;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -44,10 +45,10 @@ public class Screen2Controller implements Initializable , ControlledScreen {
 
     private Stage primaryStage;
     ScreensController myController;   
-    Person person = new Person();
+  //  Person person = new Person();
 
-    @FXML
-    private ListView<Person> table;
+    //@FXML
+    //private ListView<Person> table;
   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -81,20 +82,20 @@ public class Screen2Controller implements Initializable , ControlledScreen {
 
     public boolean button1(ActionEvent even){
         try {
-            
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("PersonEditDialog.fxml"));
+        Recipe recipe = new Recipe();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddRecipe.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("Edit Recipe");
+        dialogStage.setTitle("Add Recipe");
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.initOwner(primaryStage);
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
         
         // Set the controller and passing an object to the controller
-        PersonEditDialogController controller = loader.getController();
+        AddRecipeController controller = loader.getController();
         controller.setDialogStage(dialogStage);
-        controller.setPerson(person);
+        controller.setPerson(recipe);
         
         
         // Show the dialog and wait until the user closes it

@@ -24,7 +24,6 @@ public class Ingredient {
      * Sets all the variables
      */
     public Ingredient() {
-        Ingredient ingredient = new Ingredient();
         name = null;
         number = 0;
         type = null; 

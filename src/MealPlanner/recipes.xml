@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<recipies>
+    <recipe title = "Pasta">
+        <ingredient name = "Flour" number = "1" type = "cup"/>
+        <directions>
+            I want pasta.
+        </directions>
+    </recipe>
+    <recipe title = "Pho">
+        <ingredient name = "Flour" number = "1" type = "cup"/>
+        <directions>
+            I want pho.
+        </directions>
+    </recipe>
+    <recipe title = "Cake">
+        <ingredient name = "Flour" number = "1" type = "cup"/>
+        <directions>
+            I want cake.
+        </directions>
+    </recipe>
+</recipies>

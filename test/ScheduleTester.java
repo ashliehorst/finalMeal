@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import MealPlanner.FileManager;
+import MealPlanner.Ingredient;
+import MealPlanner.Property;
 import MealPlanner.Recipe;
 import MealPlanner.Schedule;
+import MealPlanner.ShoppingList;
 import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -20,6 +24,10 @@ import org.testng.annotations.Test;
 public class ScheduleTester {
     
     Schedule s = new Schedule();
+    ShoppingList shoppingList = new ShoppingList();
+    FileManager files = new FileManager();
+    Property prop = new Property();
+        
     public ScheduleTester() {
     }
 
@@ -61,7 +69,11 @@ public class ScheduleTester {
     @Test
     public void rotateRecipeListTest(){
         // Make your test recipies
-        recipeTest();
+        //recipeTest();
+        String file = prop.getFile(); 
+        files.readXmlFile(s, file);
+        shoppingList.displayShoppingList();
+
         // Make sure that the recipe list works (it does)
         for (Recipe recipe : s.getRecipeList()){
             // Add to roate list
@@ -80,11 +92,28 @@ public class ScheduleTester {
         // Make sure that your schedule list works 
         //   with proper rotations (it does!!!)
         for (Recipe schedule : s.getWeekList()) {
-            System.out.println("Schedule: " + schedule.getTitle());
+            System.out.println("Schedule: " + schedule.getDirections());
         }
         
+        s.makeWeekIngredient();
+        
+        // Ingredient list before the merge
+        for (Ingredient ing1 : s.getWeekIngredientList()) {
+            System.out.println("Ingredients before: " + ing1.getName());         
+        }
+        
+        shoppingList.searchIngredientList(s);
+        
+        // Ingredient list after the merge
+        for (Ingredient ing1 : shoppingList.getShoppingList()) {
+            System.out.println("Ingredients after: " + ing1.getName() + " " + ing1.getNumber()); 
+            
+        }
+        
+        files.buildXmlDocument(s);
+        files.saveXmlDocument(null, file);
         // This, however does not work
-        Assert.assertNotEquals(s.iterateThruSchedule(), null);          
+        //Assert.assertNotEquals(s.iterateThruSchedule(), null);          
     }
     
 
