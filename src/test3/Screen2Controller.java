@@ -20,6 +20,7 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.ImageView;
@@ -37,10 +38,6 @@ import javafx.util.Pair;
 public class Screen2Controller implements Initializable , ControlledScreen {
 
     private Stage primaryStage;
-    private ObservableList<Person> personData = FXCollections.observableArrayList();
-    public ObservableList<Person> getPersonData() {
-		return personData;
-	}
     ScreensController myController;
     /**
      * Initializes the controller class.
@@ -74,7 +71,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
        myController.setScreen(ScreensFramework.screen5ID);
     }
     
-
+    
     Person person = new Person();
     public boolean button1(ActionEvent even){
         try {
@@ -128,5 +125,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         }
         // The Java 8 way to get the response value (with lambda expression).
         result.ifPresent(name -> System.out.println("Your name: " + name));
+
+
     }
 }
