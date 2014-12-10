@@ -110,6 +110,8 @@ public class ScheduleTester {
             
         }
         
+        files.buildXmlDocument(s);
+        files.saveXmlDocument(null, file);
         // This, however does not work
         //Assert.assertNotEquals(s.iterateThruSchedule(), null);          
     }
