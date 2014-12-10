@@ -14,6 +14,8 @@ import javafx.stage.Stage;
  * @author 
  */
 public class PersonEditDialogController {
+	
+	
 	private Stage dialogStage;
 	
 	private boolean okClicked = false;
@@ -41,7 +43,6 @@ public class PersonEditDialogController {
 	 * 
 	 * @param person
 	 */
-
 	public void setPerson(Recipe recipe) {
 //		this.person = person;
 //		
@@ -67,7 +68,6 @@ public class PersonEditDialogController {
 	 */
 	@FXML
 	private void handleOk() {
-
 //		if (isInputValid()) {
 //			person.setFirstName(firstNameField.getText());
 //			person.setLastName(lastNameField.getText());
