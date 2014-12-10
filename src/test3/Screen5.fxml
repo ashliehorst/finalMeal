@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -23,11 +24,11 @@
                </image>
             </ImageView>
             <Label prefHeight="27.0" prefWidth="204.0" />
-            <Button mnemonicParsing="false" onAction="#goToScreen2" prefHeight="40.0" prefWidth="200.0" text="Recipi List" />
+            <Button mnemonicParsing="false" onAction="#goToScreen1" prefHeight="40.0" prefWidth="206.0" text="Home" />
+            <Button mnemonicParsing="false" onAction="#goToScreen2" prefHeight="40.0" prefWidth="200.0" text="Rotation List" />
             <Button mnemonicParsing="false" onAction="#goToScreen3" prefHeight="40.0" prefWidth="204.0" text="Recipes" />
             <Button mnemonicParsing="false" onAction="#goToScreen4" prefHeight="40.0" prefWidth="204.0" text="Schedule" />
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Shopping" />
-            <Button mnemonicParsing="false" onAction="#goToScreen1" prefHeight="40.0" prefWidth="206.0" text="Home" />
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Shopping List" />
          </children>
          <opaqueInsets>
             <Insets />
@@ -36,5 +37,32 @@
             <Insets left="20.0" />
          </padding>
       </VBox>
+      <Label layoutX="190.0" layoutY="-33.0" text="Screen 5--- Shopping List">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="250.0" prefHeight="519.0" prefWidth="350.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Ingridients">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView layoutX="75.0" layoutY="99.0" prefHeight="486.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Common Items">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea layoutX="20.0" layoutY="32.0" prefHeight="486.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>
