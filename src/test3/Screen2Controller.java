@@ -99,7 +99,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         // Set the controller and passing an object to the controller
         AddRecipeController controller = loader.getController();
         controller.setDialogStage(dialogStage);
-        controller.setPerson(recipe);
+        controller.setRecipe(recipe);
         
         
         // Show the dialog and wait until the user closes it

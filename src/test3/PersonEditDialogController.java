@@ -41,9 +41,12 @@ public class PersonEditDialogController {
 	/**
 	 * Sets the person to be edited in the dialog.
 	 * 
-	 * @param person
+	 * @param recipe
 	 */
-	public void setPerson(Recipe recipe) {
+	public void setRecipe(Recipe recipe) {
+            
+            this.recipe = recipe;
+            
 //		this.person = person;
 //		
 //		firstNameField.setText(person.getFirstName());
@@ -68,6 +71,7 @@ public class PersonEditDialogController {
 	 */
 	@FXML
 	private void handleOk() {
+            
 //		if (isInputValid()) {
 //			person.setFirstName(firstNameField.getText());
 //			person.setLastName(lastNameField.getText());
@@ -76,8 +80,8 @@ public class PersonEditDialogController {
 //			person.setCity(cityField.getText());
 //			person.setBirthday(CalendarUtil.parse(birthdayField.getText()));
 //			
-//			okClicked = true;
-//			dialogStage.close();
+			okClicked = true;
+			dialogStage.close();
 //		}
 	}
 //	

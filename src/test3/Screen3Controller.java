@@ -75,9 +75,10 @@ public class Screen3Controller implements Initializable, ControlledScreen {
      public boolean button1(ActionEvent even){
         try {
             
-          data = FXCollections.observableArrayList(); 
-          listView = new ListView<>();
+        data = FXCollections.observableArrayList(); 
+        
         Recipe recipe = new Recipe();
+        Recipe recipe2 = new Recipe();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("PersonEditDialog.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
         Stage dialogStage = new Stage();
@@ -87,22 +88,33 @@ public class Screen3Controller implements Initializable, ControlledScreen {
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
         
-        List<Ingredient> ingList = new ArrayList<>();
-        Ingredient ing1 = new Ingredient();
-        ing1.setName("Tomato Sauce");
-        ing1.setNumber(2.20);
-        ing1.setType("lbs");
-        ingList.add(ing1);
-        
-        recipe.setTitle("Spaghetti");
-        recipe.setIngredientList(ingList);
-        recipe.setDirections("Here are the directions");
-        data.add(recipe);
+//        List<Ingredient> ingList = new ArrayList<>();
+//        Ingredient ing1 = new Ingredient();
+//        ing1.setName("Tomato Sauce");
+//        ing1.setNumber(2.20);
+//        ing1.setType("lbs");
+//        ingList.add(ing1);
+//        
+//        recipe.setTitle("Spaghetti");
+//        recipe.setIngredientList(ingList);
+//        recipe.setDirections("Here are the directions");
+//        data.add(recipe);
+//        
+//        Ingredient ing2 = new Ingredient();
+//        ing2.setName("Tomato Sauce");
+//        ing2.setNumber(2.20);
+//        ing2.setType("lbs");
+//        ingList.add(ing2);
+//        
+//        recipe2.setTitle("Chicken");
+//        recipe2.setIngredientList(ingList);
+//        recipe2.setDirections("Here are the directions");
+//        data.add(recipe2);
         
         // Set the controller and passing an object to the controller
         PersonEditDialogController controller = loader.getController();
         controller.setDialogStage(dialogStage);
-        controller.setPerson(recipe);
+        controller.setRecipe(recipe);
         
         //ObservableList<Recipe> data = FXCollections.observableArrayList();
         

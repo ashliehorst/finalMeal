@@ -42,6 +42,6 @@
   <Button layoutX="25.0" layoutY="-52.0" mnemonicParsing="false" onAction="#goToScreen1" prefHeight="26.0" prefWidth="203.0" text="Go To Screen 1" />
       <Button layoutX="265.0" layoutY="438.0" mnemonicParsing="false" onAction="#button1" text="Create Recipe" />
       <Button layoutX="438.0" layoutY="438.0" mnemonicParsing="false" text="Remove Recipe" />
-      <ListView layoutX="268.0" layoutY="51.0" prefHeight="370.0" prefWidth="282.0" />
+      <ListView fx:id="listView" layoutX="268.0" layoutY="51.0" prefHeight="370.0" prefWidth="282.0" />
   </children>
 </AnchorPane>

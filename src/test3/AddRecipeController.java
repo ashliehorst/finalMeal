@@ -36,7 +36,7 @@ public class AddRecipeController implements Initializable {
 		this.dialogStage = dialogStage;
 	}
     
-    public void setPerson(Recipe recipe) {
+    public void setRecipe(Recipe recipe) {
 
     }
     
