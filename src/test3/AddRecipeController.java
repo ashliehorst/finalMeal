@@ -8,6 +8,7 @@ package test3;
 import MealPlanner.Recipe;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 
@@ -23,6 +24,7 @@ public class AddRecipeController implements Initializable {
      */
     private Stage dialogStage;
     boolean okClicked = false;
+    private ObservableList<Recipe> data;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

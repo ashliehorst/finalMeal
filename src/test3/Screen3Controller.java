@@ -1,17 +1,25 @@
 
 package test3;
 
+import MealPlanner.Ingredient;
 import MealPlanner.Recipe;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -22,6 +30,7 @@ public class Screen3Controller implements Initializable, ControlledScreen {
 
     ScreensController myController;
         private Stage primaryStage;
+        private ObservableList<Recipe> data;
 
     /**
      * Initializes the controller class.
@@ -34,6 +43,10 @@ public class Screen3Controller implements Initializable, ControlledScreen {
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
     }
+    
+    @FXML
+    private ListView<Recipe> listView;
+    
 
     //Home Screen
     @FXML
@@ -61,6 +74,9 @@ public class Screen3Controller implements Initializable, ControlledScreen {
     
      public boolean button1(ActionEvent even){
         try {
+            
+          data = FXCollections.observableArrayList(); 
+          listView = new ListView<>();
         Recipe recipe = new Recipe();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("PersonEditDialog.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
@@ -71,11 +87,46 @@ public class Screen3Controller implements Initializable, ControlledScreen {
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
         
+        List<Ingredient> ingList = new ArrayList<>();
+        Ingredient ing1 = new Ingredient();
+        ing1.setName("Tomato Sauce");
+        ing1.setNumber(2.20);
+        ing1.setType("lbs");
+        ingList.add(ing1);
+        
+        recipe.setTitle("Spaghetti");
+        recipe.setIngredientList(ingList);
+        recipe.setDirections("Here are the directions");
+        data.add(recipe);
+        
         // Set the controller and passing an object to the controller
         PersonEditDialogController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setPerson(recipe);
         
+        //ObservableList<Recipe> data = FXCollections.observableArrayList();
+        
+        listView.setItems(data);
+        listView.setCellFactory(new Callback<ListView<Recipe>, ListCell<Recipe>>() {
+                    
+                    @Override
+                    public ListCell<Recipe> call(ListView<Recipe> param){
+                    ListCell<Recipe> cell = new ListCell<Recipe>(){
+                        @Override
+                        public void updateItem(Recipe recipe, boolean empty) {
+                            super.updateItem(recipe, empty);
+                            if (recipe != null){
+                                    setText(recipe.getTitle());                                     
+                            }
+                        }
+                    };   
+                        return cell;
+                    
+                    };
+
+                });
+        
+            
         
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
