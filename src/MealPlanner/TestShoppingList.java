@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class TestShoppingList {
     
+    /*
     ShoppingList s = new ShoppingList();
     
     public static void main(String[] args) {
@@ -34,10 +35,12 @@ public class TestShoppingList {
     /**
      * Make and add a common item onto the common list
      */
+    /*
     public void makeAddCommonItem() {
         String bread = "bread";
         s.setCommonItem(bread);
         s.getCommonList().add(s.getCommonItem());
         System.out.println(s.getCommonList());
-    }   
+    }  
+    */
 }

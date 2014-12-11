@@ -208,8 +208,8 @@ public class FileManager {
         String file = prop.getFile(); 
         readXmlFile(schedule, file);
         //display(schedule);
-        ShoppingList shoppingList = new ShoppingList();
-        shoppingList.displayShoppingList();
+        //ShoppingList shoppingList = new ShoppingList();
+        //shoppingList.displayShoppingList();
     }
     
     /**
