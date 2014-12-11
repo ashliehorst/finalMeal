@@ -37,15 +37,6 @@ import org.xml.sax.SAXException;
  */
 public class FileManager {
     
-     /**
-     * TEST RUN
-     * 
-     * @param args
-     */
-    public static void main(String[] args) {
-        new FileManager().run();
-    }
-    
     /**
      * BUILD XML DOCUMENT
      * @param schedule
@@ -71,14 +62,14 @@ public class FileManager {
                     
                     for (Ingredient ingredient : recipe.getIngredientList()) {
                         Element ing = doc.createElement("ingredient");
-                        rootElement.appendChild(ing);
+                        rec.appendChild(ing);
                         ing.setAttribute("name", ingredient.getName());
                         ing.setAttribute("number", Double.toString(ingredient.getNumber()));
                         ing.setAttribute("type", ingredient.getType());                 
                     }
                     
                     Element directions = doc.createElement("directions");  
-                    rootElement.appendChild(directions);
+                    rec.appendChild(directions);
                     directions.appendChild(doc.createTextNode(recipe.getDirections()));
                 } 
 	  } catch (ParserConfigurationException pce) {
@@ -198,33 +189,6 @@ public class FileManager {
                         
             recipe.setDirections(directions);
         } // end of element_node if statement
-    }
-    
-
-    
-    public void run() {
-        Schedule schedule = new Schedule();
-        Property prop = new Property();
-        String file = prop.getFile(); 
-        readXmlFile(schedule, file);
-        //display(schedule);
-        ShoppingList shoppingList = new ShoppingList();
-        shoppingList.displayShoppingList();
-    }
-    
-    /**
-     * TEST DISPLAY
-     * 
-     */
-    public void display(Schedule schedule) {
-        for (Recipe recipe : schedule.getRecipeList()) {                     
-            System.out.println(recipe.getTitle());              
-            for (Ingredient ingredient : recipe.getIngredientList()) {
-                System.out.println(ingredient.getName());
-                System.out.println(ingredient.getNumber());
-                System.out.println(ingredient.getType());
-            } 
-        }
     }
 }
 
