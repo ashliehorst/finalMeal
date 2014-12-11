@@ -3,6 +3,8 @@ package test3;
 import MealPlanner.Recipe;
 import javafx.fxml.FXML;
 import javafx.scene.control.Dialogs;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 //import ch.makery.address.model.Person;
@@ -13,9 +15,21 @@ import javafx.stage.Stage;
  * 
  * @author 
  */
-public class PersonEditDialogController {
+public class MakeRecipeController {
 	
-	
+    
+	@FXML
+        private TextField recipeTitle;
+        
+        @FXML
+        private TextField ingridientTitle;
+        @FXML
+        private TextField quantity;
+        @FXML
+        private ListView ingrideintList;
+        @FXML
+        private TextArea directions;
+        
 	private Stage dialogStage;
 	
 	private boolean okClicked = false;
@@ -30,6 +44,8 @@ public class PersonEditDialogController {
 		
 	}
 	
+        
+        
 	/**
 	 * Sets the stage of this dialog.
 	 * @param dialogStage
@@ -38,6 +54,10 @@ public class PersonEditDialogController {
 		this.dialogStage = dialogStage;
 	}
 	
+        public void addIngredient(){
+            
+        }
+        
 	/**
 	 * Sets the person to be edited in the dialog.
 	 * 

@@ -79,7 +79,7 @@ public class Screen3Controller implements Initializable, ControlledScreen {
         
         Recipe recipe = new Recipe();
         Recipe recipe2 = new Recipe();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("PersonEditDialog.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MakeRecipe.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
         Stage dialogStage = new Stage();
         dialogStage.setTitle("Edit Recipe");
@@ -112,7 +112,7 @@ public class Screen3Controller implements Initializable, ControlledScreen {
 //        data.add(recipe2);
         
         // Set the controller and passing an object to the controller
-        PersonEditDialogController controller = loader.getController();
+        MakeRecipeController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setRecipe(recipe);
         
