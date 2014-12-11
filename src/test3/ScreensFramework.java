@@ -2,6 +2,8 @@
 
 package test3;
 
+import MealPlanner.Recipe;
+import MealPlanner.Schedule;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +16,9 @@ import javafx.stage.Stage;
  * @author  Salvador E. Afane, Ashlie Horst, Paul O'Neil
  */
 public class ScreensFramework extends Application {
+   
     
+    public static Recipe rec;
     
     public static String screen1ID = "main";
     public static String screen1File = "Screen1.fxml";

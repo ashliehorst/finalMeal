@@ -45,6 +45,10 @@ public class Screen2Controller implements Initializable , ControlledScreen {
 
     private Stage primaryStage;
     ScreensController myController;   
+    
+    MealManager meal = MealManager.getInstance();
+    
+    
   //  Person person = new Person();
 
     //@FXML

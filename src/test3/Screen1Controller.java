@@ -15,6 +15,7 @@ import javafx.scene.control.TextInputDialog;
 
 
 
+
 /**
  * FXML Controller class
  *
@@ -23,6 +24,10 @@ import javafx.scene.control.TextInputDialog;
 public class Screen1Controller implements Initializable, ControlledScreen {
 
     ScreensController myController;
+
+    MealManager mealManager = MealManager.getInstance();
+    
+    
     /**
      * Initializes the controller class.
      */

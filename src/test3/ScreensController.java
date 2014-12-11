@@ -1,6 +1,7 @@
 
 package test3;
 
+import MealPlanner.Recipe;
 import java.util.HashMap;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -19,6 +20,7 @@ public class ScreensController  extends StackPane {
     //Holds the screens to be displayed
 
     private HashMap<String, Node> screens = new HashMap<>();
+    
     
     public ScreensController() {
         super();
