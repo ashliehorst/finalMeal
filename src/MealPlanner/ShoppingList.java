@@ -22,27 +22,29 @@ import java.util.Map;
  */
 public class ShoppingList {
     
-    private String commonItem;
-    private List<Ingredient> shoppingList;
-    private List<String> commonList;
+    private static String commonItems;
+    private static List<Ingredient> shoppingList;
     
-    private Map<Ingredient, Ingredient> ingredientMap;
-    /**
-     * SHOPPING LIST CONSTRUCTOR
-     */
-    public ShoppingList() {
+    private static Map<Ingredient, Ingredient> ingredientMap;
+    
+    private static ShoppingList instance = new ShoppingList();
+    
+    public ShoppingList(){}
+    
+    public static ShoppingList getInstance() {
         shoppingList = new ArrayList();
-        commonList = new ArrayList();
-        commonItem = "";
+        
+        commonItems = "";
         ingredientMap = new HashMap<>();
+        return instance;
     }
+    
 
     /**
      * GETTERS
      * @return 
      */
-    public List<String> getCommonList() {return commonList;}
-    public String getCommonItem() {return commonItem;}
+    public String getCommonItem() {return commonItems;}
 
     public List<Ingredient> getShoppingList() {
         return shoppingList;
@@ -52,14 +54,11 @@ public class ShoppingList {
      * SETTERS
      * @param commonList 
      */ 
-    public void setCommonList(List<String> commonList) {
-        this.commonList = commonList;
-    }
     public void setCommonItem(String commonItem) {
-        this.commonItem = commonItem;
+        ShoppingList.commonItems = commonItem;
     }  
     public void setShoppingList(List<Ingredient> shoppingList) {
-        this.shoppingList = shoppingList;
+        ShoppingList.shoppingList = shoppingList;
     }
           
     /**
@@ -68,9 +67,7 @@ public class ShoppingList {
      */
     public void displayShoppingList() {
         System.out.println("Common List: ");
-        for (String c : getCommonList()) {
-           System.out.println(c);
-        }
+        System.out.println(commonItems);
             
         System.out.println("Schedule List: ");
         //for (Ingredient ing : schedule.getWeekIngredientList()) {
@@ -89,7 +86,9 @@ public class ShoppingList {
     
      /**
      * Master list of ingredients to add together same ingredients
-     * Make xml for ingredients to easily add stuff together
+     * Make xml for ingredients to easily add stuff
+     * @param schedule
+     * @param scheduletogether
      */   
     /*public void searchIngredientList(Schedule schedule) {
         for (int count = 0; count < schedule.getWeekIngredientList().size(); count++) {

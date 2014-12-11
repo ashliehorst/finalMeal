@@ -16,6 +16,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.w3c.dom.Document;
 
 /**
  *
@@ -110,8 +111,9 @@ public class ScheduleTester {
             
         }
         
-        files.buildXmlDocument(s);
-        files.saveXmlDocument(null, file);
+        Document xml = null;
+        xml = files.buildXmlDocument(s);
+        files.saveXmlDocument(xml, file);
         // This, however does not work
         //Assert.assertNotEquals(s.iterateThruSchedule(), null);          
     }

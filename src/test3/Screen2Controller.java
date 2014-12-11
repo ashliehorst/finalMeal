@@ -3,6 +3,7 @@
 package test3;
 
 import MealPlanner.Recipe;
+import MealPlanner.ShoppingList;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -46,13 +47,10 @@ public class Screen2Controller implements Initializable , ControlledScreen {
     private Stage primaryStage;
     ScreensController myController;   
     
-    MealManager meal = MealManager.getInstance();
+    ShoppingList sl = ShoppingList.getInstance();
     
     
-  //  Person person = new Person();
-
-    //@FXML
-    //private ListView<Person> table;
+    
   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -96,10 +94,12 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
         
+        
+        
         // Set the controller and passing an object to the controller
         AddRecipeController controller = loader.getController();
         controller.setDialogStage(dialogStage);
-        controller.setPerson(recipe);
+        controller.setRecipe(recipe);
         
         
         // Show the dialog and wait until the user closes it
@@ -131,8 +131,10 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         dialog.setTitle("Text Input Dialog");
         dialog.setHeaderText("Look, a Text Input Dialog");
         dialog.setContentText("Please enter your name:");
+        
+        sl.setCommonItem("Joe");
 
-        label1.setText("Change!!!");
+        label1.setText(sl.getCommonItem());
         // Traditional way to get the response value.
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()){

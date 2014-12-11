@@ -39,29 +39,9 @@
       <Font size="18.0" />
     </font>
   </Label>
-      <VBox layoutX="247.0" layoutY="125.0" prefHeight="256.0" prefWidth="33.0">
-         <children>
-            <Label prefHeight="37.0" prefWidth="35.0" style="-fx-border-color: black;" stylesheets="@css.css" text="Mon" />
-            <Label prefHeight="37.0" prefWidth="33.0" text="Tus" />
-            <Label prefHeight="37.0" prefWidth="33.0" text="Wed" />
-            <Label prefHeight="37.0" prefWidth="33.0" text="Thu" />
-            <Label prefHeight="37.0" prefWidth="33.0" text="Fri" />
-            <Label prefHeight="37.0" prefWidth="33.0" text="Sat" />
-            <Label prefHeight="33.0" prefWidth="33.0" text="Sun" />
-         </children>
-      </VBox>
-      <VBox layoutX="287.0" layoutY="125.0" prefHeight="256.0" prefWidth="222.0">
-         <children>
-            <Label prefHeight="37.0" prefWidth="240.0" text="Label" />
-            <Label layoutX="10.0" layoutY="10.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
-            <Label layoutX="10.0" layoutY="47.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
-            <Label layoutX="10.0" layoutY="84.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
-            <Label layoutX="10.0" layoutY="121.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
-            <Label layoutX="10.0" layoutY="158.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
-            <Label layoutX="10.0" layoutY="195.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
-         </children>
-      </VBox>
   <Button layoutX="25.0" layoutY="-52.0" mnemonicParsing="false" onAction="#goToScreen1" prefHeight="26.0" prefWidth="203.0" text="Go To Screen 1" />
-      <Button layoutX="310.0" layoutY="423.0" mnemonicParsing="false" onAction="#button1" text="Button" />
+      <Button layoutX="265.0" layoutY="438.0" mnemonicParsing="false" onAction="#button1" text="Create Recipe" />
+      <Button layoutX="438.0" layoutY="438.0" mnemonicParsing="false" text="Remove Recipe" />
+      <ListView fx:id="listView" layoutX="268.0" layoutY="51.0" prefHeight="370.0" prefWidth="282.0" />
   </children>
 </AnchorPane>
