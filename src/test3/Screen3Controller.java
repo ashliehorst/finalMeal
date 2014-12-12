@@ -33,6 +33,8 @@ public class Screen3Controller implements Initializable, ControlledScreen {
         private Stage primaryStage;
         private ObservableList<Recipe> data;
        // Schedule sch = Schedule.getInstance();
+        
+        
 
     /**
      * Initializes the controller class.
@@ -48,7 +50,6 @@ public class Screen3Controller implements Initializable, ControlledScreen {
     
     @FXML
     private ListView<Recipe> listView;
-    
 
     //Home Screen
     @FXML
@@ -78,8 +79,6 @@ public class Screen3Controller implements Initializable, ControlledScreen {
         try {
             
         data = FXCollections.observableArrayList(); 
-        
-        
         
         //Recipe recipe2 = new Recipe();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MakeRecipe.fxml"));
@@ -114,16 +113,40 @@ public class Screen3Controller implements Initializable, ControlledScreen {
 //        recipe2.setDirections("Here are the directions");
 //        data.add(recipe2);
         
-        Recipe recipe = new Recipe();
-        recipe.setIngredientList(Schedule.getInstance().getTempList());
+        Recipe recipe;
+        recipe = Schedule.getInstance().getTempRecipe();
+        //recipe.setIngredientList(Schedule.getInstance().getTempList());
         Schedule.getInstance().getRecipeList().add(recipe);
-        data.add(recipe);
+        //data.add(recipe);
         
         // Set the controller and passing an object to the controller
         MakeRecipeController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         //controller.setRecipe(recipe);
         
+            
+        
+        // Show the dialog and wait until the user closes it
+        dialogStage.showAndWait();
+        
+        displayToListView();
+        
+        return controller.isOkClicked();
+
+        } catch (Exception ex){
+        ex.printStackTrace();
+        return false;
+        }
+}
+     
+     public final void displayToListView(){
+         
+         data.clear(); // clear items from listview
+         
+         for (Recipe recipe : Schedule.getInstance().getRecipeList()){
+             data.add(recipe);
+         }
+         
         listView.setItems(data);
         listView.setCellFactory(new Callback<ListView<Recipe>, ListCell<Recipe>>() {
                     
@@ -143,18 +166,6 @@ public class Screen3Controller implements Initializable, ControlledScreen {
                     };
 
                 });
-        
-            
-        
-        // Show the dialog and wait until the user closes it
-        dialogStage.showAndWait();
-        
-        return controller.isOkClicked();
-
-        } catch (Exception ex){
-        ex.printStackTrace();
-        return false;
-        }
-}
+     }
      
 }

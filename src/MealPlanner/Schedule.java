@@ -27,12 +27,13 @@ public class Schedule {
     private static List<Recipe> weekList;
     private static List<Ingredient> weekIngredientList;
     private static List<Ingredient> tempList;
+    private static Recipe tempRecipe;
 
     
     private static int count;
     private static boolean flag;
     
-    private static Schedule instance;
+    private static Schedule instance = new Schedule();
       
     /**
      * SCHEDULE CONSTRUCTOR
@@ -43,6 +44,7 @@ public class Schedule {
         weekList = new ArrayList();
         weekIngredientList = new ArrayList();
         tempList = new ArrayList();
+        tempRecipe = new Recipe();
         count = 0;
         flag = false;
     }
@@ -58,6 +60,7 @@ public class Schedule {
      * GETTERS
      * @return 
      */
+    public Recipe getTempRecipe() { return tempRecipe;}
     public List<Ingredient> getTempList() {return tempList;}
     public List<Recipe> getRecipeList() {return recipeList;}
     public int getCount() {return count;}
@@ -69,6 +72,7 @@ public class Schedule {
      * SETTERS 
      * 
      */ 
+    public void setTempRecipe(Recipe rec) { tempRecipe = rec;}
     public void setTempList(List<Ingredient> temp) {this.tempList = temp;}
     public void setRecipeList(List<Recipe> recipeList) {this.recipeList = recipeList;}
     public void setCount(int count) {this.count = count;}

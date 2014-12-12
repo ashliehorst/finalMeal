@@ -62,7 +62,7 @@ public class MakeRecipeController {
             myComboBoxData.add("quarts");
             myComboBoxData.add("pints");
             ingredientList = new ListView();
-            
+            recipe = new Recipe();
             
             data = FXCollections.observableArrayList();
         }
@@ -98,7 +98,7 @@ public class MakeRecipeController {
             ingredientTitle.setText("");
             quantity.setText("");
             
-            //sch.getTempList().add(ing);
+            sch.getTempList().add(ing);
             
             data.add(ing);
             
@@ -134,7 +134,7 @@ public class MakeRecipeController {
 	/*public void setRecipe(Recipe recipe) {
             
             this.recipe = recipe;
-            recipeTitle.setText(recipe.getTitle());
+            
             
 //		this.person = person;
 //		
@@ -145,7 +145,9 @@ public class MakeRecipeController {
 //		cityField.setText(person.getCity());
 //		birthdayField.setText(CalendarUtil.format(person.getBirthday()));
 //		birthdayField.setPromptText("yyyy-mm-dd");
-	}*/
+	}
+        */
+        
 	
 	/**
 	 * Returns true if the user clicked OK, false otherwise.
@@ -169,6 +171,11 @@ public class MakeRecipeController {
 //                    ing.setNumber(Double.parseDouble(quantity.getText()));
 //                    recipe.getIngredientList().add(ing);
                     recipe.setDirections(directions.getText());
+                    recipe.setIngredientList(sch.getTempList());
+                    sch.getRecipeList().add(recipe);
+                    
+                    
+                    
                 //}
 //			person.setFirstName(firstNameField.getText());
 //			person.setLastName(lastNameField.getText());
