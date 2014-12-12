@@ -3,6 +3,7 @@ package test3;
 
 import MealPlanner.Ingredient;
 import MealPlanner.Recipe;
+import MealPlanner.Schedule;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,7 @@ public class Screen3Controller implements Initializable, ControlledScreen {
     ScreensController myController;
         private Stage primaryStage;
         private ObservableList<Recipe> data;
+        Schedule sch = Schedule.getInstance();
 
     /**
      * Initializes the controller class.
@@ -77,8 +79,9 @@ public class Screen3Controller implements Initializable, ControlledScreen {
             
         data = FXCollections.observableArrayList(); 
         
-        Recipe recipe = new Recipe();
-        Recipe recipe2 = new Recipe();
+        
+        
+        //Recipe recipe2 = new Recipe();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MakeRecipe.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
         Stage dialogStage = new Stage();
@@ -111,12 +114,18 @@ public class Screen3Controller implements Initializable, ControlledScreen {
 //        recipe2.setDirections("Here are the directions");
 //        data.add(recipe2);
         
+        Recipe recipe = new Recipe();
+        //recipe.setIngredientList(sch.getTempList());
+        data.add(recipe);
+        
         // Set the controller and passing an object to the controller
         MakeRecipeController controller = loader.getController();
         controller.setDialogStage(dialogStage);
-        controller.setRecipe(recipe);
+        //controller.setRecipe(recipe);
         
         //ObservableList<Recipe> data = FXCollections.observableArrayList();
+        
+        
         
         listView.setItems(data);
         listView.setCellFactory(new Callback<ListView<Recipe>, ListCell<Recipe>>() {

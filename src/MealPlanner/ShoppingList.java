@@ -29,7 +29,7 @@ public class ShoppingList {
     
     private static ShoppingList instance = new ShoppingList();
     
-    public ShoppingList(){}
+    private ShoppingList(){}
     
     public static ShoppingList getInstance() {
         shoppingList = new ArrayList();
