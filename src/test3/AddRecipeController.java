@@ -6,11 +6,17 @@
 package test3;
 
 import MealPlanner.Recipe;
+import MealPlanner.Schedule;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -26,16 +32,28 @@ public class AddRecipeController implements Initializable {
     private Stage dialogStage;
     boolean okClicked = false;
     private ObservableList<Recipe> data;
+    
+    private ListView<Recipe> listView;
+
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
+        
    
     public void setDialogStage(Stage dialogStage) {
 		this.dialogStage = dialogStage;
 	}
+    
+    public void addRecipeButton(ActionEvent even){
+        
+        displayToListView();
+        
+        
+    }
     
     public void setRecipe(Recipe recipe) {
 
@@ -44,4 +62,35 @@ public class AddRecipeController implements Initializable {
     public boolean isOkClicked() {
 		return okClicked;
 	}
+    
+    public final void displayToListView(){
+         data = FXCollections.observableArrayList();
+         
+         data.clear(); // clear items from listview
+         
+         for (Recipe recipe : Schedule.getInstance().getRecipeList()){
+             data.add(recipe);
+         }
+         
+        listView.setItems(data);
+        listView.setCellFactory(new Callback<ListView<Recipe>, ListCell<Recipe>>() {
+                    
+                    @Override
+                    public ListCell<Recipe> call(ListView<Recipe> param){
+                    ListCell<Recipe> cell = new ListCell<Recipe>(){
+                        @Override
+                        public void updateItem(Recipe recipe, boolean empty) {
+                            super.updateItem(recipe, empty);
+                            if (recipe != null){
+                                    setText(recipe.getTitle());                                     
+                            }
+                        }
+                    };   
+                        return cell;
+                    
+                    };
+
+                });
+     }
+    
 }

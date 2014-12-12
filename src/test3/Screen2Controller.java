@@ -3,6 +3,7 @@
 package test3;
 
 import MealPlanner.Recipe;
+import MealPlanner.Schedule;
 import MealPlanner.ShoppingList;
 import java.net.URL;
 import java.util.Optional;
@@ -45,7 +46,8 @@ import javafx.util.Pair;
 public class Screen2Controller implements Initializable , ControlledScreen {
 
     private Stage primaryStage;
-    ScreensController myController;   
+    ScreensController myController;
+    private ObservableList<Recipe> data;
     
     ShoppingList sl = ShoppingList.getInstance();
     
@@ -56,6 +58,9 @@ public class Screen2Controller implements Initializable , ControlledScreen {
     public void initialize(URL url, ResourceBundle rb) {
         
     }
+    
+    @FXML
+    private ListView<Recipe> listView;
     
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
@@ -84,6 +89,9 @@ public class Screen2Controller implements Initializable , ControlledScreen {
 
     public boolean button1(ActionEvent even){
         try {
+            
+            data = FXCollections.observableArrayList();
+            
         Recipe recipe = new Recipe();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AddRecipe.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
@@ -104,6 +112,8 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
+        
+        
         
         return controller.isOkClicked();
 
@@ -143,4 +153,34 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         // The Java 8 way to get the response value (with lambda expression).
         result.ifPresent(name -> System.out.println("Your name: " + name));
     }
+    
+    public final void displayToListView(){
+         
+         data.clear(); // clear items from listview
+         
+         for (Recipe recipe : Schedule.getInstance().getRotateList()){
+             data.add(recipe);
+         }
+         
+        listView.setItems(data);
+        listView.setCellFactory(new Callback<ListView<Recipe>, ListCell<Recipe>>() {
+                    
+                    @Override
+                    public ListCell<Recipe> call(ListView<Recipe> param){
+                    ListCell<Recipe> cell = new ListCell<Recipe>(){
+                        @Override
+                        public void updateItem(Recipe recipe, boolean empty) {
+                            super.updateItem(recipe, empty);
+                            if (recipe != null){
+                                    setText(recipe.getTitle());                                     
+                            }
+                        }
+                    };   
+                        return cell;
+                    
+                    };
+
+                });
+     }
+    
 }
