@@ -19,6 +19,7 @@ import javafx.stage.Stage;
  */
 public class AddRecipeController implements Initializable {
 
+    
     /**
      * Initializes the controller class.
      */
