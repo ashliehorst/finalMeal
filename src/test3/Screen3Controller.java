@@ -32,7 +32,7 @@ public class Screen3Controller implements Initializable, ControlledScreen {
     ScreensController myController;
         private Stage primaryStage;
         private ObservableList<Recipe> data;
-        Schedule sch = Schedule.getInstance();
+       // Schedule sch = Schedule.getInstance();
 
     /**
      * Initializes the controller class.
@@ -115,17 +115,14 @@ public class Screen3Controller implements Initializable, ControlledScreen {
 //        data.add(recipe2);
         
         Recipe recipe = new Recipe();
-        //recipe.setIngredientList(sch.getTempList());
+        recipe.setIngredientList(Schedule.getInstance().getTempList());
+        Schedule.getInstance().getRecipeList().add(recipe);
         data.add(recipe);
         
         // Set the controller and passing an object to the controller
         MakeRecipeController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         //controller.setRecipe(recipe);
-        
-        //ObservableList<Recipe> data = FXCollections.observableArrayList();
-        
-        
         
         listView.setItems(data);
         listView.setCellFactory(new Callback<ListView<Recipe>, ListCell<Recipe>>() {
