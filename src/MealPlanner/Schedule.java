@@ -82,7 +82,7 @@ public class Schedule {
      */
     private void dayTracker(){
         // if day is Saturday
-        if (Calendar.DAY_OF_WEEK == 6) {
+        if (Calendar.DAY_OF_WEEK == 7) {
             rotateRecipes();
         }      
     }
@@ -97,27 +97,28 @@ public class Schedule {
      * @return 
      */
     public Recipe iterateThruSchedule() {
-        int day = Calendar.DAY_OF_WEEK;
+        Calendar c = Calendar.getInstance();
+        int day = c.get(Calendar.DAY_OF_WEEK);
         switch (day){
-            case 0:
+            case 1:
                 // Sunday
                 return weekList.get(day);
-            case 1:
+            case 2:
                 // Monday
                 return weekList.get(day);
-            case 2:
+            case 3:
                 // Tuesday
                 return weekList.get(day);
-            case 3:
+            case 4:
                 // Wednesday
                 return weekList.get(day);
-            case 4:
+            case 5:
                 // Thursday
                 return weekList.get(day);
-            case 5:
+            case 6:
                 // Friday
                 return weekList.get(day);
-            case 6:
+            case 7:
                 // Saturday
                 return weekList.get(day);
         }

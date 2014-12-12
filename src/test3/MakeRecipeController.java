@@ -91,8 +91,8 @@ public class MakeRecipeController {
         
             
             Ingredient ing = new Ingredient();
-            ing.setName(ingredientTitle.getText());
-            ing.setNumber(Double.parseDouble(quantity.getText()));
+            //ing.setName(ingredientTitle.getText());
+            //ing.setNumber(Double.parseDouble(quantity.getText()));
             //ing.setType(ingTypes.getValue());
             
             data.add(ing);
@@ -103,22 +103,20 @@ public class MakeRecipeController {
             ingredientList.setItems(data);
             ingredientList.setCellFactory(new Callback<ListView<Ingredient>, ListCell<Ingredient>>() {
                     
-                    @Override
-                    public ListCell<Ingredient> call(ListView<Ingredient> param){
+                @Override
+                public ListCell<Ingredient> call(ListView<Ingredient> param){
                     ListCell<Ingredient> cell = new ListCell<Ingredient>(){
                         @Override
                         public void updateItem(Ingredient ing, boolean empty) {
                             super.updateItem(ing, empty);
                             if (ing != null){
-                                    setText(ing.getName());                                     
+                                setText(ing.getName());                                     
                             }
                         }
                     };   
-                        return cell;
-                    
-                    };
-
-                });
+                    return cell;                   
+                };
+            });
             
         }
         
@@ -148,7 +146,7 @@ public class MakeRecipeController {
 	 * @return
 	 */
 	public boolean isOkClicked() {
-		return okClicked;
+            return okClicked;
 	}
 	
 	/**
