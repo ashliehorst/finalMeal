@@ -30,7 +30,7 @@ public class ShoppingList {
     private static ShoppingList instance = new ShoppingList();
     
     public ShoppingList(){}
-    
+    // Error My test to add ingredients doesn't work now that shoppingList is static...
     public static ShoppingList getInstance() {
         shoppingList = new ArrayList();
         
@@ -58,7 +58,7 @@ public class ShoppingList {
         ShoppingList.commonItems = commonItem;
     }  
     public void setShoppingList(List<Ingredient> shoppingList) {
-        ShoppingList.shoppingList = shoppingList;
+        this.shoppingList = shoppingList;
     }
           
     /**
@@ -90,7 +90,8 @@ public class ShoppingList {
      * @param schedule
      * @param scheduletogether
      */   
-    /*public void searchIngredientList(Schedule schedule) {
+    public void searchIngredientList(Schedule schedule) {
+        double num = 0;
         for (int count = 0; count < schedule.getWeekIngredientList().size(); count++) {
             Ingredient ing1 = schedule.getWeekIngredientList().get(count);
             for (int i = 0; i < schedule.getWeekIngredientList().size(); i++) {
@@ -98,35 +99,39 @@ public class ShoppingList {
                 if (count == i) {}
                 else {
                     if (ing1.getName().equals(ing2.getName())) {
-                        ing1.setNumber(ing1.getNumber() + ing2.getNumber());
+                        num += ing1.getNumber() + ing2.getNumber();
                         schedule.getWeekIngredientList().remove(ing2);  // Something is weird with this remove. The next value will be the same as the first one.
                         i--;
                     }
                 }
-            }          
+            }   
+            ing1.setNumber(num);       
         }    
-    }*/
+        
+    }
     
-    public void searchIngredientList(Schedule schedule) {
+   /* public void searchIngredientList(Schedule schedule) {
         boolean first = true;
         for (int count = 0; count < schedule.getWeekIngredientList().size(); count++) {
             Ingredient ing1 = schedule.getWeekIngredientList().get(count);
             if (first) {
-               shoppingList.add(ing1);
+               shoppingList.add(ing1); // this is adding by reference,  not by value
                first = false;
             }
             for (Ingredient list : shoppingList) {
                 list.getName();
                 if (list.getName().equals(ing1.getName())) {
                     // I think it has something to do with the fact that I am setting an ingredient number...
+                    // list and ing1 have the same address!!!!!
                     list.setNumber(ing1.getNumber() + list.getNumber());
                 } 
                 else {
                    shoppingList.add(ing1);
-                }   
+                }  
+                System.out.println("Did one for loop");
             }                      
         }
-    }          
+    }  */        
      
 }
     
