@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="630.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.MakeRecipeController">
+  <children>
+  <Button layoutX="76.0" layoutY="577.0" mnemonicParsing="false" onAction="#handleOk" prefWidth="80.0" text="OK" />
+  <Button layoutX="373.0" layoutY="577.0" mnemonicParsing="false" onAction="#handleCancel" prefWidth="80.0" text="Cancel" />
+      <Label layoutX="57.0" layoutY="27.0" text="Recepe title" />
+      <TextField fx:id="recipeTitle" layoutX="144.0" layoutY="22.0" />
+      <Label layoutX="52.0" layoutY="60.0" text="Ingridient title " />
+      <TextField fx:id="ingridientTitle" layoutX="144.0" layoutY="55.0" />
+      <Label layoutX="62.0" layoutY="96.0" text="Quantity " />
+      <Label layoutX="53.0" layoutY="140.0" text="Measurement" />
+      <TextField fx:id="quantity" layoutX="144.0" layoutY="91.0" />
+      <ComboBox layoutX="165.0" layoutY="135.0" prefWidth="150.0" />
+      <ListView fx:id="ingrideintList" layoutX="29.0" layoutY="285.0" prefHeight="200.0" prefWidth="200.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="337.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
+      <TextArea fx:id="directions" layoutX="303.0" layoutY="285.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="373.0" layoutY="257.0" text="Directions" />
+      <Label layoutX="89.0" layoutY="249.0" text="Ingridient List" />
+      <Button layoutX="230.0" layoutY="199.0" mnemonicParsing="false" onAction="#addIngredient" text="Add Ingridient" />
+  </children>
+</AnchorPane>
