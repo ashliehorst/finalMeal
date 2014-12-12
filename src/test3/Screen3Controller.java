@@ -113,10 +113,10 @@ public class Screen3Controller implements Initializable, ControlledScreen {
 //        recipe2.setDirections("Here are the directions");
 //        data.add(recipe2);
         
-        Recipe recipe;
-        recipe = Schedule.getInstance().getTempRecipe();
+        //Recipe recipe;
+        //recipe = Schedule.getInstance().getTempRecipe();
         //recipe.setIngredientList(Schedule.getInstance().getTempList());
-        Schedule.getInstance().getRecipeList().add(recipe);
+        //Schedule.getInstance().getRecipeList().add(recipe);
         //data.add(recipe);
         
         // Set the controller and passing an object to the controller
