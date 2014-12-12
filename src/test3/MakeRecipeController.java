@@ -66,6 +66,7 @@ public class MakeRecipeController {
 	public void setRecipe(Recipe recipe) {
             
             this.recipe = recipe;
+            recipeTitle.setText(recipe.getTitle());
             
 //		this.person = person;
 //		
@@ -92,7 +93,10 @@ public class MakeRecipeController {
 	@FXML
 	private void handleOk() {
             
-//		if (isInputValid()) {
+		//if (isInputValid()) {
+                    recipe.setTitle(recipeTitle.getText());
+                    System.out.println(recipe.getTitle());
+                //}
 //			person.setFirstName(firstNameField.getText());
 //			person.setLastName(lastNameField.getText());
 //			person.setStreet(streetField.getText());
