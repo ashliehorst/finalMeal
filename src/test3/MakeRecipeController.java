@@ -1,12 +1,21 @@
 package test3;
 
+import MealPlanner.Ingredient;
 import MealPlanner.Recipe;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Dialogs;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 //import ch.makery.address.model.Person;
 //import ch.makery.address.util.CalendarUtil;
 
@@ -22,28 +31,49 @@ public class MakeRecipeController {
         private TextField recipeTitle;
         
         @FXML
-        private TextField ingridientTitle;
+        private TextField ingredientTitle;
         @FXML
         private TextField quantity;
         @FXML
-        private ListView ingrideintList;
+        private ListView<Ingredient> ingredientList;
         @FXML
         private TextArea directions;
+        @FXML
+        private ComboBox<String> ingTypes;
+        private ObservableList<String> myComboBoxData = FXCollections.observableArrayList();
         
+        
+        private List<Ingredient> ingList;
 	private Stage dialogStage;
-	
+	private ObservableList<Ingredient> data;
 	private boolean okClicked = false;
 	
         private Recipe recipe;
+        
+        public MakeRecipeController(){
+            myComboBoxData.add("lbs");
+            myComboBoxData.add("tablespoons");
+            myComboBoxData.add("teaspoons");
+            myComboBoxData.add("cups");
+            myComboBoxData.add("ounces");
+            myComboBoxData.add("grams");
+            myComboBoxData.add("gallons");
+            myComboBoxData.add("quarts");
+            myComboBoxData.add("pints");
+            ingredientList = new ListView();
+            data = FXCollections.observableArrayList();
+        }
+        
 	/**
 	 * Initializes the controller class. This method is automatically called
 	 * after the fxml file has been loaded.
 	 */
 	@FXML
 	private void initialize() {
-		
+            ingTypes.setItems(myComboBoxData);
 	}
 	
+        
         
         
 	/**
@@ -54,7 +84,41 @@ public class MakeRecipeController {
 		this.dialogStage = dialogStage;
 	}
 	
-        public void addIngredient(){
+        /*
+        * AddIngredient Button
+        */
+        public void addIngredient(ActionEvent event){
+        
+            
+            Ingredient ing = new Ingredient();
+            ing.setName(ingredientTitle.getText());
+            ing.setNumber(Double.parseDouble(quantity.getText()));
+            //ing.setType(ingTypes.getValue());
+            
+            data.add(ing);
+            
+            ingredientTitle.setText("");
+            quantity.setText("");
+            
+            ingredientList.setItems(data);
+            ingredientList.setCellFactory(new Callback<ListView<Ingredient>, ListCell<Ingredient>>() {
+                    
+                    @Override
+                    public ListCell<Ingredient> call(ListView<Ingredient> param){
+                    ListCell<Ingredient> cell = new ListCell<Ingredient>(){
+                        @Override
+                        public void updateItem(Ingredient ing, boolean empty) {
+                            super.updateItem(ing, empty);
+                            if (ing != null){
+                                    setText(ing.getName());                                     
+                            }
+                        }
+                    };   
+                        return cell;
+                    
+                    };
+
+                });
             
         }
         
@@ -96,6 +160,8 @@ public class MakeRecipeController {
 		//if (isInputValid()) {
                     recipe.setTitle(recipeTitle.getText());
                     System.out.println(recipe.getTitle());
+                    
+                    recipe.setDirections(directions.getText());
                 //}
 //			person.setFirstName(firstNameField.getText());
 //			person.setLastName(lastNameField.getText());
