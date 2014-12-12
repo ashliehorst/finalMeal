@@ -25,6 +25,7 @@ import org.w3c.dom.Document;
 public class ScheduleTester {
     
     Schedule s = new Schedule();
+    // Error Now that shoppingList is private, I need to get it some other way
     ShoppingList shoppingList = new ShoppingList();
     FileManager files = new FileManager();
     Property prop = new Property();
@@ -95,8 +96,31 @@ public class ScheduleTester {
         for (Recipe schedule : s.getWeekList()) {
             System.out.println("Schedule: " + schedule.getDirections());
         }
+        /*
+        for (int i = 0; i < s.getRotateList().size(); i++) {
+            if (i == 1) 
+            s.getRotateList().remove(i);
+        }
         
-        s.makeWeekIngredient();
+         for (Recipe recipe : s.getRecipeList()){
+            // Add to roate list
+           // s.getRotateList().add(recipe);
+            System.out.println("Recipe2: " + recipe.getTitle());
+        }
+        
+        // Make sure that the rotate list works (it does)
+        for (Recipe rotate : s.getRotateList()) {
+            System.out.println("Rotate2: " + rotate.getTitle());
+        }
+           
+        // Now assign your schedule list
+        s.rotateRecipes();
+        
+        for (Recipe schedule : s.getWeekList()) {
+            System.out.println("Schedule2: " + schedule.getDirections());
+        }
+        */
+        /*s.makeWeekIngredient();
         
         // Ingredient list before the merge
         for (Ingredient ing1 : s.getWeekIngredientList()) {
@@ -109,7 +133,11 @@ public class ScheduleTester {
         for (Ingredient ing1 : shoppingList.getShoppingList()) {
             System.out.println("Ingredients after: " + ing1.getName() + " " + ing1.getNumber()); 
             
-        }
+        } 
+        
+        for (Ingredient ing1 : s.getWeekIngredientList()) {
+            System.out.println("Ingredients before2: " + ing1.getName() + " " + ing1.getNumber());         
+        }*/
         
         Document xml = null;
         xml = files.buildXmlDocument(s);
