@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -59,6 +60,40 @@ public class AddRecipeController implements Initializable {
     
     public boolean isOkClicked() {
 		return okClicked;
+	}
+    
+    public void filledRecipies (ActionEvent event)
+    {
+       // displayToListView();
+    }
+    
+    @FXML
+	private void handleOk() {
+            
+		//if (isInputValid()) {
+                    //recipe.setTitle(recipeTitle.getText());
+                    //System.out.println(recipe.getTitle());
+//                    Ingredient ing = new Ingredient();
+//                    ing.setName(ingredientTitle.getText());
+//                    ing.setNumber(Double.parseDouble(quantity.getText()));
+//                    recipe.getIngredientList().add(ing);
+//                    recipe.setDirections(directions.getText());
+//                    recipe.setIngredientList(sch.getTempList());
+//                    sch.getRecipeList().add(recipe);
+//                    
+                    
+                    
+                //}
+//			person.setFirstName(firstNameField.getText());
+//			person.setLastName(lastNameField.getText());
+//			person.setStreet(streetField.getText());
+//			person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
+//			person.setCity(cityField.getText());
+//			person.setBirthday(CalendarUtil.parse(birthdayField.getText()));
+//			
+			okClicked = true;
+			dialogStage.close();
+//		}
 	}
     
     public final void displayToListView(){
