@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
@@ -33,21 +34,26 @@ public class AddRecipeController implements Initializable {
     private Stage dialogStage;
     boolean okClicked = false;
     private ObservableList<Recipe> data;
-    private AddRecipeController controller;
+    
+    @FXML
     private ListView<Recipe> listView;
     
+    
+    public AddRecipeController(){
+        data = FXCollections.observableArrayList();
+        listView = new ListView<>();
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
     }    
-    
    
     public void setDialogStage(Stage dialogStage) {
 		this.dialogStage = dialogStage;       
 	}
     
+    @FXML
     public void addRecipeButton(ActionEvent even){
         
         okClicked = true;
@@ -62,9 +68,10 @@ public class AddRecipeController implements Initializable {
 		return okClicked;
 	}
     
-    public void filledRecipies (ActionEvent event)
+    @FXML
+    public void populateListView (ActionEvent event)
     {
-       // displayToListView();
+       displayToListView();
     }
     
     @FXML
@@ -79,29 +86,18 @@ public class AddRecipeController implements Initializable {
 //                    recipe.getIngredientList().add(ing);
 //                    recipe.setDirections(directions.getText());
 //                    recipe.setIngredientList(sch.getTempList());
-//                    sch.getRecipeList().add(recipe);
-//                    
-                    
-                    
-                //}
-//			person.setFirstName(firstNameField.getText());
-//			person.setLastName(lastNameField.getText());
-//			person.setStreet(streetField.getText());
-//			person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
-//			person.setCity(cityField.getText());
-//			person.setBirthday(CalendarUtil.parse(birthdayField.getText()));
-//			
-			okClicked = true;
-			dialogStage.close();
+//                    sch.getRecipeList().add(recipe);	
 //		}
 	}
     
+        /*
+        * DISPLAY TO LIST VIEW
+        */
     public final void displayToListView(){
-         data = FXCollections.observableArrayList();
          
          data.clear(); // clear items from listview
          
-         for (Recipe recipe : Schedule.getInstance().getRotateList()){
+         for (Recipe recipe : Schedule.getInstance().getRecipeList()){
              data.add(recipe);
          }
          
