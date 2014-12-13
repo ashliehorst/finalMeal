@@ -6,7 +6,6 @@ package MealPlanner;
  * and open the template in the editor.
  */
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,21 +22,23 @@ import java.util.Map;
 public class ShoppingList {
     
     private static String commonItems;
-    private static List<Ingredient> shoppingList;
+    private List<Ingredient> shoppingList;
     
     private static Map<Ingredient, Ingredient> ingredientMap;
     
     private static ShoppingList instance = new ShoppingList();
     
-    public ShoppingList(){}
+    public ShoppingList(){
+    shoppingList = new ArrayList();
+    }
     // Error My test to add ingredients doesn't work now that shoppingList is static...
-    public static ShoppingList getInstance() {
+   /* public static ShoppingList getInstance() {
         shoppingList = new ArrayList();
         
         commonItems = "";
         ingredientMap = new HashMap<>();
         return instance;
-    }
+    }*/
     
 
     /**
@@ -89,50 +90,40 @@ public class ShoppingList {
      * Make xml for ingredients to easily add stuff
      * @param schedule
      * @param scheduletogether
-     */   
+     */     
     public void searchIngredientList(Schedule schedule) {
-        double num = 0;
-        for (int count = 0; count < schedule.getWeekIngredientList().size(); count++) {
-            Ingredient ing1 = schedule.getWeekIngredientList().get(count);
-            for (int i = 0; i < schedule.getWeekIngredientList().size(); i++) {
-                Ingredient ing2 = schedule.getWeekIngredientList().get(i);
-                if (count == i) {}
-                else {
-                    if (ing1.getName().equals(ing2.getName())) {
-                        num += ing1.getNumber() + ing2.getNumber();
-                        schedule.getWeekIngredientList().remove(ing2);  // Something is weird with this remove. The next value will be the same as the first one.
-                        i--;
-                    }
-                }
-            }   
-            ing1.setNumber(num);       
-        }    
-        
-    }
-    
-   /* public void searchIngredientList(Schedule schedule) {
         boolean first = true;
         for (int count = 0; count < schedule.getWeekIngredientList().size(); count++) {
             Ingredient ing1 = schedule.getWeekIngredientList().get(count);
             if (first) {
-               shoppingList.add(ing1); // this is adding by reference,  not by value
+               Ingredient shop = new Ingredient();
+               shop.setName(ing1.getName());
+               shop.setNumber(ing1.getNumber());
+               shop.setType(ing1.getType()); 
+               shoppingList.add(shop);
                first = false;
             }
-            for (Ingredient list : shoppingList) {
-                list.getName();
-                if (list.getName().equals(ing1.getName())) {
-                    // I think it has something to do with the fact that I am setting an ingredient number...
-                    // list and ing1 have the same address!!!!!
-                    list.setNumber(ing1.getNumber() + list.getNumber());
-                } 
-                else {
-                   shoppingList.add(ing1);
-                }  
-                System.out.println("Did one for loop");
+            else {
+                for (int i = 0; i <= shoppingList.size(); i++) {
+                    if (i == shoppingList.size()) {
+                        Ingredient shop = new Ingredient();
+                        shop.setName(ing1.getName());
+                        shop.setNumber(ing1.getNumber());
+                        shop.setType(ing1.getType());
+                        shoppingList.add(shop);
+                        break;
+                    }
+                    Ingredient list = shoppingList.get(i);
+                    if (list.getName().equals(ing1.getName())) {
+                        list.setNumber(ing1.getNumber() + list.getNumber());
+                        // If it does equal, there is no point in looking through the rest of the list
+                        break;
+                    }  
+                    else {}   
+                }
             }                      
-        }
-    }  */        
-     
+        } // end of first for loop
+    }              
 }
     
     

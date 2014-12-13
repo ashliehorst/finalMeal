@@ -61,21 +61,21 @@ public class ScheduleTester {
         }
         
         // Make sure that the rotate list works (it does)
-        for (Recipe rotate : s.getRotateList()) {
+        /*for (Recipe rotate : s.getRotateList()) {
             System.out.println("Rotate: " + rotate.getTitle());
-        }
+        }*/
             
         // Now assign your schedule list
         s.rotateRecipes();
         
         // Make sure that your schedule list works 
         //   with proper rotations (it does!!!)
-        for (Recipe schedule : s.getWeekList()) {
+       /* for (Recipe schedule : s.getWeekList()) {
             System.out.println("Schedule: " + schedule.getDirections());
-        }
+        }*/
 
       
-        /*s.makeWeekIngredient();
+        s.makeWeekIngredient();
         
         // Ingredient list before the merge
         for (Ingredient ing1 : s.getWeekIngredientList()) {
@@ -90,15 +90,11 @@ public class ScheduleTester {
             
         } 
         
-        for (Ingredient ing1 : s.getWeekIngredientList()) {
-            System.out.println("Ingredients before2: " + ing1.getName() + " " + ing1.getNumber());         
-        }*/
-        
         Document xml = null;
         xml = files.buildXmlDocument(s);
         files.saveXmlDocument(xml, file);
 
-        s.iterateThruSchedule();
+//        s.iterateThruSchedule();
     }
     
 

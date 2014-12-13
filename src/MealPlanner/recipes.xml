@@ -2,14 +2,17 @@
 <recipes>
   <recipe title="Pasta">
     <ingredient name="Flour" number="1.0" type="cup"/>
+    <ingredient name="Rice" number="1.0" type="cup"/>
     <directions>I want pasta.</directions>
   </recipe>
   <recipe title="Pho">
     <ingredient name="Flour" number="1.0" type="cup"/>
+    <ingredient name="Fish" number="1.0" type="cup"/>
     <directions>I want pho.</directions>
   </recipe>
   <recipe title="Cake">
     <ingredient name="Flour" number="1.0" type="cup"/>
+    <ingredient name="Sugar" number="2.0" type="cup"/>
     <directions>I want cake.</directions>
   </recipe>
 </recipes>
