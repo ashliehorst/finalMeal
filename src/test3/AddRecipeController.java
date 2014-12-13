@@ -9,6 +9,8 @@ import MealPlanner.Recipe;
 import MealPlanner.Schedule;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -55,6 +57,10 @@ public class AddRecipeController implements Initializable {
     
     @FXML
     public void addRecipeButton(ActionEvent even){
+        
+        listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+    Schedule.getInstance().getRotateList().add(newValue);
+});
         
         okClicked = true;
         dialogStage.close();
