@@ -12,8 +12,8 @@
   <Button layoutX="373.0" layoutY="577.0" mnemonicParsing="false" onAction="#handleCancel" prefWidth="80.0" text="Cancel" />
       <Label layoutX="57.0" layoutY="27.0" text="Recepe title" />
       <TextField fx:id="recipeTitle" layoutX="144.0" layoutY="22.0" />
-      <Label layoutX="52.0" layoutY="60.0" text="Ingridient title " />
-      <TextField fx:id="ingridientTitle" layoutX="144.0" layoutY="55.0" />
+      <Label layoutX="52.0" layoutY="60.0" text="Ingredient title " />
+      <TextField fx:id="ingredientTitle" layoutX="144.0" layoutY="55.0" />
       <Label layoutX="62.0" layoutY="96.0" text="Quantity " />
       <Label layoutX="53.0" layoutY="140.0" text="Measurement" />
       <TextField fx:id="quantity" layoutX="144.0" layoutY="91.0" />

@@ -24,16 +24,14 @@ import org.w3c.dom.Document;
  */
 public class ScheduleTester {
     
-    Schedule s = new Schedule();
-    // Error Now that shoppingList is private, I need to get it some other way
-    ShoppingList shoppingList = new ShoppingList();
+    Schedule s = Schedule.getInstance();
+    ShoppingList shoppingList = ShoppingList.getInstance();
     FileManager files = new FileManager();
     Property prop = new Property();
         
     public ScheduleTester() {
     }
-
-    
+  
     public void recipeTest() {
         Recipe spag = new Recipe();
         spag.setTitle("1");

@@ -19,29 +19,46 @@ import java.util.List;
  */
 public class Schedule {
     
-    private List<Recipe> rotateList;
-    private List<Recipe> recipeList;
-    private List<Recipe> weekList;
-    private List<Ingredient> weekIngredientList;
-    private int count;
-    private boolean flag;
+    private static List<Recipe> rotateList;
+    private static List<Recipe> recipeList;
+    private static List<Recipe> weekList;
+    private static List<Ingredient> weekIngredientList;
+    private static List<Ingredient> tempList;
+    private static Recipe tempRecipe;
+
+    
+    private static int count;
+    private static boolean flag;
+    
+    private static Schedule instance = new Schedule();
       
     /**
      * SCHEDULE CONSTRUCTOR
      */
-    public Schedule() {
+    private Schedule() {
         recipeList = new ArrayList();
         rotateList = new ArrayList();
         weekList = new ArrayList();
         weekIngredientList = new ArrayList();
+        tempList = new ArrayList();
+        tempRecipe = new Recipe();
         count = 0;
         flag = false;
     }
+    
+    public static Schedule getInstance(){
+        return instance;
+    }
 
+    
+    
+    
     /**
      * GETTERS
      * @return 
      */
+    public Recipe getTempRecipe() { return tempRecipe;}
+    public List<Ingredient> getTempList() {return tempList;}
     public List<Recipe> getRecipeList() {return recipeList;}
     public int getCount() {return count;}
     public List<Recipe> getWeekList() {return weekList;}
@@ -50,8 +67,10 @@ public class Schedule {
  
     /**
      * SETTERS 
-     * @param recipeList
+     * 
      */ 
+    public void setTempRecipe(Recipe rec) { tempRecipe = rec;}
+    public void setTempList(List<Ingredient> temp) {this.tempList = temp;}
     public void setRecipeList(List<Recipe> recipeList) {this.recipeList = recipeList;}
     public void setCount(int count) {this.count = count;}
     public void setWeekList(List<Recipe> weekList) {this.weekList = weekList;}

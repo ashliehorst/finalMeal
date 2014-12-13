@@ -6,11 +6,21 @@
 package test3;
 
 import MealPlanner.Recipe;
+import MealPlanner.Schedule;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -26,16 +36,35 @@ public class AddRecipeController implements Initializable {
     private Stage dialogStage;
     boolean okClicked = false;
     private ObservableList<Recipe> data;
-
+    
+    @FXML
+    private ListView<Recipe> listView;
+    
+    
+    public AddRecipeController(){
+        data = FXCollections.observableArrayList();
+        listView = new ListView<>();
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
    
     public void setDialogStage(Stage dialogStage) {
-		this.dialogStage = dialogStage;
+		this.dialogStage = dialogStage;       
 	}
+    
+    @FXML
+    public void addRecipeButton(ActionEvent even){
+        
+        listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+    Schedule.getInstance().getRotateList().add(newValue);
+});
+        
+        okClicked = true;
+        dialogStage.close();
+    }
     
     public void setRecipe(Recipe recipe) {
 
@@ -44,4 +73,59 @@ public class AddRecipeController implements Initializable {
     public boolean isOkClicked() {
 		return okClicked;
 	}
+    
+    @FXML
+    public void populateListView (ActionEvent event)
+    {
+       displayToListView();
+    }
+    
+    @FXML
+	private void handleOk() {
+            
+		//if (isInputValid()) {
+                    //recipe.setTitle(recipeTitle.getText());
+                    //System.out.println(recipe.getTitle());
+//                    Ingredient ing = new Ingredient();
+//                    ing.setName(ingredientTitle.getText());
+//                    ing.setNumber(Double.parseDouble(quantity.getText()));
+//                    recipe.getIngredientList().add(ing);
+//                    recipe.setDirections(directions.getText());
+//                    recipe.setIngredientList(sch.getTempList());
+//                    sch.getRecipeList().add(recipe);	
+//		}
+	}
+    
+        /*
+        * DISPLAY TO LIST VIEW
+        */
+    public final void displayToListView(){
+         
+         data.clear(); // clear items from listview
+         
+         for (Recipe recipe : Schedule.getInstance().getRecipeList()){
+             data.add(recipe);
+         }
+         
+        listView.setItems(data);
+        listView.setCellFactory(new Callback<ListView<Recipe>, ListCell<Recipe>>() {
+                    
+                    @Override
+                    public ListCell<Recipe> call(ListView<Recipe> param){
+                    ListCell<Recipe> cell = new ListCell<Recipe>(){
+                        @Override
+                        public void updateItem(Recipe recipe, boolean empty) {
+                            super.updateItem(recipe, empty);
+                            if (recipe != null){
+                                    setText(recipe.getTitle());                                     
+                            }
+                        }
+                    };   
+                        return cell;
+                    
+                    };
+
+                });
+     }
+    
 }

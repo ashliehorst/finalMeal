@@ -3,6 +3,7 @@ package test3;
 
 import MealPlanner.Ingredient;
 import MealPlanner.Recipe;
+import MealPlanner.Schedule;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,9 @@ public class Screen3Controller implements Initializable, ControlledScreen {
     ScreensController myController;
         private Stage primaryStage;
         private ObservableList<Recipe> data;
+       // Schedule sch = Schedule.getInstance();
+        
+        
 
     /**
      * Initializes the controller class.
@@ -46,7 +50,6 @@ public class Screen3Controller implements Initializable, ControlledScreen {
     
     @FXML
     private ListView<Recipe> listView;
-    
 
     //Home Screen
     @FXML
@@ -77,8 +80,7 @@ public class Screen3Controller implements Initializable, ControlledScreen {
             
         data = FXCollections.observableArrayList(); 
         
-        Recipe recipe = new Recipe();
-        Recipe recipe2 = new Recipe();
+        //Recipe recipe2 = new Recipe();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MakeRecipe.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
         Stage dialogStage = new Stage();
@@ -88,36 +90,35 @@ public class Screen3Controller implements Initializable, ControlledScreen {
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
         
-//        List<Ingredient> ingList = new ArrayList<>();
-//        Ingredient ing1 = new Ingredient();
-//        ing1.setName("Tomato Sauce");
-//        ing1.setNumber(2.20);
-//        ing1.setType("lbs");
-//        ingList.add(ing1);
-//        
-//        recipe.setTitle("Spaghetti");
-//        recipe.setIngredientList(ingList);
-//        recipe.setDirections("Here are the directions");
-//        data.add(recipe);
-//        
-//        Ingredient ing2 = new Ingredient();
-//        ing2.setName("Tomato Sauce");
-//        ing2.setNumber(2.20);
-//        ing2.setType("lbs");
-//        ingList.add(ing2);
-//        
-//        recipe2.setTitle("Chicken");
-//        recipe2.setIngredientList(ingList);
-//        recipe2.setDirections("Here are the directions");
-//        data.add(recipe2);
         
         // Set the controller and passing an object to the controller
         MakeRecipeController controller = loader.getController();
         controller.setDialogStage(dialogStage);
-        controller.setRecipe(recipe);
+        //controller.setRecipe(recipe);
         
-        //ObservableList<Recipe> data = FXCollections.observableArrayList();
+            
         
+        // Show the dialog and wait until the user closes it
+        dialogStage.showAndWait();
+        
+        displayToListView();
+        
+        return controller.isOkClicked();
+
+        } catch (Exception ex){
+        ex.printStackTrace();
+        return false;
+        }
+}
+     
+     public final void displayToListView(){
+         
+         data.clear(); // clear items from listview
+         
+         for (Recipe recipe : Schedule.getInstance().getRecipeList()){
+             data.add(recipe);
+         }
+         
         listView.setItems(data);
         listView.setCellFactory(new Callback<ListView<Recipe>, ListCell<Recipe>>() {
                     
@@ -137,18 +138,6 @@ public class Screen3Controller implements Initializable, ControlledScreen {
                     };
 
                 });
-        
-            
-        
-        // Show the dialog and wait until the user closes it
-        dialogStage.showAndWait();
-        
-        return controller.isOkClicked();
-
-        } catch (Exception ex){
-        ex.printStackTrace();
-        return false;
-        }
-}
+     }
      
 }

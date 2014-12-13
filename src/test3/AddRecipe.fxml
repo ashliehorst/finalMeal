@@ -7,12 +7,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="380.0" prefWidth="437.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="test3.AddRecipeController">
+<AnchorPane id="AnchorPane" prefHeight="380.0" prefWidth="437.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.AddRecipeController">
     <stylesheets>
         <URL value="@Addrecipe.css" />
     </stylesheets>
    <children>
-      <ListView layoutX="3.0" layoutY="60.0" prefHeight="333.0" prefWidth="437.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Button layoutX="279.0" layoutY="340.0" mnemonicParsing="false" text="Add to Rotation List" />
+      <ListView fx:id="listView" layoutX="3.0" layoutY="60.0" prefHeight="333.0" prefWidth="437.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button layoutX="23.0" layoutY="340.0" mnemonicParsing="false" onAction="#addRecipeButton" text="Add to Rotation List" />
+      <Button layoutX="272.0" layoutY="340.0" mnemonicParsing="false" onAction="#populateListView" text="Load the Recipes" />
    </children>
 </AnchorPane>

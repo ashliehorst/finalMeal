@@ -2,6 +2,8 @@ package test3;
 
 import MealPlanner.Ingredient;
 import MealPlanner.Recipe;
+import MealPlanner.Schedule;
+import MealPlanner.ShoppingList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,11 +27,9 @@ import javafx.util.Callback;
  * @author 
  */
 public class MakeRecipeController {
-	
-    
+
 	@FXML
         private TextField recipeTitle;
-        
         @FXML
         private TextField ingredientTitle;
         @FXML
@@ -49,6 +49,7 @@ public class MakeRecipeController {
 	private boolean okClicked = false;
 	
         private Recipe recipe;
+        Schedule sch = Schedule.getInstance();
         
         public MakeRecipeController(){
             myComboBoxData.add("lbs");
@@ -61,6 +62,8 @@ public class MakeRecipeController {
             myComboBoxData.add("quarts");
             myComboBoxData.add("pints");
             ingredientList = new ListView();
+            recipe = new Recipe();
+            
             data = FXCollections.observableArrayList();
         }
         
@@ -73,8 +76,6 @@ public class MakeRecipeController {
             ingTypes.setItems(myComboBoxData);
 	}
 	
-        
-        
         
 	/**
 	 * Sets the stage of this dialog.
@@ -89,16 +90,17 @@ public class MakeRecipeController {
         */
         public void addIngredient(ActionEvent event){
         
-            
             Ingredient ing = new Ingredient();
-            //ing.setName(ingredientTitle.getText());
-            //ing.setNumber(Double.parseDouble(quantity.getText()));
-            //ing.setType(ingTypes.getValue());
-            
-            data.add(ing);
+            ing.setName(ingredientTitle.getText());
+            ing.setNumber(Double.parseDouble(quantity.getText()));
+            ing.setType(ingTypes.getValue());
             
             ingredientTitle.setText("");
             quantity.setText("");
+            
+            sch.getTempList().add(ing);
+            
+            data.add(ing);
             
             ingredientList.setItems(data);
             ingredientList.setCellFactory(new Callback<ListView<Ingredient>, ListCell<Ingredient>>() {
@@ -118,6 +120,8 @@ public class MakeRecipeController {
                 };
             });
             
+            
+            
         }
         
 	/**
@@ -125,10 +129,10 @@ public class MakeRecipeController {
 	 * 
 	 * @param recipe
 	 */
-	public void setRecipe(Recipe recipe) {
+	/*public void setRecipe(Recipe recipe) {
             
             this.recipe = recipe;
-            recipeTitle.setText(recipe.getTitle());
+            
             
 //		this.person = person;
 //		
@@ -140,6 +144,8 @@ public class MakeRecipeController {
 //		birthdayField.setText(CalendarUtil.format(person.getBirthday()));
 //		birthdayField.setPromptText("yyyy-mm-dd");
 	}
+        */
+        
 	
 	/**
 	 * Returns true if the user clicked OK, false otherwise.
@@ -158,8 +164,16 @@ public class MakeRecipeController {
 		//if (isInputValid()) {
                     recipe.setTitle(recipeTitle.getText());
                     System.out.println(recipe.getTitle());
-                    
+//                    Ingredient ing = new Ingredient();
+//                    ing.setName(ingredientTitle.getText());
+//                    ing.setNumber(Double.parseDouble(quantity.getText()));
+//                    recipe.getIngredientList().add(ing);
                     recipe.setDirections(directions.getText());
+                    recipe.setIngredientList(sch.getTempList());
+                    sch.getRecipeList().add(recipe);
+                    
+                    
+                    
                 //}
 //			person.setFirstName(firstNameField.getText());
 //			person.setLastName(lastNameField.getText());
