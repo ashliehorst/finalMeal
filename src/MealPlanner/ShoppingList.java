@@ -22,23 +22,20 @@ import java.util.Map;
 public class ShoppingList {
     
     private static String commonItems;
-    private List<Ingredient> shoppingList;
+    private static List<Ingredient> shoppingList;
     
     private static Map<Ingredient, Ingredient> ingredientMap;
     
     private static ShoppingList instance = new ShoppingList();
     
-    public ShoppingList(){
-    shoppingList = new ArrayList();
-    }
-    // Error My test to add ingredients doesn't work now that shoppingList is static...
-   /* public static ShoppingList getInstance() {
+    public ShoppingList(){}
+    public static ShoppingList getInstance() {
         shoppingList = new ArrayList();
         
         commonItems = "";
         ingredientMap = new HashMap<>();
         return instance;
-    }*/
+    }
     
 
     /**
@@ -59,7 +56,7 @@ public class ShoppingList {
         ShoppingList.commonItems = commonItem;
     }  
     public void setShoppingList(List<Ingredient> shoppingList) {
-        this.shoppingList = shoppingList;
+        ShoppingList.shoppingList = shoppingList;
     }
           
     /**

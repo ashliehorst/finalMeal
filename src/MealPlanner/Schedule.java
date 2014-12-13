@@ -151,8 +151,7 @@ public class Schedule {
         for (Recipe rec : weekList) {
             for (Ingredient ing : rec.getIngredientList()) {
                 weekIngredientList.add(ing);
-            }
-            
+            }            
         }
     }
 }
