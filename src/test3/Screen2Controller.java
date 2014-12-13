@@ -49,9 +49,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
     ScreensController myController;
     private ObservableList<Recipe> data;
     
-    ShoppingList sl = ShoppingList.getInstance();
-    
-    
+    ShoppingList sl = ShoppingList.getInstance(); 
     
   
     @Override
@@ -113,6 +111,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
         
+        displayToListView();
         
         
         return controller.isOkClicked();
@@ -154,6 +153,10 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         result.ifPresent(name -> System.out.println("Your name: " + name));
     }
     
+    
+    /*
+    * Display rotation list to listview
+    */
     public final void displayToListView(){
          
          data.clear(); // clear items from listview

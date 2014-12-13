@@ -32,27 +32,25 @@ public class AddRecipeController implements Initializable {
     private Stage dialogStage;
     boolean okClicked = false;
     private ObservableList<Recipe> data;
-    
+    private AddRecipeController controller;
     private ListView<Recipe> listView;
-
     
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }    
     
-        
    
     public void setDialogStage(Stage dialogStage) {
-		this.dialogStage = dialogStage;
+		this.dialogStage = dialogStage;       
 	}
     
     public void addRecipeButton(ActionEvent even){
         
-        displayToListView();
-        
-        
+        okClicked = true;
+        dialogStage.close();
     }
     
     public void setRecipe(Recipe recipe) {
@@ -68,7 +66,7 @@ public class AddRecipeController implements Initializable {
          
          data.clear(); // clear items from listview
          
-         for (Recipe recipe : Schedule.getInstance().getRecipeList()){
+         for (Recipe recipe : Schedule.getInstance().getRotateList()){
              data.add(recipe);
          }
          
