@@ -95,6 +95,7 @@ public class ShoppingList {
         boolean first = true;
         for (int count = 0; count < schedule.getWeekIngredientList().size(); count++) {
             Ingredient ing1 = schedule.getWeekIngredientList().get(count);
+            // The shoppingList has to have at least one thing in it to traverse
             if (first) {
                Ingredient shop = new Ingredient();
                shop.setName(ing1.getName());
@@ -105,21 +106,24 @@ public class ShoppingList {
             }
             else {
                 for (int i = 0; i <= shoppingList.size(); i++) {
+                    // If you are at the end and it didn't hit the break in the 
+                    //   other if statement, that means it is not in the list
                     if (i == shoppingList.size()) {
                         Ingredient shop = new Ingredient();
                         shop.setName(ing1.getName());
                         shop.setNumber(ing1.getNumber());
                         shop.setType(ing1.getType());
                         shoppingList.add(shop);
+                        // You don't want to continue and make the Ingredient list
                         break;
                     }
                     Ingredient list = shoppingList.get(i);
                     if (list.getName().equals(ing1.getName())) {
                         list.setNumber(ing1.getNumber() + list.getNumber());
-                        // If it does equal, there is no point in looking through the rest of the list
+                        // If it's equal, there is no point in looking through the rest of the list
                         break;
                     }  
-                    else {}   
+                    else {} // Hits else to traverse and keep comparing
                 }
             }                      
         } // end of first for loop

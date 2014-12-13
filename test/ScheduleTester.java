@@ -94,7 +94,7 @@ public class ScheduleTester {
         xml = files.buildXmlDocument(s);
         files.saveXmlDocument(xml, file);
 
-//        s.iterateThruSchedule();
+        s.iterateThruSchedule();
     }
     
 
