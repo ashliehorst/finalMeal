@@ -23,8 +23,8 @@ import org.testng.annotations.Test;
  */
 public class ScheduleTester {
     
-    Schedule s = new Schedule();
-    ShoppingList shoppingList = new ShoppingList();
+    Schedule s = Schedule.getInstance();
+    ShoppingList shoppingList = ShoppingList.getInstance();
     FileManager files = new FileManager();
     Property prop = new Property();
         
