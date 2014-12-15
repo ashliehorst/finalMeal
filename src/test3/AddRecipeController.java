@@ -37,6 +37,7 @@ public class AddRecipeController implements Initializable {
     boolean okClicked = false;
     private ObservableList<Recipe> data;
     
+    
     @FXML
     private ListView<Recipe> listView;
     
@@ -56,11 +57,9 @@ public class AddRecipeController implements Initializable {
 	}
     
     @FXML
-    public void addRecipeButton(ActionEvent even){
-        
-        listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-    Schedule.getInstance().getRotateList().add(newValue);
-});
+    public void addRecipeButton(ActionEvent even){        
+        Recipe recipeGet = listView.getSelectionModel().getSelectedItem();
+        Schedule.getInstance().getRotateList().add(recipeGet);
         
         okClicked = true;
         dialogStage.close();
