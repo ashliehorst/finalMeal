@@ -48,6 +48,8 @@ public class Screen2Controller implements Initializable , ControlledScreen {
     private Stage primaryStage;
     ScreensController myController;
     private ObservableList<Recipe> data;
+    private AddRecipeController arc;
+    
     
     ShoppingList sl = ShoppingList.getInstance(); 
     
@@ -84,7 +86,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
        myController.setScreen(ScreensFramework.screen5ID);
     }
     
-
+    @FXML
     public boolean button1(ActionEvent even){
         try {
             
@@ -115,11 +117,13 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         
         
         return controller.isOkClicked();
+        
 
         } catch (Exception ex){
         ex.printStackTrace();
         return false;
         }
+        
        // label1.setText("something");
         //tab1.
 //        label2.setText("Well something should change");
