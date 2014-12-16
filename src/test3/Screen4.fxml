@@ -43,7 +43,7 @@
          <children>
             <Label prefHeight="33.0" prefWidth="33.0" text="Sun" />
             <Label prefHeight="37.0" prefWidth="35.0" style="-fx-border-color: black;" stylesheets="@css.css" text="Mon" />
-            <Label prefHeight="37.0" prefWidth="33.0" text="Tus" />
+            <Label prefHeight="37.0" prefWidth="33.0" text="Tue" />
             <Label prefHeight="37.0" prefWidth="33.0" text="Wed" />
             <Label prefHeight="37.0" prefWidth="33.0" text="Thu" />
             <Label prefHeight="37.0" prefWidth="33.0" text="Fri" />
@@ -52,13 +52,13 @@
       </VBox>
       <VBox layoutX="287.0" layoutY="125.0" prefHeight="256.0" prefWidth="222.0">
          <children>
-            <Label prefHeight="37.0" prefWidth="240.0" text="Label" />
-            <Label layoutX="10.0" layoutY="10.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
-            <Label layoutX="10.0" layoutY="47.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
-            <Label layoutX="10.0" layoutY="84.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
-            <Label layoutX="10.0" layoutY="121.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
-            <Label layoutX="10.0" layoutY="158.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
-            <Label layoutX="10.0" layoutY="195.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label fx:id="sun" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
+            <Label fx:id="mon" layoutX="10.0" layoutY="10.0" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
+            <Label fx:id="tue" layoutX="10.0" layoutY="47.0" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
+            <Label fx:id="wed" layoutX="10.0" layoutY="84.0" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
+            <Label fx:id="thr" layoutX="10.0" layoutY="121.0" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
+            <Label fx:id="fri" layoutX="10.0" layoutY="158.0" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
+            <Label fx:id="sat" layoutX="10.0" layoutY="195.0" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
          </children>
       </VBox>
   </children>
