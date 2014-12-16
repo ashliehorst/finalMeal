@@ -40,6 +40,8 @@ public class Screen5Controller implements Initializable, ControlledScreen {
     @FXML
     private TextArea commonList;
     
+    //@FXML
+    //private ListView<Ingredient> listView;
     private ObservableList<Ingredient> data;
     
     /**
@@ -49,9 +51,9 @@ public class Screen5Controller implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        listView = new ListView<>();
-        commonList.setText("Enter common items here...");
-        data = FXCollections.observableArrayList();
+       // listView = new ListView<>();
+        //commonList.setText("Enter common items here...");
+        ingData = FXCollections.observableArrayList();
         displayToListView();
     }    
     
@@ -84,11 +86,10 @@ public class Screen5Controller implements Initializable, ControlledScreen {
          
         ingData.clear(); // clear items from listview
          
-        /*for (Recipe recipe : s.getRecipeList()){
+        for (Recipe recipe : s.getRecipeList()){
             // Add to roate list
             s.getRotateList().add(recipe);
-            System.out.println("Recipe: " + recipe.getTitle());
-        }*/
+        }
         s.rotateRecipes();
         s.makeWeekIngredient();       
         shoppingList.searchIngredientList(s);
@@ -115,5 +116,42 @@ public class Screen5Controller implements Initializable, ControlledScreen {
                 return cell;                   
             };
         });
-     }   
+     } 
+    
+   /* public final void displayToListView(){
+         
+        
+         data.clear(); // clear items from listview
+         
+         Schedule.getInstance().setWeekList(Schedule.getInstance().getRotateList());
+         Schedule.getInstance().makeWeekIngredient();
+         ShoppingList.getInstance().searchIngredientList(Schedule.getInstance());
+         
+         
+         for (Ingredient ing : ShoppingList.getInstance().getShoppingList()){
+             data.add(ing);
+         }
+          
+         
+        listView.setItems(data);
+        listView.setCellFactory(new Callback<ListView<Ingredient>, ListCell<Ingredient>>() {
+                    
+                    @Override
+                    public ListCell<Ingredient> call(ListView<Ingredient> param){
+                    ListCell<Ingredient> cell = new ListCell<Ingredient>(){
+                        @Override
+                        public void updateItem(Ingredient ingredient, boolean empty) {
+                            super.updateItem(ingredient, empty);
+                            if (ingredient != null){
+                                    setText(ingredient.getName());                                     
+                            }
+                        }
+                    };   
+                        return cell;
+                    
+                    };
+
+                });
+     }*/
+    
 }
