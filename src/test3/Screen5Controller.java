@@ -40,10 +40,6 @@ public class Screen5Controller implements Initializable, ControlledScreen {
     @FXML
     private TextArea commonList;
     
-    //@FXML
-    //private ListView<Ingredient> listView;
-    private ObservableList<Ingredient> data;
-    
     /**
      * Initializes the controller class.
      * @param url
@@ -51,8 +47,7 @@ public class Screen5Controller implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       // listView = new ListView<>();
-        //commonList.setText("Enter common items here...");
+        commonList.setText("Enter common items here...");
         ingData = FXCollections.observableArrayList();
         displayToListView();
     }    
@@ -86,10 +81,6 @@ public class Screen5Controller implements Initializable, ControlledScreen {
          
         ingData.clear(); // clear items from listview
          
-        for (Recipe recipe : s.getRecipeList()){
-            // Add to roate list
-            s.getRotateList().add(recipe);
-        }
         s.rotateRecipes();
         s.makeWeekIngredient();       
         shoppingList.searchIngredientList(s);

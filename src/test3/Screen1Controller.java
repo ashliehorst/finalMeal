@@ -2,6 +2,11 @@
 
 package test3;
 
+import MealPlanner.FileManager;
+import MealPlanner.Ingredient;
+import MealPlanner.Property;
+import MealPlanner.Recipe;
+import MealPlanner.Schedule;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -33,7 +38,16 @@ public class Screen1Controller implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        Property prop = new Property();
+        String file = prop.getFile();
+        Schedule s = Schedule.getInstance();
+        FileManager fm = new FileManager();
+        fm.readXmlFile(s, file);
+        
+        for (Recipe recipe : s.getRecipeList()){
+            // Add to roate list
+            s.getRotateList().add(recipe);
+        }
     }
     
     public void setScreenParent(ScreensController screenParent){
@@ -90,5 +104,16 @@ public class Screen1Controller implements Initializable, ControlledScreen {
         }
         // The Java 8 way to get the response value (with lambda expression).
         result.ifPresent(name -> System.out.println("Your name: " + name));
+    }
+  
+    public final void displayToTextArea() {
+        Schedule s = Schedule.getInstance();
+        
+        String ingList = "Ingredients: \n";
+        Recipe todaysMeal = s.iterateThruSchedule();
+        for (Ingredient ing : todaysMeal.getIngredientList()) {
+            ingList += Double.toString(ing.getNumber()) + " " + ing.getType() + " " + ing.getName() + "\n";
+        }
+       // textarea.setText(todaysMeal.getTitle());
     }
 }
