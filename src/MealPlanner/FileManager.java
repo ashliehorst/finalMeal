@@ -37,15 +37,6 @@ import org.xml.sax.SAXException;
  */
 public class FileManager {
     
-     /**
-     * TEST RUN
-     * 
-     * @param args
-     */
-    public static void main(String[] args) {
-        new FileManager().run();
-    }
-    
     /**
      * BUILD XML DOCUMENT
      * @param schedule
@@ -71,14 +62,14 @@ public class FileManager {
                     
                     for (Ingredient ingredient : recipe.getIngredientList()) {
                         Element ing = doc.createElement("ingredient");
-                        rootElement.appendChild(ing);
+                        rec.appendChild(ing);
                         ing.setAttribute("name", ingredient.getName());
                         ing.setAttribute("number", Double.toString(ingredient.getNumber()));
                         ing.setAttribute("type", ingredient.getType());                 
                     }
                     
                     Element directions = doc.createElement("directions");  
-                    rootElement.appendChild(directions);
+                    rec.appendChild(directions);
                     directions.appendChild(doc.createTextNode(recipe.getDirections()));
                 } 
 	  } catch (ParserConfigurationException pce) {

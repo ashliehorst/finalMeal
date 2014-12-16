@@ -5,9 +5,6 @@
  */
 package MealPlanner;
 
-
-
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -101,7 +98,7 @@ public class Schedule {
      */
     private void dayTracker(){
         // if day is Saturday
-        if (Calendar.DAY_OF_WEEK == 6) {
+        if (Calendar.DAY_OF_WEEK == 7) {
             rotateRecipes();
         }      
     }
@@ -116,29 +113,33 @@ public class Schedule {
      * @return 
      */
     public Recipe iterateThruSchedule() {
-        int day = Calendar.DAY_OF_WEEK;
+        // Days of the week are 1-7 while weekList is an array 0-6
+        Calendar c = Calendar.getInstance();
+        int day = c.get(Calendar.DAY_OF_WEEK); 
         switch (day){
-            case 0:
-                // Sunday
-                return weekList.get(day);
             case 1:
-                // Monday
-                return weekList.get(day);
+                // Sunday
+                // Get the recipe that is at position 0
+                return weekList.get(day - 1);
             case 2:
-                // Tuesday
-                return weekList.get(day);
+                // Monday
+                // Get the recipe that is at position 1, etc.
+                return weekList.get(day - 1);
             case 3:
-                // Wednesday
-                return weekList.get(day);
+                // Tuesday
+                return weekList.get(day - 1);
             case 4:
-                // Thursday
-                return weekList.get(day);
+                // Wednesday
+                return weekList.get(day - 1);
             case 5:
-                // Friday
-                return weekList.get(day);
+                // Thursday
+                return weekList.get(day - 1);
             case 6:
+                // Friday
+                return weekList.get(day - 1);
+            case 7:
                 // Saturday
-                return weekList.get(day);
+                return weekList.get(day - 1);
         }
         return null;
     }
@@ -169,8 +170,7 @@ public class Schedule {
         for (Recipe rec : weekList) {
             for (Ingredient ing : rec.getIngredientList()) {
                 weekIngredientList.add(ing);
-            }
-            
+            }            
         }
     }
 }

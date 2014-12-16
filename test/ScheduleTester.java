@@ -16,6 +16,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.w3c.dom.Document;
 
 /**
  *
@@ -30,8 +31,7 @@ public class ScheduleTester {
         
     public ScheduleTester() {
     }
-
-    
+  
     public void recipeTest() {
         Recipe spag = new Recipe();
         spag.setTitle("1");
@@ -44,35 +44,12 @@ public class ScheduleTester {
         Recipe food2 = new Recipe();
         food2.setTitle("3");
         s.getRecipeList().add(food2);
-        
-        Recipe food3 = new Recipe();
-        food3.setTitle("4");
-        s.getRecipeList().add(food3);
-        
-        Recipe food4 = new Recipe();
-        food4.setTitle("5");
-        s.getRecipeList().add(food4);
-        
-        Recipe food5 = new Recipe();
-        food5.setTitle("6");
-        s.getRecipeList().add(food5);
-        
-//        Recipe food6 = new Recipe();
-//        food6.setTitle("7");
-//        s.getRecipeList().add(food6);
-        
-//        Recipe food7 = new Recipe();
-//        food7.setTitle("8");
-//        s.getRecipeList().add(food7);
     }
     
     @Test
     public void rotateRecipeListTest(){
-        // Make your test recipies
-        //recipeTest();
         String file = prop.getFile(); 
         files.readXmlFile(s, file);
-        shoppingList.displayShoppingList();
 
         // Make sure that the recipe list works (it does)
         for (Recipe recipe : s.getRecipeList()){
@@ -82,19 +59,20 @@ public class ScheduleTester {
         }
         
         // Make sure that the rotate list works (it does)
-        for (Recipe rotate : s.getRotateList()) {
+        /*for (Recipe rotate : s.getRotateList()) {
             System.out.println("Rotate: " + rotate.getTitle());
-        }
+        }*/
             
         // Now assign your schedule list
         s.rotateRecipes();
         
         // Make sure that your schedule list works 
         //   with proper rotations (it does!!!)
-        for (Recipe schedule : s.getWeekList()) {
+       /* for (Recipe schedule : s.getWeekList()) {
             System.out.println("Schedule: " + schedule.getDirections());
-        }
-        
+        }*/
+
+      
         s.makeWeekIngredient();
         
         // Ingredient list before the merge
@@ -108,12 +86,13 @@ public class ScheduleTester {
         for (Ingredient ing1 : shoppingList.getShoppingList()) {
             System.out.println("Ingredients after: " + ing1.getName() + " " + ing1.getNumber()); 
             
-        }
+        } 
         
-        files.buildXmlDocument(s);
-        files.saveXmlDocument(null, file);
-        // This, however does not work
-        //Assert.assertNotEquals(s.iterateThruSchedule(), null);          
+        Document xml = null;
+        xml = files.buildXmlDocument(s);
+        files.saveXmlDocument(xml, file);
+
+        s.iterateThruSchedule();
     }
     
 
