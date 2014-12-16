@@ -50,6 +50,8 @@ public class Screen2Controller implements Initializable , ControlledScreen {
     private Stage primaryStage;
     ScreensController myController;
     private ObservableList<Recipe> data;
+    private AddRecipeController arc;
+    
     
     ShoppingList sl = ShoppingList.getInstance(); 
     
@@ -87,7 +89,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
        myController.setScreen(ScreensFramework.screen5ID);
     }
     
-
+    @FXML
     public boolean button1(ActionEvent even){
         try {
             
@@ -118,11 +120,13 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         
         
         return controller.isOkClicked();
+        
 
         } catch (Exception ex){
         ex.printStackTrace();
         return false;
         }
+        
        // label1.setText("something");
         //tab1.
 //        label2.setText("Well something should change");
@@ -138,8 +142,15 @@ public class Screen2Controller implements Initializable , ControlledScreen {
     
     @FXML
     private Label label1;
-    public void button2(ActionEvent event){
-        TextInputDialog dialog = new TextInputDialog("walter");
+    public void remove(ActionEvent event){
+        
+        int index = listView.getSelectionModel().getSelectedIndex();
+        Schedule.getInstance().getRotateList().remove(index);
+        
+        displayToListView();
+        
+        
+        /*TextInputDialog dialog = new TextInputDialog("walter");
         dialog.setTitle("Text Input Dialog");
         dialog.setHeaderText("Look, a Text Input Dialog");
         dialog.setContentText("Please enter your name:");
@@ -154,6 +165,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         }
         // The Java 8 way to get the response value (with lambda expression).
         result.ifPresent(name -> System.out.println("Your name: " + name));
+        */
     }
     
     

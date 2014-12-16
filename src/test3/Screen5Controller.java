@@ -5,9 +5,7 @@
  */
 package test3;
 
-import MealPlanner.FileManager;
 import MealPlanner.Ingredient;
-import MealPlanner.Property;
 import MealPlanner.Recipe;
 import MealPlanner.Schedule;
 import MealPlanner.ShoppingList;
@@ -20,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.util.Callback;
 
 /**
@@ -38,14 +37,24 @@ public class Screen5Controller implements Initializable, ControlledScreen {
     @FXML
     private ListView<Ingredient> listView;
     
+    @FXML
+    private TextArea commonList;
+    
+    private ObservableList<Ingredient> data;
+    
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ingData = FXCollections.observableArrayList(); 
+        listView = new ListView<>();
+        commonList.setText("Enter common items here...");
+        data = FXCollections.observableArrayList();
         displayToListView();
     }    
+    
     
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
@@ -106,6 +115,5 @@ public class Screen5Controller implements Initializable, ControlledScreen {
                 return cell;                   
             };
         });
-     } 
-    
+     }   
 }

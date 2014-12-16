@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -38,6 +39,7 @@ public class AddRecipeController implements Initializable {
     private ObservableList<Recipe> data;
     
     
+   
     @FXML
     private ListView<Recipe> listView;
     
@@ -49,18 +51,19 @@ public class AddRecipeController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //data = FXCollections.observableArrayList();
         displayToListView();
     }    
    
+    
     public void setDialogStage(Stage dialogStage) {
 		this.dialogStage = dialogStage;       
 	}
     
     @FXML
-    public void addRecipeButton(ActionEvent even){        
-        Recipe recipeGet = listView.getSelectionModel().getSelectedItem();
-        Schedule.getInstance().getRotateList().add(recipeGet);
+    public void addRecipeButton(ActionEvent even){
+        
+        Recipe selectedRec = listView.getSelectionModel().getSelectedItem();
+        Schedule.getInstance().getRotateList().add(selectedRec);
         
         okClicked = true;
         dialogStage.close();
@@ -106,6 +109,8 @@ public class AddRecipeController implements Initializable {
          for (Recipe recipe : Schedule.getInstance().getRecipeList()){
              data.add(recipe);
          }
+         
+        
          
         listView.setItems(data);
         listView.setCellFactory(new Callback<ListView<Recipe>, ListCell<Recipe>>() {
