@@ -2,6 +2,8 @@
 
 package test3;
 
+import MealPlanner.FileManager;
+import MealPlanner.Property;
 import MealPlanner.Recipe;
 import MealPlanner.Schedule;
 import MealPlanner.ShoppingList;
@@ -51,10 +53,11 @@ public class Screen2Controller implements Initializable , ControlledScreen {
     
     ShoppingList sl = ShoppingList.getInstance(); 
     
-  
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+         data = FXCollections.observableArrayList();
+         displayToListView();
     }
     
     @FXML

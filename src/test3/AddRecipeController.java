@@ -49,7 +49,8 @@ public class AddRecipeController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //data = FXCollections.observableArrayList();
+        displayToListView();
     }    
    
     public void setDialogStage(Stage dialogStage) {

@@ -1,7 +1,9 @@
 
 package test3;
 
+import MealPlanner.FileManager;
 import MealPlanner.Ingredient;
+import MealPlanner.Property;
 import MealPlanner.Recipe;
 import MealPlanner.Schedule;
 import java.net.URL;
@@ -41,7 +43,13 @@ public class Screen3Controller implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        Property prop = new Property();
+        String file = prop.getFile(); 
+        Schedule s = Schedule.getInstance();
+        FileManager files = new FileManager();
+        files.readXmlFile(s, file);
+        data = FXCollections.observableArrayList(); 
+        displayToListView();
     }    
     
     public void setScreenParent(ScreensController screenParent){
@@ -78,7 +86,7 @@ public class Screen3Controller implements Initializable, ControlledScreen {
      public boolean button1(ActionEvent even){
         try {
             
-        data = FXCollections.observableArrayList(); 
+       // data = FXCollections.observableArrayList(); 
         
         //Recipe recipe2 = new Recipe();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MakeRecipe.fxml"));
@@ -113,7 +121,7 @@ public class Screen3Controller implements Initializable, ControlledScreen {
      
      public final void displayToListView(){
          
-         data.clear(); // clear items from listview
+        data.clear(); // clear items from listview
          
          for (Recipe recipe : Schedule.getInstance().getRecipeList()){
              data.add(recipe);

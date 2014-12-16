@@ -57,7 +57,7 @@ public class ScheduleTester {
             s.getRotateList().add(recipe);
             System.out.println("Recipe: " + recipe.getTitle());
         }
-        
+
         // Make sure that the rotate list works (it does)
         /*for (Recipe rotate : s.getRotateList()) {
             System.out.println("Rotate: " + rotate.getTitle());
