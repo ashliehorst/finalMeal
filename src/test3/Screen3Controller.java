@@ -43,11 +43,7 @@ public class Screen3Controller implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Property prop = new Property();
-        String file = prop.getFile();
-        Schedule s = Schedule.getInstance();
-        FileManager fm = new FileManager();
-        fm.readXmlFile(s, file);
+        
         data = FXCollections.observableArrayList();
         displayToListView();
     }    

@@ -10,6 +10,7 @@ import MealPlanner.Recipe;
 import MealPlanner.Schedule;
 import MealPlanner.ShoppingList;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -44,7 +45,7 @@ public class Screen5Controller implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        listView = new ListView<>();
+        //listView = new ListView<>();
         commonList.setText("Enter common items here...");
         data = FXCollections.observableArrayList();
         displayToListView();
@@ -75,17 +76,26 @@ public class Screen5Controller implements Initializable, ControlledScreen {
        myController.setScreen(ScreensFramework.screen4ID);
     }
     
+    @FXML
+    public void refreshShoppingListButton(ActionEvent event){
+        displayToListView();
+    }
+    
     public final void displayToListView(){
          
-        
          data.clear(); // clear items from listview
+         List<Recipe>list = Schedule.getInstance().getRotateList();
          
-         Schedule.getInstance().setWeekList(Schedule.getInstance().getRotateList());
+         
+         Schedule.getInstance().setWeekList(list);
          Schedule.getInstance().makeWeekIngredient();
          ShoppingList.getInstance().searchIngredientList(Schedule.getInstance());
-         
-         
-         for (Ingredient ing : ShoppingList.getInstance().getShoppingList()){
+         ShoppingList.getInstance().setShoppingList(Schedule.getInstance().getWeekIngredientList());
+         List<Ingredient>shoppinglist = ShoppingList.getInstance().getShoppingList();
+                         
+                 
+                 
+         for (Ingredient ing : shoppinglist){
              data.add(ing);
          }
           
@@ -100,7 +110,7 @@ public class Screen5Controller implements Initializable, ControlledScreen {
                         public void updateItem(Ingredient ingredient, boolean empty) {
                             super.updateItem(ingredient, empty);
                             if (ingredient != null){
-                                    setText(ingredient.getName());                                     
+                                    setText(Double.toString(ingredient.getNumber()) + " " + ingredient.getType() + " " + ingredient.getName());                                     
                             }
                         }
                     };   

@@ -47,7 +47,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
 
     private Stage primaryStage;
     ScreensController myController;
-    private ObservableList<Recipe> data;
+    private ObservableList<Recipe> data = FXCollections.observableArrayList();
     private AddRecipeController arc;
     
     
@@ -166,7 +166,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
     }
     
     
-    /*
+    /**
     * Display rotation list to listview
     */
     public final void displayToListView(){

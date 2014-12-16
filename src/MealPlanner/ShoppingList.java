@@ -31,8 +31,6 @@ public class ShoppingList {
     private ShoppingList(){}
     
     public static ShoppingList getInstance() {
-        shoppingList = new ArrayList();
-        
         commonItems = "";
         ingredientMap = new HashMap<>();
         return instance;
@@ -87,7 +85,6 @@ public class ShoppingList {
      * Master list of ingredients to add together same ingredients
      * Make xml for ingredients to easily add stuff
      * @param schedule
-     * @param scheduletogether
      */     
     public void searchIngredientList(Schedule schedule) {
         boolean first = true;

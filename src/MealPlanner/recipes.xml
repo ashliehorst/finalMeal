@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <recipes>
   <recipe title="Pasta">
-    <ingredient name="Flour" number="1.0" type="cup"/>
-    <ingredient name="Rice" number="1.0" type="cup"/>
+    <ingredient name="Noodles" number="1.0" type="lbs"/>
+    <ingredient name="Sauce" number="2.0" type="cup"/>
     <directions>I want pasta.</directions>
   </recipe>
-  <recipe title="Pho">
+  <recipe title="Crepes">
     <ingredient name="Flour" number="1.0" type="cup"/>
-    <ingredient name="Fish" number="1.0" type="cup"/>
-    <directions>I want pho.</directions>
+    <ingredient name="Sugar" number="1.5" type="cup"/>
+    <directions>I want crepes.</directions>
   </recipe>
   <recipe title="Cake">
     <ingredient name="Flour" number="1.0" type="cup"/>
     <ingredient name="Sugar" number="2.0" type="cup"/>
     <directions>I want cake.</directions>
+  </recipe>
+  <recipe title="Pizza">
+    <ingredient name="Flour" number="1.0" type="cup"/>
+    <ingredient name="Cheese" number="2.0" type="lbs"/>
+    <directions>I want PIZZA. PIZZA PIZZA PIZZA.</directions>
+  </recipe>
+  <recipe title="Cheese Cake">
+    <ingredient name="Flour" number="1.0" type="cup"/>
+    <ingredient name="Sugar" number="2.0" type="cup"/>
+    <ingredient name="Milk" number="2.0" type="cup"/>
+    <ingredient name="Cream Cheese" number="1.0" type="cup"/>
+    <directions>I want cheese cake.</directions>
+  </recipe>
+  <recipe title="Brownies">
+    <ingredient name="Flour" number="1.0" type="cup"/>
+    <ingredient name="Sugar" number="2.0" type="cup"/>
+    <ingredient name="Cocoa" number="2.0" type="cup"/>
+    <directions>I want brownies.</directions>
   </recipe>
 </recipes>

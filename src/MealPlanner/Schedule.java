@@ -74,6 +74,7 @@ public class Schedule {
     public void setRecipeList(List<Recipe> recipeList) {this.recipeList = recipeList;}
     public void setCount(int count) {this.count = count;}
     public void setWeekList(List<Recipe> weekList) {this.weekList = weekList;}
+    public void setWeekIngredientList(List<Ingredient> weekIngList) {weekIngredientList = weekIngList;}
     public void setRotateList(List<Recipe> rotateList) {this.rotateList = rotateList;}
     
     /**
