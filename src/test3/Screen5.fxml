@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen5Controller">
+<AnchorPane id="anchor" prefHeight="574.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen5Controller">
    <stylesheets>
         <URL value="@Screen5.css" />
     </stylesheets>
@@ -28,7 +28,7 @@
             <Button mnemonicParsing="false" onAction="#goToScreen2" prefHeight="40.0" prefWidth="200.0" text="Rotation List" />
             <Button mnemonicParsing="false" onAction="#goToScreen3" prefHeight="40.0" prefWidth="204.0" text="Recipes" />
             <Button mnemonicParsing="false" onAction="#goToScreen4" prefHeight="40.0" prefWidth="204.0" text="Schedule" />
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Shopping List" />
+            <Button id="shopping" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Shopping List" />
          </children>
          <opaqueInsets>
             <Insets />

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="514.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen2Controller">
+<AnchorPane id="anchor" prefHeight="625.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen2Controller">
   <stylesheets>
         <URL value="@Screen2.css" />
   </stylesheets>
@@ -18,14 +18,14 @@
     <children>
       <VBox prefHeight="514.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" prefHeight="26.0" prefWidth="206.0" text="Todays' Meal" />
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="200.0" text="Today's Meal" textAlignment="CENTER" />
             <ImageView fitHeight="213.0" fitWidth="200.0" pickOnBounds="true">
                <image>
                   <Image url="@images/9304.jpg" />
                </image></ImageView>
-            <Label alignment="CENTER" prefHeight="27.0" prefWidth="204.0" />
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="204.0" />
             <Button mnemonicParsing="false" onAction="#goToScreen1" prefHeight="40.0" prefWidth="206.0" text="Home" />
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Rotation List" />
+            <Button id="rotation" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Rotation List" />
             <Button mnemonicParsing="false" onAction="#goToScreen3" prefHeight="40.0" prefWidth="204.0" text="Recipes" />
             <Button mnemonicParsing="false" onAction="#goToScreen4" prefHeight="40.0" prefWidth="204.0" text="Schedule" />
             <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="40.0" prefWidth="204.0" text="Shopping List" />
@@ -34,16 +34,18 @@
             <Insets left="20.0" />
          </padding>
       </VBox>
-  <Button layoutX="252.0" layoutY="454.0" mnemonicParsing="false" onAction="#button1" prefHeight="26.0" prefWidth="67.0" text="Add" />
-  <Label layoutX="287.0" layoutY="16.0" text="Screen 2--- Rotation List">
+  <Button layoutX="260.0" layoutY="490.0" mnemonicParsing="false" onAction="#button1" prefHeight="40.0" prefWidth="100.0" text="Add" />
+  <Label layoutX="373.0" layoutY="14.0" text="Rotation List">
     <font>
       <Font size="18.0" />
     </font>
   </Label>
       <VBox layoutX="215.0" layoutY="77.0" prefHeight="303.0" prefWidth="33.0" />
-      <Button layoutX="485.0" layoutY="454.0" mnemonicParsing="false" onAction="#remove" text="Remove" />
-      <ListView fx:id="listView" editable="true" layoutX="277.0" layoutY="120.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label fx:id="label1" layoutX="338.0" layoutY="69.0" text="Label" />
-      <Button layoutX="366.0" layoutY="454.0" mnemonicParsing="false" onAction="#saveButton" text="Save" />
+      <Button layoutX="483.0" layoutY="490.0" mnemonicParsing="false" onAction="#button2" text="Remove" />
+      <ListView fx:id="listView" editable="true" layoutX="274.0" layoutY="99.0" prefHeight="358.0" prefWidth="301.0" />
+      <Label fx:id="label1" layoutX="346.0" layoutY="66.0" prefHeight="23.0" prefWidth="157.0" text="Recipes to Rotate ">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
   </children>
 </AnchorPane>

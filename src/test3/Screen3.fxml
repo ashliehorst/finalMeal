@@ -10,22 +10,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="514.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen3Controller">
+<AnchorPane id="anchor" prefHeight="625.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen3Controller">
   <stylesheets>
         <URL value="@Screen3.css" />
     </stylesheets>
     <children>
       <VBox prefHeight="514.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label prefHeight="26.0" prefWidth="206.0" text="Label" />
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="206.0" text="Today's Meal" />
             <ImageView fitHeight="213.0" fitWidth="200.0" pickOnBounds="true">
                <image>
                   <Image url="@images/9304.jpg" />
                </image></ImageView>
-            <Label prefHeight="27.0" prefWidth="204.0" text="Label" />
+            <Label prefHeight="27.0" prefWidth="204.0" />
             <Button mnemonicParsing="false" onAction="#goToScreen1" prefHeight="40.0" prefWidth="206.0" text="Home" />
             <Button mnemonicParsing="false" onAction="#goToScreen2" prefHeight="40.0" prefWidth="204.0" text="Rotation List" />
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Recipes" />
+            <Button id="recipes" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Recipes" />
             <Button mnemonicParsing="false" onAction="#goToScreen4" prefHeight="40.0" prefWidth="204.0" text="Schedule" />
             <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="40.0" prefWidth="204.0" text="Shopping List" />
          </children>
@@ -33,15 +33,13 @@
             <Insets left="20.0" />
          </padding>
       </VBox>
-  <Button layoutX="296.0" layoutY="-78.0" mnemonicParsing="false" onAction="#goToScreen4" text="Go To Screen3" />
-  <Label layoutX="287.0" layoutY="16.0" text="Screen 3--- Recipe ">
+  <Label layoutX="391.0" layoutY="24.0" text="Recipes">
     <font>
       <Font size="18.0" />
     </font>
   </Label>
-  <Button layoutX="25.0" layoutY="-52.0" mnemonicParsing="false" onAction="#goToScreen1" prefHeight="26.0" prefWidth="203.0" text="Go To Screen 1" />
-      <Button layoutX="265.0" layoutY="438.0" mnemonicParsing="false" onAction="#createRec" text="Create Recipe" />
-      <Button layoutX="438.0" layoutY="438.0" mnemonicParsing="false" onAction="#removeRec" text="Remove Recipe" />
-      <ListView fx:id="listView" layoutX="268.0" layoutY="51.0" prefHeight="370.0" prefWidth="282.0" />
+      <Button layoutX="268.0" layoutY="490.0" mnemonicParsing="false" onAction="#button1" prefHeight="40.0" text="Create Recipe" />
+      <Button layoutX="437.0" layoutY="490.0" mnemonicParsing="false" prefHeight="40.0" text="Remove Recipe" />
+      <ListView fx:id="listView" layoutX="283.0" layoutY="58.0" prefHeight="370.0" prefWidth="282.0" />
   </children>
 </AnchorPane>

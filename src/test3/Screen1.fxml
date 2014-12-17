@@ -4,14 +4,17 @@
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen1Controller">
-    
+<AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen1Controller">
+    <stylesheets>
+        <URL value="@Screen1.css" />
+  </stylesheets>
 
     <children>
       <VBox layoutX="20.0" layoutY="20.0" prefHeight="498.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -22,12 +25,12 @@
                   <Image url="@images/9304.jpg" />
                </image>
             </ImageView>
-            <Label prefHeight="27.0" prefWidth="204.0" text="Grabs the data from the List..." />
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="Home" />
-            <Button mnemonicParsing="false" onAction="#goToScreen2" prefHeight="40.0" prefWidth="204.0" text="Rotation List" />
-            <Button mnemonicParsing="false" onAction="#goToScreen3" prefHeight="40.0" prefWidth="204.0" text="Recipes" />
-            <Button mnemonicParsing="false" onAction="#goToScreen4" prefHeight="40.0" prefWidth="204.0" text="Schedule" />
-            <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="40.0" prefWidth="204.0" text="Shopping List" />
+            <Label prefHeight="26.0" prefWidth="204.0" text="Grabs the data from the List..." />
+            <Button id="home" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" stylesheets="@Screen1.css" text="Home" />
+            <Button id="rotation" mnemonicParsing="false" onAction="#goToScreen2" prefHeight="40.0" prefWidth="204.0" text="Rotation List" />
+            <Button id="recipes" mnemonicParsing="false" onAction="#goToScreen3" prefHeight="40.0" prefWidth="204.0" text="Recipes" />
+            <Button id="schedule" mnemonicParsing="false" onAction="#goToScreen4" prefHeight="40.0" prefWidth="204.0" text="Schedule" />
+            <Button id="shopping" mnemonicParsing="false" onAction="#goToScreen5" prefHeight="40.0" prefWidth="204.0" text="Shopping List" />
          </children>
          <padding>
             <Insets left="20.0" />

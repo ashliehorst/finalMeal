@@ -27,9 +27,5 @@
       <ingredient name="Cheese" number="1.0" type="lbs"/>
       <directions/>
     </rotate>
-    <rotate title="Cake">
-      <ingredient name="Milk" number="1.0" type="cup"/>
-      <directions>I want cake.</directions>
-    </rotate>
   </rotateList>
 </lists>

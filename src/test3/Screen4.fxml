@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="514.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen4Controller">
+<AnchorPane id="anchor" prefHeight="625.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test3.Screen4Controller">
   <stylesheets>
         <URL value="@Screen4.css" />
   </stylesheets>
@@ -18,47 +18,47 @@
     <children>
       <VBox prefHeight="514.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" prefHeight="26.0" prefWidth="206.0" text="Label" />
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="206.0" text="Today's Meal" />
             <ImageView fitHeight="213.0" fitWidth="200.0" pickOnBounds="true">
                <image>
                   <Image url="@images/9304.jpg" />
                </image></ImageView>
-            <Label alignment="CENTER" prefHeight="27.0" prefWidth="204.0" text="Label" />
+            <Label alignment="CENTER" prefHeight="27.0" prefWidth="204.0" />
         <Button mnemonicParsing="false" onAction="#goToScreen1" prefHeight="40.0" prefWidth="206.0" text="Home" />
             <Button mnemonicParsing="false" onAction="#goToScreen2" prefHeight="40.0" prefWidth="204.0" text="Rotation List" />
             <Button mnemonicParsing="false" onAction="#goToScreen3" prefHeight="40.0" prefWidth="204.0" text="Recipes" />
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Schedule" />
+            <Button id="schedule" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" text="Schedule" />
             <Button mnemonicParsing="false" onAction="#goToScreen5" prefHeight="40.0" prefWidth="204.0" text="Shopping List" />
          </children>
          <padding>
             <Insets left="20.0" />
          </padding>
       </VBox>
-  <Label layoutX="287.0" layoutY="16.0" text="Screen 4--- Schedule">
+  <Label layoutX="349.0" layoutY="36.0" text="Schedule">
     <font>
       <Font size="18.0" />
     </font>
   </Label>
-      <VBox layoutX="247.0" layoutY="125.0" prefHeight="256.0" prefWidth="33.0">
+      <VBox layoutX="247.0" layoutY="125.0" prefHeight="256.0" prefWidth="42.0">
          <children>
-            <Label prefHeight="33.0" prefWidth="33.0" text="Sun" />
-            <Label prefHeight="37.0" prefWidth="35.0" style="-fx-border-color: black;" stylesheets="@css.css" text="Mon" />
-            <Label prefHeight="37.0" prefWidth="33.0" text="Tue" />
-            <Label prefHeight="37.0" prefWidth="33.0" text="Wed" />
-            <Label prefHeight="37.0" prefWidth="33.0" text="Thu" />
-            <Label prefHeight="37.0" prefWidth="33.0" text="Fri" />
-            <Label prefHeight="37.0" prefWidth="33.0" text="Sat" />
+            <Label prefHeight="33.0" prefWidth="60.0" text="Sun" />
+            <Label prefHeight="37.0" prefWidth="57.0" style="-fx-border-color: black;" stylesheets="@css.css" text="Mon" />
+            <Label prefHeight="37.0" prefWidth="54.0" text="Tus" />
+            <Label prefHeight="37.0" prefWidth="66.0" text="Wed" />
+            <Label prefHeight="37.0" prefWidth="62.0" text="Thu" />
+            <Label prefHeight="37.0" prefWidth="65.0" text="Fri" />
+            <Label prefHeight="37.0" prefWidth="74.0" text="Sat" />
          </children>
       </VBox>
-      <VBox layoutX="287.0" layoutY="125.0" prefHeight="256.0" prefWidth="222.0">
+      <VBox layoutX="316.0" layoutY="125.0" prefHeight="256.0" prefWidth="222.0">
          <children>
-            <Label fx:id="sun" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
-            <Label fx:id="mon" layoutX="10.0" layoutY="10.0" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
-            <Label fx:id="tue" layoutX="10.0" layoutY="47.0" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
-            <Label fx:id="wed" layoutX="10.0" layoutY="84.0" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
-            <Label fx:id="thr" layoutX="10.0" layoutY="121.0" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
-            <Label fx:id="fri" layoutX="10.0" layoutY="158.0" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
-            <Label fx:id="sat" layoutX="10.0" layoutY="195.0" prefHeight="37.0" prefWidth="240.0" text="No Meal Planned" />
+            <Label fx:id="sun" prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label fx:id="mon" layoutX="10.0" layoutY="10.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label fx:id="tue" layoutX="10.0" layoutY="47.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label fx:id="wed" layoutX="10.0" layoutY="84.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label fx:id="thr" layoutX="10.0" layoutY="121.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label fx:id="fri" layoutX="10.0" layoutY="158.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
+            <Label fx:id="sat" layoutX="10.0" layoutY="195.0" prefHeight="37.0" prefWidth="240.0" text="Label" />
          </children>
       </VBox>
   </children>

@@ -175,12 +175,6 @@ public class MakeRecipeController {
                     sch.getTempList().clear();
                     
                 //}
-//			person.setFirstName(firstNameField.getText());
-//			person.setLastName(lastNameField.getText());
-//			person.setStreet(streetField.getText());
-//			person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
-//			person.setCity(cityField.getText());
-//			person.setBirthday(CalendarUtil.parse(birthdayField.getText()));
 //			
 			okClicked = true;
 			dialogStage.close();
