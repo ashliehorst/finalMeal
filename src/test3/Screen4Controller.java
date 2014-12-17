@@ -21,6 +21,7 @@ import javafx.scene.control.Label;
 public class Screen4Controller implements Initializable, ControlledScreen {
 
     ScreensController myController;
+    Schedule s = Schedule.getInstance();
     
     @FXML
     private Label sun;
@@ -45,19 +46,15 @@ public class Screen4Controller implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
-        mon.setText("Something");
-        
-        /*
-        sun.setText(Schedule.getInstance().getRotateList().get(0).getTitle());
-        mon.setText(Schedule.getInstance().getRotateList().get(1).getTitle());
-        tue.setText(Schedule.getInstance().getRotateList().get(2).getTitle());
-        wed.setText(Schedule.getInstance().getRotateList().get(3).getTitle());
-        thr.setText(Schedule.getInstance().getRotateList().get(4).getTitle());
-        fri.setText(Schedule.getInstance().getRotateList().get(5).getTitle());
-        sat.setText(Schedule.getInstance().getRotateList().get(6).getTitle());
-        */
+              
+        sun.setText(s.getWeekList().get(0).getTitle());
+        mon.setText(s.getWeekList().get(1).getTitle());
+        tue.setText(s.getWeekList().get(2).getTitle());
+        wed.setText(s.getWeekList().get(3).getTitle());
+        thr.setText(s.getWeekList().get(4).getTitle());
+        fri.setText(s.getWeekList().get(5).getTitle());
+        sat.setText(s.getWeekList().get(6).getTitle());
+       
     }    
     
     public void setScreenParent(ScreensController screenParent){
