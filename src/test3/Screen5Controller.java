@@ -77,6 +77,10 @@ public class Screen5Controller implements Initializable, ControlledScreen {
        myController.setScreen(ScreensFramework.screen4ID);
     }
         
+     public final void refresh(){
+          displayToListView();
+     }
+   
     public final void displayToListView(){
          
         ingData.clear(); // clear items from listview
@@ -108,41 +112,4 @@ public class Screen5Controller implements Initializable, ControlledScreen {
             };
         });
      } 
-    
-   /* public final void displayToListView(){
-         
-        
-         data.clear(); // clear items from listview
-         
-         Schedule.getInstance().setWeekList(Schedule.getInstance().getRotateList());
-         Schedule.getInstance().makeWeekIngredient();
-         ShoppingList.getInstance().searchIngredientList(Schedule.getInstance());
-         
-         
-         for (Ingredient ing : ShoppingList.getInstance().getShoppingList()){
-             data.add(ing);
-         }
-          
-         
-        listView.setItems(data);
-        listView.setCellFactory(new Callback<ListView<Ingredient>, ListCell<Ingredient>>() {
-                    
-                    @Override
-                    public ListCell<Ingredient> call(ListView<Ingredient> param){
-                    ListCell<Ingredient> cell = new ListCell<Ingredient>(){
-                        @Override
-                        public void updateItem(Ingredient ingredient, boolean empty) {
-                            super.updateItem(ingredient, empty);
-                            if (ingredient != null){
-                                    setText(ingredient.getName());                                     
-                            }
-                        }
-                    };   
-                        return cell;
-                    
-                    };
-
-                });
-     }*/
-    
 }

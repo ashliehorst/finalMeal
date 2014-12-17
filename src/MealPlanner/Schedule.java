@@ -112,6 +112,9 @@ public class Schedule {
      */
     public Recipe iterateThruSchedule() {
         // Days of the week are 1-7 while weekList is an array 0-6
+        if (weekList.isEmpty()) {
+            rotateRecipes();
+        }
         Calendar c = Calendar.getInstance();
         int day = c.get(Calendar.DAY_OF_WEEK); 
         return weekList.get(day - 1);
@@ -140,6 +143,7 @@ public class Schedule {
     }
     
     public void makeWeekIngredient() {
+        weekIngredientList.clear();
         for (Recipe rec : weekList) {
             for (Ingredient ing : rec.getIngredientList()) {
                 weekIngredientList.add(ing);

@@ -70,6 +70,7 @@ public class ShoppingList {
      */     
     public void searchIngredientList(Schedule schedule) {
         boolean first = true;
+        shoppingList.clear();
         for (int count = 0; count < schedule.getWeekIngredientList().size(); count++) {
             Ingredient ing1 = schedule.getWeekIngredientList().get(count);
             // The shoppingList has to have at least one thing in it to traverse

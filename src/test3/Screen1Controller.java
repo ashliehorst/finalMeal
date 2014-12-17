@@ -42,13 +42,14 @@ public class Screen1Controller implements Initializable, ControlledScreen {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         String file = prop.getFile();
-        fm.readXmlFile(s, file);        
-        //Recipe todaysMeal = s.iterateThruSchedule();
-        //displayToTextArea();
+        fm.readXmlFile(s, file);    
+        //s.rotateRecipes();
+        Recipe todaysMeal = s.iterateThruSchedule();
+        displayToTextArea();
     }
     
-    //@FXML
-   // private TextArea textArea;
+    @FXML
+    private TextArea textArea;
      
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
@@ -111,6 +112,6 @@ public class Screen1Controller implements Initializable, ControlledScreen {
         for (Ingredient ing : todaysMeal.getIngredientList()) {
             ingList += Double.toString(ing.getNumber()) + " " + ing.getType() + " " + ing.getName() + "\n";
         }
-        //textArea.setText(todaysMeal.getTitle());
+        textArea.setText(todaysMeal.getTitle());
     }
 }
