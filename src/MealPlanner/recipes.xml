@@ -17,14 +17,6 @@
       <ingredient name="Cheese" number="1.0" type="lbs"/>
       <directions/>
     </recipe>
-    <recipe title="Cookie">
-      <ingredient name="Candy" number="1.0" type="lbs"/>
-      <directions/>
-    </recipe>
-    <recipe title="Malt">
-      <ingredient name="Candy" number="1.0" type="lbs"/>
-      <directions/>
-    </recipe>
   </recipeList>
   <rotateList>
     <rotate title="Pho">
