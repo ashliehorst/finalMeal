@@ -39,6 +39,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.Pair;
+import org.w3c.dom.Document;
 
 /**
  * FXML Controller class
@@ -90,7 +91,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
     }
     
     @FXML
-    public boolean button1(ActionEvent even){
+    public boolean button1(ActionEvent event){
         try {
             
             data = FXCollections.observableArrayList();
@@ -168,6 +169,20 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         */
     }
     
+    /**
+     * Save and Build
+     * @param even
+     * @return 
+     */
+     @FXML
+    public void saveButton(ActionEvent event){
+       FileManager files = new FileManager();
+       Property prop = new Property();
+       String file = prop.getFile();
+       Document xml = null;
+       xml = files.buildXmlDocument(Schedule.getInstance());
+       files.saveXmlDocument(xml, file);
+    }
     
     /*
     * Display rotation list to listview

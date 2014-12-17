@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
 
 
@@ -31,30 +32,27 @@ public class Screen1Controller implements Initializable, ControlledScreen {
     ScreensController myController;
 
     MealManager mealManager = MealManager.getInstance();
-    
+    Schedule s = Schedule.getInstance();
+    FileManager fm = new FileManager();
+    Property prop = new Property();
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Property prop = new Property();
         String file = prop.getFile();
-        Schedule s = Schedule.getInstance();
-        FileManager fm = new FileManager();
-        fm.readXmlFile(s, file);
-        
-        for (Recipe recipe : s.getRecipeList()){
-            // Add to roate list
-            s.getRotateList().add(recipe);
-        }
+        fm.readXmlFile(s, file);        
+        //Recipe todaysMeal = s.iterateThruSchedule();
+        //displayToTextArea();
     }
     
+    //@FXML
+   // private TextArea textArea;
+     
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
-    }
-    
-    
+    }    
 
     @FXML
     private void goToScreen2(ActionEvent event){
@@ -107,13 +105,12 @@ public class Screen1Controller implements Initializable, ControlledScreen {
     }
   
     public final void displayToTextArea() {
-        Schedule s = Schedule.getInstance();
-        
-        String ingList = "Ingredients: \n";
         Recipe todaysMeal = s.iterateThruSchedule();
+        String ingList = "Ingredients: \n";
+
         for (Ingredient ing : todaysMeal.getIngredientList()) {
             ingList += Double.toString(ing.getNumber()) + " " + ing.getType() + " " + ing.getName() + "\n";
         }
-       // textarea.setText(todaysMeal.getTitle());
+        //textArea.setText(todaysMeal.getTitle());
     }
 }

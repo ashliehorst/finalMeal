@@ -50,14 +50,17 @@ public class FileManager {
  
 		// root elements
 		doc = docBuilder.newDocument();
-		Element rootElement = doc.createElement("recipes");
+		Element rootElement = doc.createElement("lists");
                 
 		doc.appendChild(rootElement);
+                
+                Element recList = doc.createElement("recipeList");
+                rootElement.appendChild(recList);
                 
                 // Recipe elements
                 for (Recipe recipe : schedule.getRecipeList()) { 
                     Element rec = doc.createElement("recipe");
-                    rootElement.appendChild(rec);
+                    recList.appendChild(rec);
                     rec.setAttribute("title", recipe.getTitle());
                     
                     for (Ingredient ingredient : recipe.getIngredientList()) {
@@ -72,6 +75,27 @@ public class FileManager {
                     rec.appendChild(directions);
                     directions.appendChild(doc.createTextNode(recipe.getDirections()));
                 } 
+                
+                Element rotList = doc.createElement("rotateList");
+                rootElement.appendChild(rotList);
+                for (Recipe rotate : schedule.getRotateList()) { 
+                    Element rot = doc.createElement("rotate");
+                    rotList.appendChild(rot);
+                    rot.setAttribute("title", rotate.getTitle());
+                    
+                    for (Ingredient ingredient : rotate.getIngredientList()) {
+                        Element ing = doc.createElement("ingredient");
+                        rot.appendChild(ing);
+                        ing.setAttribute("name", ingredient.getName());
+                        ing.setAttribute("number", Double.toString(ingredient.getNumber()));
+                        ing.setAttribute("type", ingredient.getType());                 
+                    }
+                    
+                    Element directions = doc.createElement("directions");  
+                    rot.appendChild(directions);
+                    directions.appendChild(doc.createTextNode(rotate.getDirections()));
+                } 
+                
 	  } catch (ParserConfigurationException pce) {
                 System.out.println("Error in buildXmlDocument");
 	  }
@@ -147,6 +171,17 @@ public class FileManager {
                     Recipe recipe = new Recipe();
                     readRecipeContent(node, recipe);
                     schedule.getRecipeList().add(recipe);
+                }             
+            } // end of recipe for-loop
+            
+            NodeList rotateList = document.getElementsByTagName("rotate");
+            
+            for (int i = 0; i < rotateList.getLength(); i++) {              
+                Node node = rotateList.item(i);
+                if (node instanceof Element) {
+                    Recipe recipe = new Recipe();
+                    readRecipeContent(node, recipe);
+                    schedule.getRotateList().add(recipe);
                 }             
             } // end of recipe for-loop
         } catch (ParserConfigurationException | SAXException | IOException | NumberFormatException | DOMException ex) {

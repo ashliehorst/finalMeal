@@ -108,40 +108,13 @@ public class Schedule {
      * NOTE: The returned recipe is for today's meal
      * Every time the program is opened, this 
      * method needs to execute
-     * If null is returned then we have 
-     * a problem
      * @return 
      */
     public Recipe iterateThruSchedule() {
         // Days of the week are 1-7 while weekList is an array 0-6
         Calendar c = Calendar.getInstance();
         int day = c.get(Calendar.DAY_OF_WEEK); 
-        switch (day){
-            case 1:
-                // Sunday
-                // Get the recipe that is at position 0
-                return weekList.get(day - 1);
-            case 2:
-                // Monday
-                // Get the recipe that is at position 1, etc.
-                return weekList.get(day - 1);
-            case 3:
-                // Tuesday
-                return weekList.get(day - 1);
-            case 4:
-                // Wednesday
-                return weekList.get(day - 1);
-            case 5:
-                // Thursday
-                return weekList.get(day - 1);
-            case 6:
-                // Friday
-                return weekList.get(day - 1);
-            case 7:
-                // Saturday
-                return weekList.get(day - 1);
-        }
-        return null;
+        return weekList.get(day - 1);
     }
     
     /**
