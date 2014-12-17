@@ -43,7 +43,6 @@ public class Screen1Controller implements Initializable, ControlledScreen {
     public void initialize(URL url, ResourceBundle rb) {
         String file = prop.getFile();
         fm.readXmlFile(s, file);    
-        //s.rotateRecipes();
         Recipe todaysMeal = s.iterateThruSchedule();
         displayToTextArea();
     }
@@ -107,11 +106,14 @@ public class Screen1Controller implements Initializable, ControlledScreen {
   
     public final void displayToTextArea() {
         Recipe todaysMeal = s.iterateThruSchedule();
-        String ingList = "Ingredients: \n";
-
+        String display = todaysMeal.getTitle() + "\n\n";
+        display += "Ingredients: \n";
+        
         for (Ingredient ing : todaysMeal.getIngredientList()) {
-            ingList += Double.toString(ing.getNumber()) + " " + ing.getType() + " " + ing.getName() + "\n";
+            display += Double.toString(ing.getNumber()) + " " + ing.getType() + " " + ing.getName() + "\n";
         }
-        textArea.setText(todaysMeal.getTitle());
+        
+        display += "\nDirections: \n" + todaysMeal.getDirections();
+        textArea.setText(display);
     }
 }
