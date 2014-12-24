@@ -81,7 +81,7 @@ public class Screen5Controller implements Initializable, ControlledScreen {
           displayToListView();
      }
    
-    public void displayToListView(){
+    public final void displayToListView(){
          
         ingData.clear(); // clear items from listview
          
