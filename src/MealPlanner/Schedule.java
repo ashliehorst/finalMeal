@@ -2,7 +2,6 @@ package MealPlanner;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,7 +22,6 @@ public class Schedule {
 
     
     private static int count;
-    private static boolean flag;
     
     private static Schedule instance = new Schedule();
       
@@ -38,7 +36,6 @@ public class Schedule {
         tempList = new ArrayList();
         tempRecipe = new Recipe();
         count = 0;
-        flag = false;
     }
     
     /**
@@ -122,7 +119,7 @@ public class Schedule {
         
         weekList.clear(); // clear every time before new week
         for (int i = 0; i < 7; i++){
-            if (count == rotateList.size()) {
+            if (count >= rotateList.size()) {
                 count = 0;
             }
             weekList.add(rotateList.get(count));

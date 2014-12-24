@@ -12,6 +12,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -94,7 +96,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
              
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
-
+        Schedule.getInstance().rotateRecipes();
         displayToListView();
               
         return controller.isOkClicked();
@@ -113,10 +115,22 @@ public class Screen2Controller implements Initializable , ControlledScreen {
      */
     public void remove(ActionEvent event){
         
-        int index = listView.getSelectionModel().getSelectedIndex();
-        Schedule.getInstance().getRotateList().remove(index);
-        
-        displayToListView();
+        if (Schedule.getInstance().getRotateList().size() != 1) {
+            int index = listView.getSelectionModel().getSelectedIndex();
+            Schedule.getInstance().getRotateList().remove(index);
+            Schedule.getInstance().rotateRecipes();
+            displayToListView();
+        }
+        else
+        {
+            //http://code.makery.ch/blog/javafx-dialogs-official/
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("You must have at least one recipe in the rotate list");
+            //alert.setContentText("Ooops, there was an error!");
+
+            alert.showAndWait();
+        }
     }
 
     /*
