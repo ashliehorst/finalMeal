@@ -133,9 +133,9 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         }
     }
 
-    /*
-    * Display rotation list to listview
-    */
+    /**
+     * Display rotation list to listview
+     */
     public final void displayToListView(){
          
         data.clear(); // clear items from listview

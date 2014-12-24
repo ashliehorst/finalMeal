@@ -13,14 +13,12 @@ import java.util.List;
  */
 public class Schedule {
     
-    private static List<Recipe> rotateList;
-    private static List<Recipe> recipeList;
-    private static List<Recipe> weekList;
+    private static List<Recipe> rotateList; // Contains recipes to be rotated
+    private static List<Recipe> recipeList; // Contains all the recipes made
+    private static List<Recipe> weekList;   // Containts seven recipes for that week
     private static List<Ingredient> weekIngredientList;
-    private static List<Ingredient> tempList;
-    private static Recipe tempRecipe;
-
     
+    // No need for getters and setters because no other class should be changing it
     private static int count;
     
     private static Schedule instance = new Schedule();
@@ -33,8 +31,6 @@ public class Schedule {
         rotateList = new ArrayList();
         weekList = new ArrayList();
         weekIngredientList = new ArrayList();
-        tempList = new ArrayList();
-        tempRecipe = new Recipe();
         count = 0;
     }
     
@@ -50,10 +46,7 @@ public class Schedule {
      * GETTERS
      * @return 
      */
-    public Recipe getTempRecipe() { return tempRecipe;}
-    public List<Ingredient> getTempList() {return tempList;}
     public List<Recipe> getRecipeList() {return recipeList;}
-    public int getCount() {return count;}
     public List<Recipe> getWeekList() {return weekList;}
     public List<Ingredient> getWeekIngredientList() {return weekIngredientList;}
     public List<Recipe> getRotateList() {return rotateList;}
@@ -61,10 +54,7 @@ public class Schedule {
     /**
      * SETTERS 
      */ 
-    public void setTempRecipe(Recipe rec) { tempRecipe = rec;}
-    public void setTempList(List<Ingredient> temp) {this.tempList = temp;}
     public void setRecipeList(List<Recipe> recipeList) {this.recipeList = recipeList;}
-    public void setCount(int count) {this.count = count;}
     public void setWeekList(List<Recipe> weekList) {this.weekList = weekList;}
     public void setRotateList(List<Recipe> rotateList) {this.rotateList = rotateList;}
     
