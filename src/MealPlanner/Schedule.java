@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MealPlanner;
 
 import java.util.ArrayList;
@@ -46,12 +41,13 @@ public class Schedule {
         flag = false;
     }
     
+    /**
+     * Get the instance (using singleton design pattern)
+     * @return 
+     */
     public static Schedule getInstance(){
         return instance;
     }
-
-    
-    
     
     /**
      * GETTERS
@@ -67,7 +63,6 @@ public class Schedule {
  
     /**
      * SETTERS 
-     * 
      */ 
     public void setTempRecipe(Recipe rec) { tempRecipe = rec;}
     public void setTempList(List<Ingredient> temp) {this.tempList = temp;}
@@ -77,16 +72,9 @@ public class Schedule {
     public void setRotateList(List<Recipe> rotateList) {this.rotateList = rotateList;}
     
     /**
-     * GET DATE
-     * Gets the real date Sun-Sat
-     * Returns the date that it gets
-     * @return 
+     * Add the recipe to the list
+     * @param rep 
      */
-    public Date getDate() {
-        Date d = new Date();
-        return d;
-    }
-    
     public void addRecipeToList(Recipe rep){
         recipeList.add(rep);
     }
@@ -96,7 +84,7 @@ public class Schedule {
      * This method calls the rotateRecipes when Saturday 
      * arrives
      */
-    private void dayTracker(){
+    public void dayTracker(){
         // if day is Saturday
         if (Calendar.DAY_OF_WEEK == 7) {
             rotateRecipes();
@@ -142,6 +130,10 @@ public class Schedule {
         }
     }
     
+    /**
+     * Make the week ingredient list that 
+     *    the shopping list is made from
+     */
     public void makeWeekIngredient() {
         weekIngredientList.clear();
         for (Recipe rec : weekList) {

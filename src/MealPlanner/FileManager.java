@@ -1,11 +1,5 @@
 package MealPlanner;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -36,6 +30,8 @@ import org.xml.sax.SAXException;
  * @author Ashlie
  */
 public class FileManager {
+    
+    ShoppingList shoppingList = ShoppingList.getInstance();
     
     /**
      * BUILD XML DOCUMENT
@@ -96,6 +92,10 @@ public class FileManager {
                     directions.appendChild(doc.createTextNode(rotate.getDirections()));
                 } 
                 
+                Element comList = doc.createElement("commonList");
+                rootElement.appendChild(comList);
+                comList.appendChild(doc.createTextNode(shoppingList.getCommonItem()));
+                
 	  } catch (ParserConfigurationException pce) {
                 System.out.println("Error in buildXmlDocument");
 	  }
@@ -124,8 +124,7 @@ public class FileManager {
             Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-         
+       
     /**
      * SAVE TXT
      * Save the text file 
@@ -134,12 +133,11 @@ public class FileManager {
      * @throws java.io.FileNotFoundException
      */
     public void writeToTxtFile(String fileName, ShoppingList shoppinglist) throws FileNotFoundException {  
-        try{
             try (PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
                 for (Ingredient item : shoppinglist.getShoppingList()){
-                    writer.println(item);
+                    writer.println(item.getName() + " " + item.getNumber() + " " + item.getType());
                 }
-            }
+            writer.println(shoppinglist.getCommonItem());
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(ShoppingList.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -158,9 +156,14 @@ public class FileManager {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document document;
             document = builder.parse(fileName);
-                 
-            System.out.println("Loading " + document.getDocumentURI());            
+                            
             document.normalize();
+            
+            // Assign the common items
+            String common = document.getElementsByTagName("commonList").item(0).getTextContent();                                  
+            common = common.trim();
+            common = common.replaceAll("\\n\\s+", "\n");                       
+            shoppingList.setCommonItem(common);
             
             // Iterating throught the nodes and extracting the data
             NodeList nodeList = document.getElementsByTagName("recipe");
@@ -184,6 +187,7 @@ public class FileManager {
                     schedule.getRotateList().add(recipe);
                 }             
             } // end of recipe for-loop
+ 
         } catch (ParserConfigurationException | SAXException | IOException | NumberFormatException | DOMException ex) {
             Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -224,33 +228,6 @@ public class FileManager {
                         
             recipe.setDirections(directions);
         } // end of element_node if statement
-    }
-    
-
-    
-    public void run() {
-//        Schedule schedule = new Schedule();
-//        Property prop = new Property();
-//        String file = prop.getFile(); 
-//        readXmlFile(schedule, file);
-//        //display(schedule);
-//        //ShoppingList shoppingList = new ShoppingList();
-//        //shoppingList.displayShoppingList();
-    }
-    
-    /**
-     * TEST DISPLAY
-     * 
-     */
-    public void display(Schedule schedule) {
-        for (Recipe recipe : schedule.getRecipeList()) {                     
-            System.out.println(recipe.getTitle());              
-            for (Ingredient ingredient : recipe.getIngredientList()) {
-                System.out.println(ingredient.getName());
-                System.out.println(ingredient.getNumber());
-                System.out.println(ingredient.getType());
-            } 
-        }
     }
 }
 

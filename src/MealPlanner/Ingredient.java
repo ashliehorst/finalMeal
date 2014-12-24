@@ -1,12 +1,5 @@
 package MealPlanner;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 /**
  * INGREDIENT CLASS
  * This class takes care of the ingredient objects for the recipes.

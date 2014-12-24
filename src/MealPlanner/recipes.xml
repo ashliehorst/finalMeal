@@ -1,35 +1,182 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <lists>
   <recipeList>
-    <recipe title="Pasta">
-      <ingredient name="Flour" number="1.0" type="cup"/>
-      <directions>I want pasta.</directions>
+    <recipe title="Tri-Tip Roast">
+      <ingredient name="Water" number="0.5" type="cups"/>
+      <ingredient name="Balsamic Vinegar" number="0.5" type="cups"/>
+      <ingredient name="Extra Virgin Olive Oil" number="0.5" type="cups"/>
+      <ingredient name="Montreal Steak Seasoning" number="2.0" type="tablespoons"/>
+      <ingredient name="Tri-Tip Roasts" number="4.0" type="lbs"/>
+      <directions>1. Marinade meat over night in the refrigerator
+(2 tri-tip roasts fit in a gallon sized Ziplock bag)
+Remove the meat from the refrigerator at least 30 minutres before cooking.
+2. BBQ meat on low to medium heat until the meat thermometer reaches 140F. This will take appoximately 1.5-2 hours. 
+3. Cover meat with foil and let the meat rest 15 minutres. Save juices for sauce.
+4. Cut meat into 1/2 inch slices against the grain.</directions>
     </recipe>
-    <recipe title="Pho">
-      <ingredient name="Noodles" number="1.0" type="cup"/>
-      <directions>I want pho.</directions>
+    <recipe title="Karl's Roll Dough">
+      <ingredient name="Flour" number="7.0" type="cups"/>
+      <ingredient name="Sugar" number="0.5" type="cups"/>
+      <ingredient name="Salt" number="2.0" type="teaspoons"/>
+      <ingredient name="Yeast" number="2.0" type="tablespoons"/>
+      <ingredient name="Water" number="2.0" type="cups"/>
+      <ingredient name="Butter" number="0.25" type="cups"/>
+      <ingredient name="Egg" number="1.0" type=" "/>
+      <directions>1. In a very large bowl, combine half of the flour (approx 3-4 cups), sugar, salt, and undissolved yeast. Gradually add the water, softened butter, and beaten egg.
+2. Beat until smooth. Mix in remaining flour until dough is easy to handle. Place in greased bown turning to grease the top. Cover loosely with alluminum foil and refrigerate for at least 2 hours. When dough rises, punch it down occasionally.
+3. Bake at 350F for 10-15 minutes. Cooking time depends on the roll.</directions>
     </recipe>
-    <recipe title="Cake">
-      <ingredient name="Milk" number="1.0" type="cup"/>
-      <directions>I want cake.</directions>
+    <recipe title="Cinnamon Rolls">
+      <ingredient name="Flour" number="5.0" type="cups"/>
+      <ingredient name="Sugar" number="0.5" type="cups"/>
+      <ingredient name="Yeast" number="2.0" type="tablespoons"/>
+      <ingredient name="Salt" number="1.0" type="teaspoons"/>
+      <ingredient name="Water" number="0.5" type="cups"/>
+      <ingredient name="Milk" number="0.5" type="cups"/>
+      <ingredient name="Butter" number="0.5" type="cups"/>
+      <ingredient name="Egg" number="2.0" type=" "/>
+      <ingredient name="Brown Sugar" number="1.0" type="cups"/>
+      <ingredient name="Flour" number="0.25" type="cups"/>
+      <ingredient name="Sugar" number="0.5" type="cups"/>
+      <ingredient name="Cinnamon" number="1.5" type="teaspoons"/>
+      <ingredient name="Butter" number="0.25" type="cups"/>
+      <ingredient name="Pecans" number="1.5" type="cups"/>
+      <ingredient name="Apricots" number="1.0" type="cups"/>
+      <ingredient name="Raisins" number="1.0" type="cups"/>
+      <ingredient name="Powdered Sugar" number="2.0" type="cups"/>
+      <ingredient name="Lemon" number="3.0" type="tablespoons"/>
+      <ingredient name="Corn Syrup" number="0.5" type="cups"/>
+      <directions>Bread
+In a large bowl, combine 2 cups of flour, 1/2 cup of sugar, undissolved yeast, and salt. Heat water, milk, and 1/2 cup butter until very warm (120-130F); butter does not need to melt. Stir into dry ingredients. Stir in eggs and enough remining flour to make soft dough. Knead on lightly floured surface until smooth and elastic, about 4-6 minutes. Cover; let rest of floured surface 10 minutes.
+Filling
+In a food processor, pulse together brown sugar, flour, cinnamon, and butter until well blended. Set aside. Chop toasted pecans and aprocots. Add raisins. 
+Roll dough 22x10 inch rectangle. Evenly sprinkle filling, chopped nuts, apricots, and raisins. Beginning at long end, roll up tightly as for jellyroll. Pinch seam to seal. With sharp knife, cut roll into 12 pieces. Place (cut sides up) in a greased 9x13 inch baking pan. Cover, let rise in warm draft-free place until doubled in size, about 30-60 minutes.
+Bake at 350F for 30 minutres or until done. Turn pan upside down onto a wire cooling rack to remove cinnamon rolls. Drizzle with glaze.
+Glaze
+In a small bowl, combine powdered sugar, lemon juice, and light corn syrup until well blended. If not at the desired thickness, add a little water to thin, or powdered sugar to thicken.</directions>
     </recipe>
-    <recipe title="Pizza">
-      <ingredient name="Cheese" number="1.0" type="lbs"/>
-      <directions/>
+    <recipe title="New York Cheese Cake">
+      <ingredient name="Cream Cheese" number="2.0" type="lbs"/>
+      <ingredient name="Sugar" number="0.75" type="cups"/>
+      <ingredient name="Egg" number="2.0" type=" "/>
+      <ingredient name="Vanilla Extract" number="1.0" type="teaspoons"/>
+      <ingredient name="Cornstarch" number="2.0" type="tablespoons"/>
+      <ingredient name="Sour Cream" number="1.0" type="cups"/>
+      <ingredient name="Lemon Zest" number="1.0" type="teaspoons"/>
+      <directions>1. Preheat oven to 400F
+2. In a large mixing bowl, beat together the cream cheese and sugar until smooth and light. 
+3. Beat in the eggs, vanilla, and cornstarch, only until thoroughly mixed.
+4. Add the lemon zest.
+5. Pout the mixture into a prepared crust and bake 45 minutes. Allow the cake to cool in the oven, with the door propped slightly open for 3 hours. Chill.</directions>
+    </recipe>
+    <recipe title="Pineappe Bread Pudding">
+      <ingredient name="Egg" number="3.0" type=" "/>
+      <ingredient name="Sugar" number="0.75" type="cups"/>
+      <ingredient name="Butter" number="0.5" type="cups"/>
+      <ingredient name="Crushed Pineapple" number="20.0" type="ounces"/>
+      <ingredient name="Bread" number="5.0" type="slices"/>
+      <directions>1. In a bowl, beat together eggs, sugar, and butter.
+2. Stir in pineapple. Fold in bread and combine all ingredients.
+3. Put in a greased dish
+4. Bake 350F for 1 hour</directions>
+    </recipe>
+    <recipe title="Waffles">
+      <ingredient name="Flour" number="4.0" type="cups"/>
+      <directions>Oil waffle iron.</directions>
+    </recipe>
+    <recipe title="Rice Pudding">
+      <ingredient name="Rice" number="2.0" type="cups"/>
+      <directions>Bake.</directions>
+    </recipe>
+    <recipe title="Eggs Benedict">
+      <ingredient name="Egg" number="16.0" type=" "/>
+      <directions>Poach eggs</directions>
+    </recipe>
+    <recipe title="French Onion Soup">
+      <ingredient name="Onion" number="8.0" type=" "/>
+      <directions>Peel onions</directions>
+    </recipe>
+    <recipe title="PB&amp;J">
+      <ingredient name="Peanut Butter" number="1.0" type="tablespoons"/>
+      <ingredient name="Jelly" number="1.0" type="tablespoons"/>
+      <directions>Take sliced breab and lather peanut butter and jelly on the bread.</directions>
     </recipe>
   </recipeList>
   <rotateList>
-    <rotate title="Pho">
-      <ingredient name="Noodles" number="1.0" type="cup"/>
-      <directions>I want pho.</directions>
+    <rotate title="Cinnamon Rolls">
+      <ingredient name="Flour" number="5.0" type="cups"/>
+      <ingredient name="Sugar" number="0.5" type="cups"/>
+      <ingredient name="Yeast" number="2.0" type="tablespoons"/>
+      <ingredient name="Salt" number="1.0" type="teaspoons"/>
+      <ingredient name="Water" number="0.5" type="cups"/>
+      <ingredient name="Milk" number="0.5" type="cups"/>
+      <ingredient name="Butter" number="0.5" type="cups"/>
+      <ingredient name="Egg" number="2.0" type=" "/>
+      <ingredient name="Brown Sugar" number="1.0" type="cups"/>
+      <ingredient name="Flour" number="0.25" type="cups"/>
+      <ingredient name="Sugar" number="0.5" type="cups"/>
+      <ingredient name="Cinnamon" number="1.5" type="teaspoons"/>
+      <ingredient name="Butter" number="0.25" type="cups"/>
+      <ingredient name="Pecans" number="1.5" type="cups"/>
+      <ingredient name="Apricots" number="1.0" type="cups"/>
+      <ingredient name="Raisins" number="1.0" type="cups"/>
+      <ingredient name="Powdered Sugar" number="2.0" type="cups"/>
+      <ingredient name="Lemon" number="3.0" type="tablespoons"/>
+      <ingredient name="Corn Syrup" number="0.5" type="cups"/>
+      <directions>Bread
+In a large bowl, combine 2 cups of flour, 1/2 cup of sugar, undissolved yeast, and salt. Heat water, milk, and 1/2 cup butter until very warm (120-130F); butter does not need to melt. Stir into dry ingredients. Stir in eggs and enough remining flour to make soft dough. Knead on lightly floured surface until smooth and elastic, about 4-6 minutes. Cover; let rest of floured surface 10 minutes.
+Filling
+In a food processor, pulse together brown sugar, flour, cinnamon, and butter until well blended. Set aside. Chop toasted pecans and aprocots. Add raisins. 
+Roll dough 22x10 inch rectangle. Evenly sprinkle filling, chopped nuts, apricots, and raisins. Beginning at long end, roll up tightly as for jellyroll. Pinch seam to seal. With sharp knife, cut roll into 12 pieces. Place (cut sides up) in a greased 9x13 inch baking pan. Cover, let rise in warm draft-free place until doubled in size, about 30-60 minutes.
+Bake at 350F for 30 minutres or until done. Turn pan upside down onto a wire cooling rack to remove cinnamon rolls. Drizzle with glaze.
+Glaze
+In a small bowl, combine powdered sugar, lemon juice, and light corn syrup until well blended. If not at the desired thickness, add a little water to thin, or powdered sugar to thicken.</directions>
     </rotate>
-    <rotate title="Pizza">
-      <ingredient name="Cheese" number="1.0" type="lbs"/>
-      <directions/>
+    <rotate title="Pineappe Bread Pudding">
+      <ingredient name="Egg" number="3.0" type=" "/>
+      <ingredient name="Sugar" number="0.75" type="cups"/>
+      <ingredient name="Butter" number="0.5" type="cups"/>
+      <ingredient name="Crushed Pineapple" number="20.0" type="ounces"/>
+      <ingredient name="Bread" number="5.0" type="slices"/>
+      <directions>1. In a bowl, beat together eggs, sugar, and butter.
+2. Stir in pineapple. Fold in bread and combine all ingredients.
+3. Put in a greased dish
+4. Bake 350F for 1 hour</directions>
     </rotate>
-    <rotate title="Cake">
-      <ingredient name="Milk" number="1.0" type="cup"/>
-      <directions>I want cake.</directions>
+    <rotate title="New York Cheese Cake">
+      <ingredient name="Cream Cheese" number="2.0" type="lbs"/>
+      <ingredient name="Sugar" number="0.75" type="cups"/>
+      <ingredient name="Egg" number="2.0" type=" "/>
+      <ingredient name="Vanilla Extract" number="1.0" type="teaspoons"/>
+      <ingredient name="Cornstarch" number="2.0" type="tablespoons"/>
+      <ingredient name="Sour Cream" number="1.0" type="cups"/>
+      <ingredient name="Lemon Zest" number="1.0" type="teaspoons"/>
+      <directions>1. Preheat oven to 400F
+2. In a large mixing bowl, beat together the cream cheese and sugar until smooth and light. 
+3. Beat in the eggs, vanilla, and cornstarch, only until thoroughly mixed.
+4. Add the lemon zest.
+5. Pout the mixture into a prepared crust and bake 45 minutes. Allow the cake to cool in the oven, with the door propped slightly open for 3 hours. Chill.</directions>
+    </rotate>
+    <rotate title="Karl's Roll Dough">
+      <ingredient name="Flour" number="7.0" type="cups"/>
+      <ingredient name="Sugar" number="0.5" type="cups"/>
+      <ingredient name="Salt" number="2.0" type="teaspoons"/>
+      <ingredient name="Yeast" number="2.0" type="tablespoons"/>
+      <ingredient name="Water" number="2.0" type="cups"/>
+      <ingredient name="Butter" number="0.25" type="cups"/>
+      <ingredient name="Egg" number="1.0" type=" "/>
+      <directions>1. In a very large bowl, combine half of the flour (approx 3-4 cups), sugar, salt, and undissolved yeast. Gradually add the water, softened butter, and beaten egg.
+2. Beat until smooth. Mix in remaining flour until dough is easy to handle. Place in greased bown turning to grease the top. Cover loosely with alluminum foil and refrigerate for at least 2 hours. When dough rises, punch it down occasionally.
+3. Bake at 350F for 10-15 minutes. Cooking time depends on the roll.</directions>
+    </rotate>
+    <rotate title="PB&amp;J">
+      <ingredient name="Peanut Butter" number="1.0" type="tablespoons"/>
+      <ingredient name="Jelly" number="1.0" type="tablespoons"/>
+      <directions>Take sliced bread and lather peanut butter and jelly on the bread.</directions>
     </rotate>
   </rotateList>
+  <commonList>2 dozen eggs
+9 rolls
+water
+tacos</commonList>
 </lists>

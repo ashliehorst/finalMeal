@@ -4,7 +4,49 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Nov 29, 2014, 10:18:07 AM
+    Created on : Nov 29, 2014, 10:17:56 AM
     Author     : salvador_afane
 */
+
+#rotation {
+    -fx-background-color: #093175;
+}
+
+.button {
+        -fx-background-color: linear-gradient(#7892c2, #7892c2);
+        -fx-background-color: #7892c2;
+        -fx-background-radius: 11px;
+        -fx-background-insets: 0;
+        -fx-text-fill: white;
+        
+	-fx-border-radius:11px;
+	-fx-border-width:1px;
+        -fx-border-style: solid;
+        -fx-border-color:#4e6096;
+	-fx-display:inline-block;
+	-fx-color:#ffffff;
+	-fx-font-family:Arial;
+	-fx-font-size:17px;
+	-fx-padding:17px;
+	-fx-text-decoration:none;
+}
+.button:hover {
+	-fx-background-color:#476e9e;
+}
+.button:pressed {
+	-fx-position:relative;
+	-fx-top:1px;
+}
+
+
+#anchor{
+ -fx-background-image: url("images/pattern.png");
+ -fx-background-repeat: repeat-x, repeat;
+}
+
+.label{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
 

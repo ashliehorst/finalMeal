@@ -1,5 +1,3 @@
-
-
 package test3;
 
 import MealPlanner.FileManager;
@@ -8,19 +6,12 @@ import MealPlanner.Property;
 import MealPlanner.Recipe;
 import MealPlanner.Schedule;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextInputDialog;
-
-
-
 
 /**
  * FXML Controller class
@@ -41,8 +32,10 @@ public class Screen1Controller implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         String file = prop.getFile();
-        fm.readXmlFile(s, file);    
+        fm.readXmlFile(s, file);   
+        s.dayTracker();
         Recipe todaysMeal = s.iterateThruSchedule();
         displayToTextArea();
     }
@@ -76,34 +69,10 @@ public class Screen1Controller implements Initializable, ControlledScreen {
     }
     @FXML
     private Label label2;
-    
-    public void button1(ActionEvent event){
-       // label1.setText("something");
-        //tab1.
-        label2.setText("Well something should change");
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText("Look, an Information Dialog");
-        alert.setContentText("I have a great message for you!");
-
-        alert.showAndWait();
-    }
-    
-    public void button2(ActionEvent event){
-        TextInputDialog dialog = new TextInputDialog("walter");
-        dialog.setTitle("Text Input Dialog");
-        dialog.setHeaderText("Look, a Text Input Dialog");
-        dialog.setContentText("Please enter your name:");
-
-        // Traditional way to get the response value.
-        Optional<String> result = dialog.showAndWait();
-        if (result.isPresent()){
-         System.out.println("Your name: " + result.get());
-        }
-        // The Java 8 way to get the response value (with lambda expression).
-        result.ifPresent(name -> System.out.println("Your name: " + name));
-    }
   
+    /**
+     * Display the home page
+     */
     public final void displayToTextArea() {
         Recipe todaysMeal = s.iterateThruSchedule();
         String display = todaysMeal.getTitle() + "\n\n";

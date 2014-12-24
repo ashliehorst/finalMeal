@@ -1,45 +1,24 @@
-
-
 package test3;
 
-import MealPlanner.FileManager;
-import MealPlanner.Property;
 import MealPlanner.Recipe;
 import MealPlanner.Schedule;
 import MealPlanner.ShoppingList;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import javafx.util.Pair;
-import org.w3c.dom.Document;
 
 /**
  * FXML Controller class
@@ -52,8 +31,7 @@ public class Screen2Controller implements Initializable , ControlledScreen {
     ScreensController myController;
     private ObservableList<Recipe> data;
     private AddRecipeController arc;
-    
-    
+        
     ShoppingList sl = ShoppingList.getInstance(); 
     
     
@@ -66,6 +44,10 @@ public class Screen2Controller implements Initializable , ControlledScreen {
     @FXML
     private ListView<Recipe> listView;
     
+    /**
+     * Set the parent for the screen
+     * @param screenParent 
+     */
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
     }
@@ -105,95 +87,48 @@ public class Screen2Controller implements Initializable , ControlledScreen {
         dialogStage.initOwner(primaryStage);
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
-        
-        
-        
+            
         // Set the controller and passing an object to the controller
         AddRecipeController controller = loader.getController();
         controller.setDialogStage(dialogStage);
-       // controller.setRecipe(recipe);
-        
-        
+             
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
-        
+
         displayToListView();
-        
-        
+              
         return controller.isOkClicked();
         
-
         } catch (Exception ex){
         ex.printStackTrace();
         return false;
-        }
-        
-       // label1.setText("something");
-        //tab1.
-//        label2.setText("Well something should change");
-//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//
-//        alert.setTitle("Information Dialog");
-//        alert.setHeaderText("Add Recipe");
-//        alert.setContentText("I have a great message for you!");
-//        alert.showAndWait();
-        // Create the custom dialog.
-        
+        }       
     }
     
     @FXML
     private Label label1;
+    /**
+     * Remove an item from the rotate list
+     * @param event 
+     */
     public void remove(ActionEvent event){
         
         int index = listView.getSelectionModel().getSelectedIndex();
         Schedule.getInstance().getRotateList().remove(index);
         
         displayToListView();
-        
-        
-        /*TextInputDialog dialog = new TextInputDialog("walter");
-        dialog.setTitle("Text Input Dialog");
-        dialog.setHeaderText("Look, a Text Input Dialog");
-        dialog.setContentText("Please enter your name:");
-        
-        sl.setCommonItem("Joe");
+    }
 
-        label1.setText(sl.getCommonItem());
-        // Traditional way to get the response value.
-        Optional<String> result = dialog.showAndWait();
-        if (result.isPresent()){
-         System.out.println("Your name: " + result.get());
-        }
-        // The Java 8 way to get the response value (with lambda expression).
-        result.ifPresent(name -> System.out.println("Your name: " + name));
-        */
-    }
-    
-    /**
-     * Save and Build
-     * @param even
-     * @return 
-     */
-     @FXML
-    public void saveButton(ActionEvent event){
-       FileManager files = new FileManager();
-       Property prop = new Property();
-       String file = prop.getFile();
-       Document xml = null;
-       xml = files.buildXmlDocument(Schedule.getInstance());
-       files.saveXmlDocument(xml, file);
-    }
-    
     /*
     * Display rotation list to listview
     */
     public final void displayToListView(){
          
-         data.clear(); // clear items from listview
+        data.clear(); // clear items from listview
          
-         for (Recipe recipe : Schedule.getInstance().getRotateList()){
-             data.add(recipe);
-         }
+        for (Recipe recipe : Schedule.getInstance().getRotateList()){
+            data.add(recipe);
+        }
          
         listView.setItems(data);
         listView.setCellFactory(new Callback<ListView<Recipe>, ListCell<Recipe>>() {
@@ -212,8 +147,6 @@ public class Screen2Controller implements Initializable , ControlledScreen {
                         return cell;
                     
                     };
-
-                });
-     }
-    
+        });
+    }   
 }

@@ -1,14 +1,8 @@
-
 package test3;
 
-import MealPlanner.FileManager;
-import MealPlanner.Ingredient;
-import MealPlanner.Property;
 import MealPlanner.Recipe;
 import MealPlanner.Schedule;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,11 +26,8 @@ import javafx.util.Callback;
 public class Screen3Controller implements Initializable, ControlledScreen {
 
     ScreensController myController;
-        private Stage primaryStage;
-        private ObservableList<Recipe> data;
-       // Schedule sch = Schedule.getInstance();
-        
-        
+    private Stage primaryStage;
+    private ObservableList<Recipe> data;
 
     /**
      * Initializes the controller class.
@@ -47,6 +38,10 @@ public class Screen3Controller implements Initializable, ControlledScreen {
         displayToListView();
     }    
     
+    /**
+     * Set the screen parent
+     * @param screenParent 
+     */
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
     }
@@ -78,11 +73,14 @@ public class Screen3Controller implements Initializable, ControlledScreen {
        myController.setScreen(ScreensFramework.screen5ID);
     }
     
-     public boolean createRec(ActionEvent even){
+    /**
+     * Create a recipe
+     * @param even
+     * @return 
+     */
+    public boolean createRec(ActionEvent even){
         try {
-            
-         
-        
+  
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MakeRecipe.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
         Stage dialogStage = new Stage();
@@ -91,15 +89,11 @@ public class Screen3Controller implements Initializable, ControlledScreen {
         dialogStage.initOwner(primaryStage);
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
-        
-        
+              
         // Set the controller and passing an object to the controller
         MakeRecipeController controller = loader.getController();
         controller.setDialogStage(dialogStage);
-        //controller.setRecipe(recipe);
-        
-            
-        
+      
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
         
@@ -120,6 +114,9 @@ public class Screen3Controller implements Initializable, ControlledScreen {
         displayToListView();
      }
      
+     /**
+      * Display the recipes
+      */
      public final void displayToListView(){
          
         data.clear(); // clear items from listview

@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package test3;
 
+import MealPlanner.FileManager;
 import MealPlanner.Ingredient;
-import MealPlanner.Recipe;
+import MealPlanner.Property;
 import MealPlanner.Schedule;
 import MealPlanner.ShoppingList;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -19,7 +17,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Callback;
+import org.w3c.dom.Document;
 
 /**
  * FXML Controller class
@@ -33,7 +34,9 @@ public class Screen5Controller implements Initializable, ControlledScreen {
     
     ShoppingList shoppingList = ShoppingList.getInstance();
     Schedule s = Schedule.getInstance();
-    
+    FileManager fileManager = new FileManager();
+    private Stage stage;
+      
     @FXML
     private ListView<Ingredient> listView;
     
@@ -47,12 +50,14 @@ public class Screen5Controller implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        commonList.setText("Enter common items here...");
         ingData = FXCollections.observableArrayList();
         displayToListView();
     }    
     
-    
+    /**
+     * Set the screen parent
+     * @param screenParent 
+     */
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
     }
@@ -77,12 +82,47 @@ public class Screen5Controller implements Initializable, ControlledScreen {
        myController.setScreen(ScreensFramework.screen4ID);
     }
         
-     public final void refresh(){
-          displayToListView();
+     public final void refresh(){ 
+        displayToListView();
      }
    
-    public final void displayToListView(){
-         
+     /**
+     * SAVE TXT
+     * Save as a text file
+     * @param event
+     */
+    public void saveTxt(ActionEvent event) throws FileNotFoundException {
+        shoppingList.setCommonItem(commonList.getText());
+        refresh();
+        saveButton();
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Save TXT File");
+ 
+        File file = chooser.showSaveDialog(stage);           
+        if (file != null) {
+            fileManager.writeToTxtFile(file.getPath(), shoppingList);
+        }
+    }
+    
+    /**
+     * SAVE
+     * Builds and saves the xml
+     */
+    public void saveButton(){
+       Property prop = new Property();
+       String file = prop.getFile();
+       Document xml = null;
+       xml = fileManager.buildXmlDocument(Schedule.getInstance());
+       fileManager.saveXmlDocument(xml, file);
+    }
+    
+    /**
+     * The display for the shopping list
+     */
+    public void displayToListView(){         
+        commonList.setText(shoppingList.getCommonItem());
+        shoppingList.setCommonItem(commonList.getText());
+        
         ingData.clear(); // clear items from listview
          
         s.rotateRecipes();
@@ -110,6 +150,6 @@ public class Screen5Controller implements Initializable, ControlledScreen {
                 };   
                 return cell;                   
             };
-        });
+        });     
      } 
 }

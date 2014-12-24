@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package test3;
 
 import MealPlanner.Schedule;
@@ -38,25 +33,32 @@ public class Screen4Controller implements Initializable, ControlledScreen {
     @FXML
     private Label sat;
     
-    
-    
-    
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-              
+    public void initialize(URL url, ResourceBundle rb) {              
+        setUp();
+    }    
+    
+    /**
+     * SET UP
+     * Set up the days according to the recipe schedule
+     */
+    private void setUp() {
         sun.setText(s.getWeekList().get(0).getTitle());
         mon.setText(s.getWeekList().get(1).getTitle());
         tue.setText(s.getWeekList().get(2).getTitle());
         wed.setText(s.getWeekList().get(3).getTitle());
         thr.setText(s.getWeekList().get(4).getTitle());
         fri.setText(s.getWeekList().get(5).getTitle());
-        sat.setText(s.getWeekList().get(6).getTitle());
-       
-    }    
+        sat.setText(s.getWeekList().get(6).getTitle());  
+    }
     
+    /**
+     * Set the screen parent
+     * @param screenParent 
+     */
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
     }
@@ -84,5 +86,13 @@ public class Screen4Controller implements Initializable, ControlledScreen {
     @FXML
     private void goToScreen5(ActionEvent event){
        myController.setScreen(ScreensFramework.screen5ID);
+    }
+    
+    /**
+     * Refresh the page by reassigning the days if there 
+     * has been a change in the lists
+     */
+    public final void refresh(){
+        setUp();
     }
 }

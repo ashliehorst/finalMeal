@@ -53,6 +53,8 @@ public class MakeRecipeController {
         Schedule sch = Schedule.getInstance();
         
         public MakeRecipeController(){
+            myComboBoxData.add(" ");
+            myComboBoxData.add("slices");
             myComboBoxData.add("lbs");
             myComboBoxData.add("tablespoons");
             myComboBoxData.add("teaspoons");
@@ -62,6 +64,7 @@ public class MakeRecipeController {
             myComboBoxData.add("gallons");
             myComboBoxData.add("quarts");
             myComboBoxData.add("pints");
+            
             ingredientList = new ListView();
             recipe = new Recipe();
             
@@ -76,8 +79,7 @@ public class MakeRecipeController {
 	private void initialize() {
             ingTypes.setItems(myComboBoxData);
 	}
-	
-        
+	      
 	/**
 	 * Sets the stage of this dialog.
 	 * @param dialogStage
@@ -98,7 +100,8 @@ public class MakeRecipeController {
             ingredientTitle.setText("");
             quantity.setText("");
             
-            sch.getTempList().add(ing);
+            recipe.getIngredientList().add(ing);
+           // sch.getTempList().add(ing);
             
             data.add(ing);
             
@@ -118,10 +121,7 @@ public class MakeRecipeController {
                     };   
                     return cell;                   
                 };
-            });
-            
-            
-            
+            });          
         }
         
 	/**
@@ -169,18 +169,11 @@ public class MakeRecipeController {
 //                    ing.setNumber(Double.parseDouble(quantity.getText()));
 //                    recipe.getIngredientList().add(ing);
                     recipe.setDirections(directions.getText());
-                    recipe.setIngredientList(sch.getTempList());
+                   // recipe.setIngredientList(sch.getTempList());
                     sch.getRecipeList().add(recipe);
                     
-                    sch.getTempList().clear();
                     
                 //}
-//			person.setFirstName(firstNameField.getText());
-//			person.setLastName(lastNameField.getText());
-//			person.setStreet(streetField.getText());
-//			person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
-//			person.setCity(cityField.getText());
-//			person.setBirthday(CalendarUtil.parse(birthdayField.getText()));
 //			
 			okClicked = true;
 			dialogStage.close();
